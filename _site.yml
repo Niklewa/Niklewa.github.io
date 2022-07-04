@@ -1,0 +1,12 @@
+name: "Niklewa.github.io"
+output_dir: "docs"
+navbar:
+  title: "Cars"
+  left:
+  - text: "index"
+    href: index.html
+  - text: "Report"
+    href: site1.html
+output:
+    html_document:
+      theme: cosmo
