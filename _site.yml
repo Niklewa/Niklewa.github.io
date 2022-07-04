@@ -1,11 +1,10 @@
 name: "Niklewa.github.io"
 output_dir: "docs"
 navbar:
-  title: "Nikodem Lewandowski"
   left:
   - text: "Home"
     href: index.html
   - text: "Sample Project"
     href: site1.html
 output: html_document
-theme: github-pages-minimal
+theme: jekyll-theme-minimal
