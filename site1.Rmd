@@ -1,5 +1,6 @@
 ---
 title: "Report"
+theme: jekyll-theme-minimal
 ---
 
 ```{r setup, include=FALSE}

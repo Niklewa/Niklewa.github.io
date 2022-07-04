@@ -1,6 +1,6 @@
 ---
 title: "index"
-
+theme: jekyll-theme-minimal
 ---
 
 ```{r setup, include=FALSE}
