@@ -8,3 +8,5 @@ navbar:
     href: site1.html
 output: html_document
 theme: jekyll-theme-minimal
+title: Nikodem Lewandowski
+description: myCustomAndDetailedDescription
