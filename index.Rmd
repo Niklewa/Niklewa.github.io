@@ -1,12 +1,13 @@
 ---
+title: <p style="text-align:center;font-size:28px">Nikodem Lewandowski</p> 
 theme: jekyll-theme-minimal
 layout: default
+
 ---
+
+
 <head>
 
- <title>
-    Nikodem Lewandowski
- </title>
 
   
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +48,6 @@ div.content { width: 800px;
 
 
 <center>
-<p style="text-align:center;font-size:28px">Nikodem Lewandowski</p>  
 &nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
 <a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
 <a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
