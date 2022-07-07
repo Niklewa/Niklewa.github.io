@@ -3,9 +3,9 @@ output_dir: "docs"
 navbar:
   left:
   - text: "Home"
-    href: index.html
+    href: niklew.html
   - text: "Sample Project"
-    href: Document_html.html
+    href: sample_project.html
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
