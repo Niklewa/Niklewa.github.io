@@ -32,7 +32,7 @@ position: fixed;
 left: 10px;  
 bottom: 5px;  
 right: 10px;   
-width: auto;  
+max-width: auto;  
 background-color: whitesmoke;  
 color: grey;  
 text-align: center;  
