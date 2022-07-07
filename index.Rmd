@@ -19,7 +19,7 @@ position: fixed;
 left: 10px;  
 bottom: 5px;  
 right: 10px;   
-width: 100%;  
+width: auto;  
 background-color: whitesmoke;  
 color: grey;  
 text-align: center;  
