@@ -5,7 +5,7 @@ navbar:
   - text: "Home"
     href: index.html
   - text: "Sample Project"
-    href: site1.html
+    href: Document_html.html
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
