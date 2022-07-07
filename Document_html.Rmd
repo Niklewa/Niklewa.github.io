@@ -1,0 +1,678 @@
+---
+title: "Cohabitation and Divorce"
+---
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(purrr)
+library(ggplot2)
+library(ggthemes)
+library(scales)
+dat_nsfg <- read.csv("C:\\Users\\nikod\\Documents\\Praca_dyplomowa\\main_data\\dat_nsfg.csv")
+
+```
+<head>
+<style>
+
+div.mystyl {
+           text-align: justify;
+           font-size: 18px;
+           line-height: 1.5
+}
+</style>
+</head>
+
+
+
+
+<body>
+<div class="mystyl">
+
+&nbsp; <br>
+&nbsp; <br>
+
+In this project, I conduct an analysis of the NSFG database in order to test the hypothesis that cohabitation before marriage increases the probability of divorce. I aim to test the correlation between cohabitation and divorce and to look for other factors that may increase the probability of divorce and factors that might have a status of hidden correlate. To view the source code visit my GitHub repo: https://github.com/Niklewa/Cohab_nsfg              
+This document has been created within R studio, as a markdown document. In this paper I will firstly describe shortly the data that I used, then I will proceed to the description of my analysis. My analysis consists of three parts. In the beginning, I intended to conduct this analysis fully in R studio, however, I had to use Python language (jupyter lab) to deal with some problems, because I didn't find a satisfying solution within R studio. Therefore, the first part, that is obtaining the data and saving it in .csv format was done in jupyter notebook. The second part, data cleaning, and wrangling were done in R, as well as the third part, that is, proper data analysis.    
+In the first two parts, I was preparing the data for the main part of this project. That's why they will be presented in the abbreviated version. The third part, proper analysis, consists of: testing conditional probabilities, visualization, and chi-squared test. Methods were chosen according to the nature of the data.    
+&nbsp; <br>
+
+
+## Data
+
+&nbsp; <br>
+
+
+National Survey of Family Growth (NSFG) is a questionnaire conducted, irregularly, in the USA. The part of the data that I was using concerned the years between 2002-2019. The survey investigates social aspects of American families. There are many interesting variables, I was concerned with questions such as: marital status, cohabitation, age, religious beliefs, and socio-political opinions.   
+     
+Source of the data: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NSFG/stata/    
+Data documentation: https://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm    
+     
+In the chosen data there were more than 70 000 respondents. A sample of 20 000 people was adequate for my analysis because to test various variables influence on divorce, I had to include only married people. The major problems of this database are: the data format, the size, and various names of the same variables. In order to deal with the first problem, I had to apply the following method.
+&nbsp; <br>
+
+## Preparing the data
+
+&nbsp; <br>
+The data were stored on the NSFG web page in a rather strange format. A single survey result was stored in .dat format, but to use it, it had to be connected with the adequate key file in the .dct format. Dealing with a file in a regular .dat format is not particularly problematic, but there are less than a few satisfying solutions to this problematic doubled format. I decided to use python for that, as I mentioned at the beginning. Statadict package delivers an elegant solution to that problem.
+
+&nbsp; <br>
+```{python  eval=FALSE}
+c=0
+for dat,dct in zip(dat_name, dct_name):
+    c+=1
+    stata_dict = parse_stata_dict(dct)
+    hx = pd.read_fwf(
+      dat, names=stata_dict.names, colspecs=stata_dict.colspecs)\
+    .to_csv(r'C:\nikod\Documents\csv_files\NSFG_data_{}.csv'.format(c))
+   
+```
+
+&nbsp; <br>
+Firstly I automated the downloading process from the NSFG web page and saved the file in two lists: dat_name and dct_name. The function above connects .dat files with their keys and saves them in separate .csv files. The process of naming those files is also automated.      
+After obtaining the data and saving it in .csv files I proceeded to R studio, in order to deal with the next two problems: the size of the data, and various names of the same variables.     
+At first, I divided the data files into 3 groups, every group has common names of variables. The groups were placed in separate folders. My tactic was to create separate data frames where the variable names will be unified. The problem was the number of variables, in some files, there were more than 1 400 variables! To deal with it, firstly I read the data documentation and I have chosen the variables that interest me. Then, by specifying this data, I was able to extract only significant variables.    
+ 
+&nbsp; <br>    
+```{r eval=FALSE}
+setwd("C:/nikod/Documents/csv_files_0200_0610")
+
+temp_1 <-  list.files(pattern="*.csv")
+
+col_function_1 <- function(x) {read.csv(file = x, sep = ",")[ ,c(
+  "caseid", "age_a", "marstat", "reldlife",  "religion", "samesex",
+  "gayadopt",  "lifeprt", "timesmar", "staytog", "sxok18", 
+  "attnd14", "achieve", "lifprtnr", "cmintvw", "fmarit"
+  
+)]}
+
+dat_list_1 <- lapply(temp_1, col_function_1)
+
+```
+&nbsp; <br>     
+      
+The code above returns the list of data frames with specified variables, I repeated this process for all of the groups. Initially, there were three groups, but later I added three more, that were grouped by gender, and in the same way, I have dealt with different names of variables.     
+
+   
+At the end I simply merged those data frames together, and with that I obtained a usable version of the data that interests me: 
+
+&nbsp; <br>
+```{r eval=FALSE}
+
+dat_nsfg <- full_join(dat_genders, dat_main, "caseid")
+
+write.csv(dat_nsfg, "C:\\nikod\\Documents\\main_data\\dat_nsfg.csv", 
+          row.names = FALSE)
+
+```
+&nbsp; <br>
+
+Let's have a quick look at the data frame:
+
+```{r echo=FALSE}
+head(dat_nsfg)
+
+```
+
+
+
+As you can see, there are many missing values, but I will deal with them in the next part of this project.
+
+&nbsp; <br>
+
+## Data analysis
+
+&nbsp; <br>
+
+The aim of the third file is to test a hyphotesis that cohabitation before marriage increases the probability of divorce. Firslty i defined libraries that I will use and dealt with missing variables. 
+
+&nbsp; <br>
+```{r eval=FALSE}
+# Libraries
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(purrr)
+library(ggplot2)
+library(ggthemes)
+library(scales)
+
+dat_nsfg$marrend[is.na(dat_nsfg$marrend)] <- 99 
+dat_nsfg$livtogn[is.na(dat_nsfg$livtogn)] <- 99  
+dat_nsfg$lifprtnr[is.na(dat_nsfg$lifprtnr)] <- 0 
+dat_nsfg$reldlife[is.na(dat_nsfg$reldlife)] <- 0
+
+```
+&nbsp; <br>
+
+In the next step I defined some functions that will help in the process of analysis and with dplyr package I defined the data frame with by specifying the variables:
+
+&nbsp; <br>
+
+```{r eval=FALSE}
+fun_cohab <- function(x){
+  ifelse((x == 9 | x == 8 | x == 99  ), 99, ifelse((x == 5 ), 0, 1))
+}
+
+fun_reldlife <- function(x){
+  ifelse((x == 8 | x == 0  ), 0, ifelse((x == 9 ), 2, x))
+}
+# The values are chosen according to the data documentation
+
+dat_nsfg1 <- dat_nsfg %>% 
+  mutate(divorced = ifelse ((fmarit == 3 | marrend == 2), 1, 0)) %>% 
+  mutate(ever_married = ifelse ((fmarit == 5 ), 0, 1)) %>% 
+  mutate(cohab_bef_marr = fun_cohab(livtogn)) %>% 
+  mutate(separated = ifelse ((fmarit == 4), 1, 0)) %>% 
+  mutate(reldlife = fun_reldlife(reldlife)) %>% 
+  mutate(cohab_ever = ifelse ((livtogn == 1 | marstat ==2 ), 1, 0)) %>% 
+  mutate(div_separated = ifelse((separated == 1 | divorced == 1), 1, 0)) %>% 
+  select(caseid, sex, divorced, separated, div_separated, ever_married, 
+         cohab_bef_marr, cohab_ever, intvwyear, age_a, 
+         lifprtnr, religion, reldlife) 
+```
+&nbsp; <br>
+
+In the next step I have limited the sample to the people that are, or were married.  
+
+&nbsp; <br>
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+dat_nsfg$marrend[is.na(dat_nsfg$marrend)] <- 99 
+dat_nsfg$livtogn[is.na(dat_nsfg$livtogn)] <- 99  
+dat_nsfg$lifprtnr[is.na(dat_nsfg$lifprtnr)] <- 0 
+dat_nsfg$reldlife[is.na(dat_nsfg$reldlife)] <- 0
+
+
+# functions for data wrangling
+fun_cohab <- function(x){
+  ifelse((x == 9 | x == 8 | x == 99  ), 99, ifelse((x == 5 ), 0, 1))
+}
+
+fun_reldlife <- function(x){
+  ifelse((x == 8 | x == 0  ), 0, ifelse((x == 9 ), 2, x))
+}
+# The values are chosen according to the data documentation
+
+
+# Extracting the data that I will potentially need
+dat_nsfg1 <- dat_nsfg %>% 
+  mutate(divorced = ifelse ((fmarit == 3 | marrend == 2), 1, 0)) %>% 
+  mutate(ever_married = ifelse ((fmarit == 5 ), 0, 1)) %>% 
+  mutate(cohab_bef_marr = fun_cohab(livtogn)) %>% 
+  mutate(separated = ifelse ((fmarit == 4), 1, 0)) %>% 
+  mutate(reldlife = fun_reldlife(reldlife)) %>% 
+  mutate(cohab_ever = ifelse ((livtogn == 1 | marstat ==2 ), 1, 0)) %>% 
+  mutate(div_separated = ifelse((separated == 1 | divorced == 1), 1, 0)) %>% 
+  select(caseid, sex, divorced, separated, div_separated, ever_married, 
+         cohab_bef_marr, cohab_ever, intvwyear, age_a, lifprtnr, religion, reldlife) 
+
+
+```
+
+```{r echo=FALSE}
+df <- dat_nsfg1 %>%   
+  filter(cohab_bef_marr != 99) 
+head(df)
+```
+&nbsp; <br>
+
+With that, we can do some counting:    
+- $27\%$ of people that have been married at least once, were at least once divorced    
+- $35\%$ were divorced or separated   
+- $56\%$ people that cohabited before marriage have divorced   
+- $58\%$ of people that divorced or separated have cohabited   
+By looking at these values, one can say that there is a visible difference, people that cohabited more commonly end their marriage with a divorce. But the Bayesian approach will unravel to us dependencies that are not visible without taking the initial probability of cohabiting. As it turns out, the majority of people cohabited before marriage, and this fact influences the data above.      
+
+&nbsp; <br>
+```{r eval=FALSE}
+# Bayes theorem: P(A|B) = P(A 'intersection' B) / P(B)
+bayes_fun <- function(x,y,z){
+  (x/y)/(z/y)
+}
+
+# probability of a divorce for people that cohabited
+cond_P_DC <- bayes_fun(c_div, all_rell_married, cohab) #0.266
+
+# probability of a divorce for people that not cohabited
+cond_P_DnC <-  bayes_fun(nc_div, all_rell_married, no_cohab) #0.278
+
+# probability of a divorce for atheists
+cond_P_DA <- bayes_fun(divorced_atheist, all_rell_married, atheists) #0.31
+
+# probability of a divorce for believers
+cond_P_DB <- bayes_fun(divorced_believer, all_rell_married, believers) #0.26 
+
+
+```
+&nbsp; <br>
+
+The difference in probability of getting a divorce is slightly different in favor of not cohabiting, which is rather odd. But between being a believer and an atheist there is a much bigger difference. Let's represent these dependencies visually to get a better look at them.   
+To create the plots below I have used the ggplot2 package, which is a powerful visualization tool. The trick to making those plots was creating a data frame that suits that purpose. The process of making those data frames was repetitive and boring, if you are curious about how I did it, check out the source code. It's pretty clean and well commented, so you should not have a problem with navigation in the code.        
+
+&nbsp; <br>
+```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%"}
+df <- dat_nsfg1 %>%   
+  filter(cohab_bef_marr != 99)
+
+certain_df <- df %>% 
+  mutate(cohabitation = cohab_bef_marr) %>% 
+  mutate(believer = ifelse((religion !=1 ), 1, 0)) %>% 
+  mutate(devoted = ifelse((reldlife == 1), 1, 0)) %>% 
+  select(divorced, cohabitation, believer, devoted, separated, div_separated)
+
+status6 <- c(rep("Cohab", 2),rep("No cohab", 2),
+             rep("Believer", 2), rep("Non believer", 2),
+             rep("Devoted", 2), rep("Not devoted", 2))
+divorce_truth_value <- c("yes", "no", "yes", "no", "yes", 
+                         "no", "yes", "no", "yes", "no", "yes", "no")
+
+fun_22 <- function(x,y,z){
+  dim(certain_df %>% 
+        filter(x == y) %>% 
+        filter(divorced == z) )[1]
+}
+
+divorce_or_not <- c(
+  cohab_div <- fun_22(certain_df$cohabitation,1 , 1),
+  cohab_ndiv <- fun_22(certain_df$cohabitation,1 , 0),
+  ncohab_div <- fun_22(certain_df$cohabitation,0 , 1),
+  ncohab_ndiv <- fun_22(certain_df$cohabitation,0 , 0),
+  bel_div<- fun_22(certain_df$believer,1 , 1),
+  bel_ndiv <- fun_22(certain_df$believer,1 , 0),
+  nbel_div <- fun_22(certain_df$believer,0 , 1),
+  nbel_ndiv <- fun_22(certain_df$believer,0 , 0),
+  devot_div <- fun_22(certain_df$devoted,1, 1),
+  devot_ndiv <- fun_22(certain_df$devoted,1 , 0),
+  ndevot_div <- fun_22(certain_df$devoted,0 , 1),
+  ndevot_ndiv<- fun_22(certain_df$devoted,0 , 0)
+)
+
+ciag <- c(rep(sum(cohab_div, cohab_ndiv ),2), 
+          rep(sum(ncohab_div, ncohab_ndiv),2),
+          rep(sum(bel_div, bel_ndiv),2),
+          rep(sum(nbel_div,  nbel_ndiv),2),
+          rep(sum(devot_div,  devot_ndiv),2),
+          rep(sum(ndevot_div,  ndevot_ndiv),2) )
+
+values <- divorce_or_not / ciag
+
+val_perc <- label_percent(accuracy = 1)(values)
+
+df69 <- data.frame(status6, divorce_truth_value, divorce_or_not, values, val_perc)
+
+
+p6 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6)) + 
+  geom_bar(position="stack", stat="identity") + theme_tufte() + 
+  scale_y_continuous(ylab("All Married"), limits = c(0, 20000)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  ggtitle("Scale of divorces accros different statuses") + scale_fill_brewer(palette = "Paired") +
+  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Divorced") + theme(text = element_text(size = 24))
+p6
+
+
+p7 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6)) + 
+  geom_bar(position="fill", stat="identity") + theme_tufte() + 
+  scale_y_continuous(ylab("All married"), labels = percent) +  
+  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  geom_text(aes(label = val_perc, y=values), position = "stack") + scale_fill_brewer(palette = "Paired") +
+  labs(fill = "Divorced") + ggtitle("Scale of divorces accros different statuses") +
+  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 24))
+# theme(axis.text.x = element_text(angle = 45)) 
+p7
+
+```
+
+&nbsp; <br>
+
+The plot on the left represents nominal values, it is easy to draw hasty conclusions if one is not paying attention to the initial probability distribution. Far more informative is a plot on the right, it represents the initial probability distribution. In my search for dependencies between variables, the plot on the right is very helpful. As you can see, cohabiting has less impact on the probability of getting a divorce than being a believer.     
+Now, let's see a similar plot that includes separation status along with divorce.
+   
+&nbsp; <br>
+```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%"}
+fun_33 <- function(x,y,z){
+  dim(certain_df %>% 
+        filter(x == y) %>% 
+        filter(separated == z))[1]
+  
+}
+
+fun_44 <- function(x,y){
+  dim(certain_df %>% 
+        filter(x == y) %>% 
+        filter(div_separated == 0))[1]
+  
+}
+
+three_comb <- c(
+  cohab_ndiv2 <- fun_44(certain_df$cohabitation,1 ),
+  cohab_div <- fun_22(certain_df$cohabitation,1 , 1),
+  cohab_sep <- fun_33(certain_df$cohabitation,1, 1 ),
+  
+  ncohab_ndiv2 <- fun_44(certain_df$cohabitation,0 ),
+  ncohab_div <- fun_22(certain_df$cohabitation,0 , 1),
+  ncohab_sep <- fun_33(certain_df$cohabitation,0, 1 ),
+  
+  bel_ndiv2 <- fun_44(certain_df$believer,1 ),
+  bel_div<- fun_22(certain_df$believer,1 , 1),
+  bel_sep <- fun_33(certain_df$believer,1, 1 ),
+  
+  nbel_ndiv2 <- fun_44(certain_df$believer,0 ),
+  nbel_div <- fun_22(certain_df$believer,0 , 1),
+  nbel_sep <- fun_33(certain_df$believer,0, 1 ),
+  
+  devot_ndiv2 <- fun_44(certain_df$devoted,1 ),
+  devot_div <- fun_22(certain_df$devoted,1, 1),
+  devot_sep <- fun_33(certain_df$devoted,1, 1 ),
+  
+  
+  ndevot_ndiv2 <- fun_44(certain_df$devoted,0 ),
+  ndevot_div <- fun_22(certain_df$devoted,0 , 1),
+  ndevot_sep <- fun_33(certain_df$devoted,0, 1 )
+)
+
+ciag4 <- c(rep(sum(cohab_div, cohab_ndiv2, cohab_sep  ),3), 
+           rep(sum(ncohab_div, ncohab_ndiv2, ncohab_sep),3),
+           rep(sum(bel_div, bel_ndiv2, bel_sep),3),
+           rep(sum(nbel_div ,  nbel_ndiv2, nbel_sep),3),
+           rep(sum(devot_div,  devot_ndiv2, devot_sep),3),
+           rep(sum(ndevot_div,  ndevot_ndiv2, ndevot_sep),3) )
+
+
+
+values4 <- three_comb / ciag4
+val_perc4 <- label_percent(accuracy = 1)(values4)
+
+
+
+status33 <- c(rep("Cohab", 3),rep("No cohab", 3),
+                    rep("Believer", 3), rep("Non believer", 3),
+                    rep("Devoted", 3), rep("Not devoted", 3))
+x_truth_value <- c("married", "div",  "sep", "married", "div", "sep",  "married", "div",  "sep", 
+                   "married", "div",  "sep", "married", "div",  "sep", "married", "div",  "sep")
+
+
+dfdiv2 <- data.frame(status33 , x_truth_value,
+                    three_comb, values4, val_perc4)
+
+dfdiv2$x_truth_value <-  factor(c("married", "div",  "sep"), levels = c("married", "div",  "sep"))
+
+p18<- ggplot(dfdiv2 , aes(fill=x_truth_value, y=three_comb, x=status33)) + 
+  geom_bar(position="stack", stat="identity", ) + theme_tufte() + 
+  scale_y_continuous(ylab("All married"), limits = c(0, 20000)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  ggtitle("Scale of divorce or separation accros different statuses") +
+
+  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Div or Sep") + 
+  scale_fill_brewer(palette = "Paired") + theme(text = element_text(size = 24))
+p18
+
+p19 <- ggplot(dfdiv2 , aes(fill=x_truth_value , y=three_comb, x=status33 )) + 
+  geom_bar(position="fill", stat="identity") + theme_tufte() + 
+  scale_y_continuous(ylab("All married"), labels = percent) +  
+  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  geom_text(aes(label = val_perc4, y=values4), position = "stack") + 
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("Scale of divorce or separation accros different statuses") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(fill = "Div or Sep") + theme(text = element_text(size = 24))
+
+p19
+
+
+```
+&nbsp; <br>
+
+The tendencies are similar, there is no meaningful difference in the proportion. Still, religion has the biggest influence on the divorce rate. Being a believer or being a devoted believer reduces the chances of getting a divorce. Religion is a base belief, therefore it can have a role of a basic factor. This belief has a great influence on one set of beliefs e.g. the attitude towards cohabitation before marriage. Let's then test the possibility of a correlation between religion and cohabitation.    
+
+&nbsp; <br>
+```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%" }
+
+status7 <- c(rep("Divorced", 2),rep("No divorced", 2),
+             rep("Believer", 2), rep("Non believer", 2),
+             rep("Devoted", 2), rep("Not devoted", 2))
+cohab_truth_value <- c("yes", "no", "yes", "no", "yes", 
+                         "no", "yes", "no", "yes", "no", "yes", "no")
+
+
+fun_cohab <- function(x,y,z){
+  dim(certain_df %>% 
+        filter(x == y) %>% 
+        filter(cohabitation == z) )[1]
+}
+cohab_or_not <- c(
+div_cohab <- fun_cohab(certain_df$divorced,1 , 1),
+div_ncohab <- fun_cohab(certain_df$divorced,1 , 0),
+ndiv_cohab <- fun_cohab(certain_df$divorced,0 , 1),
+ndiv_ncohab <- fun_cohab(certain_df$divorced,0 , 0),
+bel_cohab <- fun_cohab(certain_df$believer,1 , 1),
+bel_ncohab <- fun_cohab(certain_df$believer,1 , 0),
+nbel_cohab <- fun_cohab(certain_df$believer,0 , 1),
+nbel_ncohab <- fun_cohab(certain_df$believer,0 , 0),
+devot_cohab <- fun_cohab(certain_df$devoted,1, 1),
+devot_ncohab <- fun_cohab(certain_df$devoted,1 , 0),
+ndevot_cohab <- fun_cohab(certain_df$devoted,0 , 1),
+ndevot_ncohab <- fun_cohab(certain_df$devoted,0 , 0)
+)
+
+
+ciag2 <- c(rep(sum(div_cohab,div_ncohab ),2), 
+           rep(sum(ndiv_ncohab, ndiv_cohab),2),
+           rep(sum(bel_ncohab, bel_cohab),2),
+           rep(sum(nbel_ncohab,  nbel_cohab),2),
+           rep(sum(devot_ncohab,  devot_cohab),2),
+           rep(sum(ndevot_ncohab,  ndevot_cohab),2) )
+
+values2 <- cohab_or_not / ciag2
+val_perc2 <- label_percent(accuracy = 1)(values2)
+
+df67 <- data.frame(status7, cohab_truth_value, cohab_or_not, values2, val_perc2)
+
+
+
+
+p8 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) + 
+  geom_bar(position="stack", stat="identity") + theme_tufte() + 
+  scale_y_continuous(ylab("All married"), limits = c(0, 20000)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Divorced", "No divorced", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  ggtitle("Scale of cohabitation accros different statuses") + scale_fill_brewer(palette = "Paired") +
+  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Cohabited")  + theme(text = element_text(size = 24))
+p8
+
+p9 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) + 
+  geom_bar(position="fill", stat="identity") + theme_tufte() + 
+  scale_y_continuous(ylab("All married"), labels = percent) +  
+  scale_x_discrete(xlab("Status"), limits=c("Divorced", "No divorced", "Believer", "Non believer",
+                                            "Devoted", "Not devoted")) +
+  geom_text(aes(label = val_perc2, y=values2), position = "stack") + scale_fill_brewer(palette = "Paired") +
+  labs(fill = "Cohabited") + ggtitle("Scale of cohabitation accros different statuses") +
+  theme(plot.title = element_text(hjust = 0.5))  + theme(text = element_text(size = 24))
+# theme(axis.text.x = element_text(angle = 45)) 
+p9
+
+```
+&nbsp; <br>
+
+As it turns out, religious beliefs have a big influence on the probability of cohabiting, therefore we can risk a hypothesis that we find a hidden correlate. The bayesian dependency tree below illustrates the relation of the factors of our interest. $C$ stands for cohabitation, $A$ atheism, and $D$ divorce.
+&nbsp; <br>
+
+<div style="text-align: center;"><img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\bayes network.png"></div>
+
+&nbsp; <br>
+Now, let's try to compare the strength of the influence on divorce of three chosen variables: cohabitation, being a believer, and being a devoted believer. I will do it by simply counting the differences between a factor being present or absent. The differences are counted by simply subtracting the divorce conditional probability of factors.   
+
+&nbsp; <br>
+```{r echo=FALSE}
+fun_sep_div <- function(x,y,z){
+  dim(certain_df %>% 
+        filter(x == y) %>% 
+        filter(div_separated == z) )[1]
+}
+
+div_sep_or_not <- c(
+  cohab_divsep <- fun_sep_div(certain_df$cohabitation,1 , 1),
+  cohab_ndivsep <- fun_sep_div(certain_df$cohabitation,1 , 0),
+  ncohab_divsep <- fun_sep_div(certain_df$cohabitation,0 , 1),
+  ncohab_ndivsepb <- fun_sep_div(certain_df$cohabitation,0 , 0),
+  bel_divsep <- fun_sep_div(certain_df$believer,1 , 1),
+  bel_ndivsep <- fun_sep_div(certain_df$believer,1 , 0),
+  nbel_divsep <- fun_sep_div(certain_df$believer,0 , 1),
+  nbel_ndivsep <- fun_sep_div(certain_df$believer,0 , 0),
+  devot_divsep <- fun_sep_div(certain_df$devoted,1, 1),
+  devot_ndivsep <- fun_sep_div(certain_df$devoted,1 , 0),
+  ndevot_divsep <- fun_sep_div(certain_df$devoted,0 , 1),
+  ndevot_ndivsep<- fun_sep_div(certain_df$devoted,0 , 0)
+)
+
+
+ciag3 <- c(rep(sum(cohab_divsep, cohab_ndivsep  ),2), 
+           rep(sum(ncohab_divsep, ncohab_ndivsepb),2),
+           rep(sum(bel_divsep, bel_ndivsep),2),
+           rep(sum(nbel_divsep ,  nbel_ndivsep),2),
+           rep(sum(devot_divsep,  devot_ndivsep),2),
+           rep(sum(ndevot_divsep,  ndevot_ndivsep),2) )
+
+
+
+values3 <- div_sep_or_not / ciag3
+
+cohab_diff <- c(
+nbel_bel_coh_diff <- (values2[7] - values2[5]),
+ndev_dev_coh_diff <- (values2[11] - values2[9]),
+nbel_dev_coh_diff <- (values2[7] - values2[9]), NA
+)
+
+div_diff <- c(
+  nbel_bel_div_diff <- (values[7] - values[5]),
+  ndev_dev_div_diff <- (values[11] - values[9]),
+  nbel_dev_div_diff <- (values[7] - values[9]),
+  coh_ncoh_div_diff <- (values[1] - values[3])
+)
+
+div_sep_diff <- c(
+  nbel_bel_div_diff <- (values3[7] - values3[5]),
+  ndev_dev_div_diff <- (values3[11] - values3[9]),
+  nbel_dev_div_diff <- (values3[7] - values3[9]),
+  coh_ncoh_div_diff <- (values3[1] - values3[3])
+)
+
+names <- c("Atheist - Believer", "Not Devoted - Devoted",
+               "Atheist - Devoted", "Cohab - Not Cohab")
+df_differences <- data.frame(names, div_diff, div_sep_diff, cohab_diff)
+df_differences
+```
+
+
+
+
+```{r echo=FALSE, fig.dim=c(8, 7), fig.show="hold", warning=FALSE, out.width="33.3%"}
+
+
+# The strongest parameter pair is atheist - devoted, it is a mixed up value,
+# although the measure is valuable because one cannot be both an atheist and a devoted believer
+
+p44 <- ggplot(df_differences , aes(y=div_diff, x=names)) + 
+  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
+  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
+                                            "Atheist - Devoted", "Cohab - Not Cohab"),
+                   labels = c("Athe - Bel", "~Devot - Devot", "Athe - Devot", "Cohab - ~Cohab")) +
+  ggtitle("Difference parameters to divorce") + 
+  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 15))  + theme(text = element_text(size = 22))
+p44
+
+p55 <- ggplot(df_differences , aes(y=div_sep_diff, x=names)) + 
+  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
+  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
+                                            "Atheist - Devoted", "Cohab - Not Cohab"), 
+                   labels = c("Athe - Bel", "~Devot - Devot", "Athe - Devot", "Cohab - ~Cohab")) +
+  ggtitle("Difference parameters to div or sep") + 
+  theme(plot.title = element_text(hjust = 0.5))+ theme(text = element_text(size = 15))  + theme(text = element_text(size = 22))
+p55
+
+p66 <- ggplot(df_differences , aes(y=cohab_diff, x=names)) + 
+  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
+  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
+  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
+                                            "Atheist - Devoted")) +
+  ggtitle("Difference parameters to cohabitation") + 
+  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 15))   + theme(text = element_text(size = 22))
+p66
+
+```
+&nbsp; <br>
+
+The absolute leader of correlation is the pair "Atheist - Devoted", in all three categories. Therefore religious belief is the strongest factor in increasing the probability of a divorce, and also in decreasing the probability of cohabitation.    
+But before we draw conclusions let's test one more thing. As the last analysis, I will do a chi-square test of correlation. To be able to conduct this test, I will need the data in a form of a contingency table. We will check two tables, one with cohabitation and divorce, and one with atheism and divorce.   
+Let's assume that $\alpha$ is $0.05$ and the degree of freedom is 1 (this degree value is also automatically assumed by the program). The zero hypothesis $H_{0}$ will say that a factor $x$ does not influence divorce, the alternative hypothesis $H_{1}$ says that there is a correlation. Therefore, a p-value below $0.05$ can be used as a premise for abandoning hypothesis $H_{0}$ and adopting $H_{1}$. Notice that it only gives a premise of a certain strength, the p-value should not be perceived as a total sentence. There is a lot of literature that shows how p-value can be overrated. (This experiment is a great example: https://www.scientificamerican.com/article/the-mind-reading-salmon/)    
+
+
+&nbsp; <br>
+```{r echo=FALSE}
+mat1 <- matrix(c(cohab_div, ncohab_div, cohab_ndiv, ncohab_ndiv), nrow=2)
+colnames(mat1) <- c("Divorced", "nDivorced")
+rownames(mat1) <- c("cohab", "ncohab")
+mat1
+
+chisq <- chisq.test(mat1)
+chisq
+
+```
+&nbsp; <br>
+
+Theoretically p-value is in acceptable range, so $H_{0}$ can be hold, but it is very close to $0.5$. Therefore, the test is not very informative in this example. 
+
+&nbsp; <br>
+```{r echo=FALSE}
+mat2 <- matrix(c(bel_div, nbel_div, bel_ndiv, nbel_ndiv), nrow=2)
+colnames(mat2) <- c("Divorced", "nDivorced")
+rownames(mat2) <- c("believer", "nbeliever")
+mat2
+
+chisq2 <- chisq.test(mat2)
+chisq2
+
+
+p_value <- format(1.606e-09, scientific = F, digits = 3)
+cat("p-value in a regural format:", p_value)
+```
+&nbsp; <br>
+
+Here we see a strong influence of the factor, the correlation between religious beliefs and divorce is very strong, according to this test. Therefore $H_{1}$ should be adopted as a true hypothesis and $H_{0}$ should be abandoned. 
+&nbsp; <br>
+
+## Conlusion
+
+&nbsp; <br>
+The statistical test does give us a premise for the argument that religious beliefs affect the probability of divorce, stronger than cohabitation, which is compatible with our earlier analysis. The analysis of conditional probabilities gives us a reason to claim that there are stronger correlates than cohabitation, and the influence of cohabitation on the probability of divorce is questionable. The best correlates are: atheism and devotism. Furthermore, religious beliefs are a hidden correlate, they strongly influence the probability of cohabiting and through this, it affects the probability of divorce. Therefore the hypothesis that cohabitation significantly increases the probability of divorce should be abandoned.
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
