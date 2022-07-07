@@ -66,7 +66,7 @@ National Survey of Family Growth (NSFG) is a questionnaire conducted, irregularl
 Source of the data: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NSFG/stata/    
 Data documentation: https://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm    
      
-In the chosen data there were more than 70 000 respondents. A sample of 20 000 people was adequate for my analysis because to test various variables influence on divorce, I had to include only married people. The major problems of this database are: the data format, the size, and various names of the same variables. In order to deal with the first problem, I had to apply the following method.
+In the chosen data there were more than 70 000 respondents. A sample of 20 000 people was adequate for my analysis because to test various variables influence on divorce, I had to include only married people. The major problems of this database are: the data format, the size, and various names of the same variables. In order to deal with the first problem, I had to apply the following method.   
 &nbsp; <br>
 
 ## Preparing the data
@@ -335,7 +335,7 @@ p7 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6))
   scale_y_continuous(ylab("All married"), labels = percent) +  
   scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc, y=values), position = "stack") + scale_fill_brewer(palette = "Paired") +
+  geom_text(aes(label = val_perc, y=values), position = "stack", size=8) + scale_fill_brewer(palette = "Paired") +
   labs(fill = "Divorced") + ggtitle("Scale of divorces accros different statuses") +
   theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 24))
 # theme(axis.text.x = element_text(angle = 45)) 
@@ -433,7 +433,7 @@ p19 <- ggplot(dfdiv2 , aes(fill=x_truth_value , y=three_comb, x=status33 )) +
   scale_y_continuous(ylab("All married"), labels = percent) +  
   scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc4, y=values4), position = "stack") + 
+  geom_text(aes(label = val_perc4, y=values4), position = "stack", size=8) + 
   scale_fill_brewer(palette = "Paired") +
   ggtitle("Scale of divorce or separation accros different statuses") +
   theme(plot.title = element_text(hjust = 0.5)) +
@@ -507,7 +507,7 @@ p9 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) +
   scale_y_continuous(ylab("All married"), labels = percent) +  
   scale_x_discrete(xlab("Status"), limits=c("Divorced", "No divorced", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc2, y=values2), position = "stack") + scale_fill_brewer(palette = "Paired") +
+  geom_text(aes(label = val_perc2, y=values2), position = "stack", size=8) + scale_fill_brewer(palette = "Paired") +
   labs(fill = "Cohabited") + ggtitle("Scale of cohabitation accros different statuses") +
   theme(plot.title = element_text(hjust = 0.5))  + theme(text = element_text(size = 24))
 # theme(axis.text.x = element_text(angle = 45)) 
@@ -662,10 +662,10 @@ cat("p-value in a regural format:", p_value)
 ```
 &nbsp; <br>
 
-Here we see a strong influence of the factor, the correlation between religious beliefs and divorce is very strong, according to this test. Therefore $H_{1}$ should be adopted as a true hypothesis and $H_{0}$ should be abandoned. 
+Here we see a strong influence of the factor, the correlation between religious beliefs and divorce is very strong, according to this test. Therefore $H_{1}$ should be adopted as a true hypothesis and $H_{0}$ should be abandoned.    
 &nbsp; <br>
 
-## Conlusion
+## Conlusions
 
 &nbsp; <br>
 The statistical test does give us a premise for the argument that religious beliefs affect the probability of divorce, stronger than cohabitation, which is compatible with our earlier analysis. The analysis of conditional probabilities gives us a reason to claim that there are stronger correlates than cohabitation, and the influence of cohabitation on the probability of divorce is questionable. The best correlates are: atheism and devotism. Furthermore, religious beliefs are a hidden correlate, they strongly influence the probability of cohabiting and through this, it affects the probability of divorce. Therefore the hypothesis that cohabitation significantly increases the probability of divorce should be abandoned.
