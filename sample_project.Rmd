@@ -14,6 +14,11 @@ dat_nsfg <- read.csv("C:\\Users\\nikod\\Documents\\Praca_dyplomowa\\main_data\\d
 
 ```
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <style>
 
 div.mystyl {
@@ -21,6 +26,18 @@ div.mystyl {
            font-size: 18px;
            line-height: 1.5
 }
+
+.footer {  
+position: fixed;  
+left: 10px;  
+bottom: 5px;  
+right: 10px;   
+width: 100%;  
+background-color: whitesmoke;  
+color: grey;  
+text-align: center;  
+}  
+
 </style>
 </head>
 
@@ -665,6 +682,20 @@ The statistical test does give us a premise for the argument that religious beli
 &nbsp; <br>
 
 </div>
+
+
+<div class="footer">  
+<center>
+
+<p style="text-align:center;font-size:14px">Nikodem Lewandowski</p>  
+&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+
+ 
+</center>
+</div>  
 </body>
 
 
