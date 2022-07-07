@@ -1,6 +1,0 @@
----
-title: "Cohabitation and Divorce"
-theme: jekyll-theme-minimal
----
-
-## Cohabitation and Divorce
