@@ -246,7 +246,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="niklew.html">Home</a>
+  <a href="index.html">Home</a>
 </li>
 <li>
   <a href="sample_project.html">Sample Project</a>
@@ -403,20 +403,27 @@ write.csv(dat_nsfg, &quot;C:\\nikod\\Documents\\main_data\\dat_nsfg.csv&quot;,
           row.names = FALSE)</code></pre>
 <p>  <br></p>
 <p>Let’s have a quick look at the data frame:</p>
-<pre><code>##   caseid marrend livtogn agemarr sex abortion pill mornpill condom age_a marstat reldlife religion samesex
-## 1  36133      NA      NA      NA   1       NA   NA       NA     NA    23       6        2        3       1
-## 2  36636      NA      NA      NA   1       NA   NA       NA     NA    25       6        2        4       1
-## 3  41125      NA      NA      NA   1       NA   NA       NA     NA    16       6       NA        1       1
-## 4  23607      NA      NA      NA   1       NA   NA       NA     NA    28       6       NA        1       1
-## 5  40814      NA      NA      NA   1       NA   NA       NA     NA    25       2       NA        1       2
-## 6  39362      NA      NA      NA   1       NA   NA       NA     NA    25       6        1        3       2
-##   intvwyear lifprtnr timesmar attnd14 fmarit gayadopt lifeprt sxok18 staytog prvntdiv achieve
-## 1      2010        5       NA       3      5        1       5      2       2       NA       3
-## 2      2010        5       NA      NA      5        1       5      1       2       NA       4
-## 3      2010        1       NA       6      5        1       1      1       2       NA       3
-## 4      2007        6       NA      NA      5        1       6      1       2       NA       4
-## 5      2010       10       NA      NA      5        2       7      2       3       NA       3
-## 6      2010        0       NA      NA      5        2      NA      2       2       NA       3</code></pre>
+<pre><code>##   caseid marrend livtogn agemarr sex abortion pill mornpill condom age_a
+## 1  36133      NA      NA      NA   1       NA   NA       NA     NA    23
+## 2  36636      NA      NA      NA   1       NA   NA       NA     NA    25
+## 3  41125      NA      NA      NA   1       NA   NA       NA     NA    16
+## 4  23607      NA      NA      NA   1       NA   NA       NA     NA    28
+## 5  40814      NA      NA      NA   1       NA   NA       NA     NA    25
+## 6  39362      NA      NA      NA   1       NA   NA       NA     NA    25
+##   marstat reldlife religion samesex intvwyear lifprtnr timesmar attnd14 fmarit
+## 1       6        2        3       1      2010        5       NA       3      5
+## 2       6        2        4       1      2010        5       NA      NA      5
+## 3       6       NA        1       1      2010        1       NA       6      5
+## 4       6       NA        1       1      2007        6       NA      NA      5
+## 5       2       NA        1       2      2010       10       NA      NA      5
+## 6       6        1        3       2      2010        0       NA      NA      5
+##   gayadopt lifeprt sxok18 staytog prvntdiv achieve
+## 1        1       5      2       2       NA       3
+## 2        1       5      1       2       NA       4
+## 3        1       1      1       2       NA       3
+## 4        1       6      1       2       NA       4
+## 5        2       7      2       3       NA       3
+## 6        2      NA      2       2       NA       3</code></pre>
 <p>As you can see, there are many missing values, but I will deal with
 them in the next part of this project.</p>
 <p>  <br></p>
@@ -470,20 +477,20 @@ dat_nsfg1 &lt;- dat_nsfg %&gt;%
 <p>In the next step I have limited the sample to the people that are, or
 were married.</p>
 <p>  <br></p>
-<pre><code>##   caseid sex divorced separated div_separated ever_married cohab_bef_marr cohab_ever intvwyear age_a lifprtnr
-## 1  23030   1        0         1             1            1              1          1      2007    29        5
-## 2  20600   1        1         0             1            1              1          1      2008    41        5
-## 3  39612   1        0         1             1            1              1          1      2009    43        3
-## 4  38464   1        1         0             1            1              0          0      2010    29        1
-## 5  20678   1        0         1             1            1              0          0      2006    41       30
-## 6  35261   1        0         1             1            1              1          1      2010    44       15
-##   religion reldlife
-## 1        4        1
-## 2        2        2
-## 3        1        0
-## 4        4        1
-## 5        1        0
-## 6        3        2</code></pre>
+<pre><code>##   caseid sex divorced separated div_separated ever_married cohab_bef_marr
+## 1  23030   1        0         1             1            1              1
+## 2  20600   1        1         0             1            1              1
+## 3  39612   1        0         1             1            1              1
+## 4  38464   1        1         0             1            1              0
+## 5  20678   1        0         1             1            1              0
+## 6  35261   1        0         1             1            1              1
+##   cohab_ever intvwyear age_a lifprtnr religion reldlife
+## 1          1      2007    29        5        4        1
+## 2          1      2008    41        5        2        2
+## 3          1      2009    43        3        1        0
+## 4          0      2010    29        1        4        1
+## 5          0      2006    41       30        1        0
+## 6          1      2010    44       15        3        2</code></pre>
 <p>  <br></p>
 <p>With that, we can do some counting:<br />
 - <span class="math inline">\(27\%\)</span> of people that have been

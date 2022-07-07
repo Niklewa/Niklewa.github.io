@@ -1,0 +1,120 @@
+---
+title: <p style="text-align:center;font-size:28px">Nikodem Lewandowski</p> 
+theme: jekyll-theme-minimal
+layout: default
+
+---
+
+
+<head>
+
+
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>  
+.footer {  
+position: fixed;  
+left: 10px;  
+bottom: 5px;  
+right: 10px;   
+width: 100%;  
+background-color: whitesmoke;  
+color: grey;  
+text-align: center;  
+}  
+
+img {  
+    width: 200px; 
+    float: left; 
+    margin-right: 10px; 
+  } 
+  
+  
+  
+div.content { width: 800px;
+              margin: auto}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+<div class="content">
+
+
+<center>
+&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:24px;color:grey"></i></a>  &nbsp; &nbsp;
+</center
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+
+
+
+
+<img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\123-min.jpg">
+<p align="justify" style="font-size:20px">I am a data science enthusiast and currently I am looking for a job suitable for a beginner in this field. My passion for data science was sparked by studying philosophy, I obtained a bachelor's degree in philosophy in 2021. Initially, I was interested in incorporating formal methods into epistemology, which is one of the branches of philosophy. Finally, it led me to finishing my postgraduate studies in Data Science. Philosophy and data science are my two biggest passions to this day. Technologies that are the most familiar to me are: R, Python, and MS SQL.</p>  
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+<ul style="font-size:18px">
+ <li> If you want to see a sample of my abilities check out my sample project: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
+&nbsp; <br>
+&nbsp; <br>
+ <li> If you are considering offering me a job, you can download my resume here: <a href="/files/ryan_pelletier_resume.docx" download>Resume</a>
+</ul>
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+<p style="font-size:18px">You can contact me through various channels, to do this, click an icon of your choice at the top or at the bottom of this page. </p>
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+
+
+
+
+<div class="footer">  
+<center>
+
+<p style="text-align:center;font-size:14px">Nikodem Lewandowski</p>  
+&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+
+ 
+</center>
+</div>  
+
+
+</div>
+</body>
+
+
+
+
