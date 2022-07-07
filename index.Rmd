@@ -89,7 +89,7 @@ div.content { max-width: 800px;
  <li> If you want to see a sample of my abilities check out my sample project: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
 &nbsp; <br>
 &nbsp; <br>
- <li> If you are considering offering me a job, you can download my resume here: <a href="/files/ryan_pelletier_resume.docx" download>Resume</a>
+ <li> If you are considering offering me a job, you can download my resume here: <a href="CV_N_Lewandowski" Download File>Resume</a>
 </ul>
 
 &nbsp; <br>
