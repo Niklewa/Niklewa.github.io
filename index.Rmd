@@ -76,7 +76,7 @@ div.content { max-width: 800px;
 
 
 <img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\123-min.jpg">
-<p align="justify" style="font-size:18px">I am a data science enthusiast and currently I am looking for a job suitable for a beginner in this field. My passion for data science was sparked by studying philosophy, I obtained a bachelor's degree in philosophy in 2021. Initially, I was interested in incorporating formal methods into epistemology, which is one of the branches of philosophy. Finally, it led me to finishing my postgraduate studies in Data Science. Philosophy and data science are my two biggest passions to this day. Technologies that are the most familiar to me are: R, Python, and MS SQL.</p>  
+<p align="justify" style="font-size:18px">I am a data science enthusiast currently looking for a job suitable for a beginner in this field. My passion for data science was sparked by studying philosophy, I obtained a bachelor's degree in philosophy in 2021. Initially, I was interested in incorporating formal methods into epistemology, which is one of the branches of philosophy. Finally, it led me to finishing my postgraduate studies in Data Science. Philosophy and data science are my two biggest passions to this day. Technologies that are the most familiar to me are: R, Python, and MS SQL.</p>  
 
 &nbsp; <br>
 &nbsp; <br>
@@ -86,7 +86,7 @@ div.content { max-width: 800px;
 
 
 <ul style="font-size:18px">
- <li> If you want to see a sample of my abilities check out my sample project: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
+ <li> If you want to see a sample of my abilities, check out my sample project: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
 &nbsp; <br>
 &nbsp; <br>
  <li> If you are considering offering me a job, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/gh-page/CV_N_Lewandowski.pdf"> Resume</a>

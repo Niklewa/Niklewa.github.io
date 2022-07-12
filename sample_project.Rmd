@@ -61,7 +61,8 @@ div.collaps {
 &nbsp; <br>
 &nbsp; <br>
 
-In this project, I conduct an analysis of the NSFG database in order to test the hypothesis that cohabitation before marriage increases the probability of divorce. I aim to test the correlation between cohabitation and divorce and to look for other factors that may increase the probability of divorce and factors that might have a status of hidden correlate. To view the source code visit my GitHub repo: https://github.com/Niklewa/Cohab_nsfg              
+In this project, I conduct an analysis of the NSFG database in order to test the hypothesis that cohabitation before marriage increases the probability of divorce. I aim to test the correlation between cohabitation and divorce and to look for other factors that may increase the probability of divorce and factors that might have a status of hidden correlate. To view the source code visit my GitHub repo: https://github.com/Niklewa/Cohab_nsfg            
+&nbsp; <br>
 This document has been created within R studio, as a markdown document. In this paper I will firstly describe shortly the data that I used, then I will proceed to the description of my analysis. My analysis consists of three parts. In the beginning, I intended to conduct this analysis fully in R studio, however, I had to use Python language (jupyter lab) to deal with some problems, because I didn't find a satisfying solution within R studio. Therefore, the first part, that is obtaining the data and saving it in .csv format was done in jupyter notebook. The second part, data cleaning, and wrangling were done in R, as well as the third part, that is, proper data analysis.    
 In the first two parts, I was preparing the data for the main part of this project. That's why they will be presented in the abbreviated version. The third part, proper analysis, consists of: testing conditional probabilities, visualization, and chi-squared test. Methods were chosen according to the nature of the data.    
 &nbsp; <br>
@@ -81,7 +82,7 @@ Data documentation: https://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm </div>
 In the chosen data there were more than 70 000 respondents. A sample of 20 000 people was adequate for my analysis because to test various variables influence on divorce, I had to include only married people. The major problems of this database are: the data format, the size, and various names of the same variables. In order to deal with the first problem, I had to apply the following method.   
 &nbsp; <br>
 
-## Preparing the data
+## Data preparation   
 
 &nbsp; <br>
 The data were stored on the NSFG web page in a rather strange format. A single survey result was stored in .dat format, but to use it, it had to be connected with the adequate key file in the .dct format. Dealing with a file in a regular .dat format is not particularly problematic, but there are less than a few satisfying solutions to this problematic doubled format. I decided to use python for that, as I mentioned at the beginning. Statadict package delivers an elegant solution to that problem.
