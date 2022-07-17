@@ -89,7 +89,7 @@ div.content { max-width: 800px;
  <li> If you want to see a sample of my abilities, check out my sample project: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
 &nbsp; <br>
 &nbsp; <br>
- <li> If you are considering offering me a job, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/gh-page/N_Lewandowski_CV.pdf"> Resume</a>
+ <li> If you are considering offering me a job, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV.pdf"> Resume</a>
 </ul>
 
 
