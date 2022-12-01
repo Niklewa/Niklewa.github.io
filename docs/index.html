@@ -13,7 +13,7 @@
 
 <title>index.knit</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -141,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -174,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -183,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -330,24 +327,25 @@ Nikodem Lewandowski
 <p>  <br>   <br>   <br>   <br></p>
 <img src="123-min.jpg">
 <p align="justify" style="font-size:18px">
-I am a data science enthusiast currently looking for a job suitable for
-a beginner in this field. My passion for data science was sparked by
-studying philosophy, I obtained a bachelor’s degree in philosophy in
-2021. Initially, I was interested in incorporating formal methods into
-epistemology, which is one of the branches of philosophy. Finally, it
-led me to finishing my postgraduate studies in Data Science. Philosophy
-and data science are my two biggest passions to this day. Technologies
-that are the most familiar to me are: R, Python, and MS SQL.
+I am a philosophy passionate about to complete a master’s degree in
+formal epistemology. This specific branch of philosophy drew me towards
+data analysis and it became my second field of scientific inquiry.
+Applying formal methods from the philosophical plane to the real world
+is something that connects my different interests. Technologies that are
+the most familiar to me are: R, Python, and MS SQL. In my free time, I
+like to dive in head-first into classical culture: music, and
+literature. I am also a big fan of existential cinema (A. Tarkovsky is
+the love of my life), and existential philosophy too.
 </p>
 <p>  <br>   <br>   <br>   <br>   <br></p>
 <ul style="font-size:18px">
 <li>
-If you want to see a sample of my abilities, check out my sample
-project: <a href="https://niklewa.github.io/sample_project.html">Sample
+If you want to see a sample of my abilities, check out my sample project
+(and my github profile for more):
+<a href="https://niklewa.github.io/sample_project.html">Sample
 Project</a>   <br>   <br>
 <li>
-If you are considering offering me a job, you can download my resume
-here:
+If you want to know more about me, you can download my resume here:
 <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf">
 Resume</a>
 </ul>

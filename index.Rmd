@@ -86,10 +86,10 @@ div.content { max-width: 800px;
 
 
 <ul style="font-size:18px">
- <li> If you want to see a sample of my abilities, check out one of my sample projects: <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
+ <li> If you want to see a sample of my abilities, check out my sample project (and my github profile for more): <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
 &nbsp; <br>
 &nbsp; <br>
- <li> If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf"> Resume</a>
+ <li>  If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf"> Resume</a>
 </ul>
 
 
