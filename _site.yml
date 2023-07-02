@@ -6,6 +6,8 @@ navbar:
     href: index.html
   - text: "Sample Project"
     href: sample_project.html
+  - text: "Dashboard"
+    href: "flexPart1DashFILLED.html"
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
