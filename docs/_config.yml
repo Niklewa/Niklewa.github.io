@@ -1,9 +1,10 @@
 name: "Niklewa.github.io"
 theme: jekyll-theme-minimal
-tabs:
-  - name: Home
-    link: index.html
-  - name: Projects
-    link: projects.html
-  - name: sample_project
-    link: projects.html
+navbar:
+  left:
+  - text: "Home"
+    href: index.html
+  - text: "Projects"  # Add the "Projects" tab
+    href: projects.md  # Link it to your projects.html file
+  - text: "Sample Project"
+    href: sample_project.md
