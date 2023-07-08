@@ -1,6 +1,9 @@
 name: "Niklewa.github.io"
 theme: jekyll-theme-minimal
-navbar:
-  left:
-  - text: "Home"
-    href: index.html
+tabs:
+  - name: Home
+    link: index.html
+  - name: Projects
+    link: projects.html
+  - name: sample_project
+    link: projects.html
