@@ -13,7 +13,7 @@
 
 <title>Cohabitation and Divorce</title>
 
-<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -248,6 +250,9 @@ $(document).ready(function () {
 <li>
   <a href="sample_project.html">Sample Project</a>
 </li>
+<li>
+  <a href="flexPart1DashFILLED.html">Dashboard</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -414,27 +419,859 @@ write.csv(dat_nsfg, &quot;C:\\nikod\\Documents\\main_data\\dat_nsfg.csv&quot;,
           row.names = FALSE)</code></pre>
 <p>  <br></p>
 <p>Let’s have a quick look at the data frame:</p>
-<pre><code>##   caseid marrend livtogn agemarr sex abortion pill mornpill condom age_a
-## 1  36133      NA      NA      NA   1       NA   NA       NA     NA    23
-## 2  36636      NA      NA      NA   1       NA   NA       NA     NA    25
-## 3  41125      NA      NA      NA   1       NA   NA       NA     NA    16
-## 4  23607      NA      NA      NA   1       NA   NA       NA     NA    28
-## 5  40814      NA      NA      NA   1       NA   NA       NA     NA    25
-## 6  39362      NA      NA      NA   1       NA   NA       NA     NA    25
-##   marstat reldlife religion samesex intvwyear lifprtnr timesmar attnd14 fmarit
-## 1       6        2        3       1      2010        5       NA       3      5
-## 2       6        2        4       1      2010        5       NA      NA      5
-## 3       6       NA        1       1      2010        1       NA       6      5
-## 4       6       NA        1       1      2007        6       NA      NA      5
-## 5       2       NA        1       2      2010       10       NA      NA      5
-## 6       6        1        3       2      2010        0       NA      NA      5
-##   gayadopt lifeprt sxok18 staytog prvntdiv achieve
-## 1        1       5      2       2       NA       3
-## 2        1       5      1       2       NA       4
-## 3        1       1      1       2       NA       3
-## 4        1       6      1       2       NA       4
-## 5        2       7      2       3       NA       3
-## 6        2      NA      2       2       NA       3</code></pre>
+<table class="table table-striped table-hover table-condensed" style="font-size: 7.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+caseid
+</th>
+<th style="text-align:right;">
+marrend
+</th>
+<th style="text-align:right;">
+livtogn
+</th>
+<th style="text-align:right;">
+agemarr
+</th>
+<th style="text-align:right;">
+sex
+</th>
+<th style="text-align:right;">
+abortion
+</th>
+<th style="text-align:right;">
+pill
+</th>
+<th style="text-align:right;">
+mornpill
+</th>
+<th style="text-align:right;">
+condom
+</th>
+<th style="text-align:right;">
+age_a
+</th>
+<th style="text-align:right;">
+marstat
+</th>
+<th style="text-align:right;">
+reldlife
+</th>
+<th style="text-align:right;">
+religion
+</th>
+<th style="text-align:right;">
+samesex
+</th>
+<th style="text-align:right;">
+intvwyear
+</th>
+<th style="text-align:right;">
+lifprtnr
+</th>
+<th style="text-align:right;">
+timesmar
+</th>
+<th style="text-align:right;">
+attnd14
+</th>
+<th style="text-align:right;">
+fmarit
+</th>
+<th style="text-align:right;">
+gayadopt
+</th>
+<th style="text-align:right;">
+lifeprt
+</th>
+<th style="text-align:right;">
+sxok18
+</th>
+<th style="text-align:right;">
+staytog
+</th>
+<th style="text-align:right;">
+prvntdiv
+</th>
+<th style="text-align:right;">
+achieve
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+36133
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36636
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+41125
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23607
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40814
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39362
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21479
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+37633
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40822
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23030
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
 <p>As you can see, there are many missing values, but I will deal with
 them in the next part of this project.</p>
 <p>  <br></p>
@@ -451,9 +1288,11 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(purrr)
+library(ggpubr)
 library(ggplot2)
 library(ggthemes)
 library(scales)
+library(kableExtra)
 
 dat_nsfg$marrend[is.na(dat_nsfg$marrend)] &lt;- 99 
 dat_nsfg$livtogn[is.na(dat_nsfg$livtogn)] &lt;- 99  
@@ -488,20 +1327,463 @@ dat_nsfg1 &lt;- dat_nsfg %&gt;%
 <p>In the next step I have limited the sample to the people that are, or
 were married.</p>
 <p>  <br></p>
-<pre><code>##   caseid sex divorced separated div_separated ever_married cohab_bef_marr
-## 1  23030   1        0         1             1            1              1
-## 2  20600   1        1         0             1            1              1
-## 3  39612   1        0         1             1            1              1
-## 4  38464   1        1         0             1            1              0
-## 5  20678   1        0         1             1            1              0
-## 6  35261   1        0         1             1            1              1
-##   cohab_ever intvwyear age_a lifprtnr religion reldlife
-## 1          1      2007    29        5        4        1
-## 2          1      2008    41        5        2        2
-## 3          1      2009    43        3        1        0
-## 4          0      2010    29        1        4        1
-## 5          0      2006    41       30        1        0
-## 6          1      2010    44       15        3        2</code></pre>
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+caseid
+</th>
+<th style="text-align:right;">
+sex
+</th>
+<th style="text-align:right;">
+divorced
+</th>
+<th style="text-align:right;">
+separated
+</th>
+<th style="text-align:right;">
+div_separated
+</th>
+<th style="text-align:right;">
+ever_married
+</th>
+<th style="text-align:right;">
+cohab_bef_marr
+</th>
+<th style="text-align:right;">
+cohab_ever
+</th>
+<th style="text-align:right;">
+intvwyear
+</th>
+<th style="text-align:right;">
+age_a
+</th>
+<th style="text-align:right;">
+lifprtnr
+</th>
+<th style="text-align:right;">
+religion
+</th>
+<th style="text-align:right;">
+reldlife
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+23030
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20600
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39612
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38464
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20678
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35261
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+34569
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38391
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36788
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25698
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
 <p>  <br></p>
 <p>With that, we can do some counting:<br />
 - <span class="math inline">\(27\%\)</span> of people that have been
@@ -549,7 +1831,7 @@ how I did it, check out the source code. It’s pretty clean and well
 commented, so you should not have a problem with navigation in the
 code.</p>
 <p>  <br>
-<img src="sample_project_files/figure-html/unnamed-chunk-11-1.png" width="50%" /><img src="sample_project_files/figure-html/unnamed-chunk-11-2.png" width="50%" /></p>
+<img src="sample_project_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <p>  <br></p>
 <p>The plot on the left represents nominal values, it is easy to draw
 hasty conclusions if one is not paying attention to the initial
@@ -561,7 +1843,7 @@ a divorce than being a believer.<br />
 Now, let’s see a similar plot that includes separation status along with
 divorce.</p>
 <p>  <br>
-<img src="sample_project_files/figure-html/unnamed-chunk-12-1.png" width="50%" /><img src="sample_project_files/figure-html/unnamed-chunk-12-2.png" width="50%" />
+<img src="sample_project_files/figure-html/unnamed-chunk-12-1.png" width="768" />
   <br></p>
 <p>The tendencies are similar, there is no meaningful difference in the
 proportion. Still, religion has the biggest influence on the divorce
@@ -572,7 +1854,7 @@ beliefs e.g. the attitude towards cohabitation before marriage. Let’s
 then test the possibility of a correlation between religion and
 cohabitation.</p>
 <p>  <br>
-<img src="sample_project_files/figure-html/unnamed-chunk-13-1.png" width="50%" /><img src="sample_project_files/figure-html/unnamed-chunk-13-2.png" width="50%" />
+<img src="sample_project_files/figure-html/unnamed-chunk-13-1.png" width="768" />
   <br></p>
 <p>As it turns out, religious beliefs have a big influence on the
 probability of cohabiting, therefore we can risk a hypothesis that we
@@ -580,9 +1862,9 @@ find a hidden correlate. The bayesian dependency tree below illustrates
 the relation of the factors of our interest. <span
 class="math inline">\(C\)</span> stands for cohabitation, <span
 class="math inline">\(A\)</span> atheism, and <span
-class="math inline">\(D\)</span> divorce.   <br></p>
+class="math inline">\(D\)</span> divorce. So a confounder.   <br></p>
 <div style="text-align: center;">
-<img src="bayes%20network.png">
+<img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\bayes network.png">
 </div>
 <p>  <br> Now, let’s try to compare the strength of the influence on
 divorce of three chosen variables: cohabitation, being a believer, and
@@ -591,11 +1873,6 @@ differences between a factor being present or absent. The differences
 are counted by simply subtracting the divorce conditional probability of
 factors.</p>
 <p>  <br></p>
-<pre><code>##                   names    div_diff div_sep_diff cohab_diff
-## 1    Atheist - Believer  0.05033005   0.07189651  0.2017868
-## 2 Not Devoted - Devoted  0.04143990   0.05626731  0.2133499
-## 3     Atheist - Devoted  0.06153786   0.08650953  0.2692378
-## 4     Cohab - Not Cohab -0.01208038   0.01796759         NA</code></pre>
 <p><img src="sample_project_files/figure-html/unnamed-chunk-15-1.png" width="33.3%" /><img src="sample_project_files/figure-html/unnamed-chunk-15-2.png" width="33.3%" /><img src="sample_project_files/figure-html/unnamed-chunk-15-3.png" width="33.3%" />
   <br></p>
 <p>The absolute leader of correlation is the pair “Atheist - Devoted”,
