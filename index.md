@@ -1,11 +1,14 @@
 ---
-title: ""
-layout: page
-toc: true
-output:
-  md_document:
-    variant: markdown_github
-    preserve_yaml: true
+layout: default
+title: Home
+navbar:
+  left:
+    - text: Home
+      href: index.html
+    - text: Projects
+      href: projects.html
+    - text: Sample Project
+      href: sample_project.html
 ---
 
 
