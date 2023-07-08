@@ -1,9 +1,0 @@
-theme: jekyll-theme-minimal
-navbar:
-  left:
-  - text: "Home"
-    href: index.md
-  - text: "Projects"  # Add the "Projects" tab
-    href: projects.md  # Link it to your projects.html file
-  - text: "Sample Project"
-    href: sample_project.md
