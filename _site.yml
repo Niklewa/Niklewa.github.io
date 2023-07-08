@@ -3,11 +3,11 @@ output_dir: "docs"
 navbar:
   left:
   - text: "Home"
-    href: index.html
+    href: index.md
   - text: "Projects"  # Add the "Projects" tab
-    href: projects.html  # Link it to your projects.html file
+    href: projects.md  # Link it to your projects.html file
   - text: "Sample Project"
-    href: sample_project.html
+    href: sample_project.md
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
