@@ -4,9 +4,9 @@ title: Projects
 navbar:
   left:
     - text: Home
-      href: index.html
+      href: index.m
     - text: Projects
-      href: projects.html
+      href: projects.m
     - text: Sample Project
-      href: sample_project.html
+      href: sample_project.Rmd
 ---

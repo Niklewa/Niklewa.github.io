@@ -4,11 +4,11 @@ title: Home
 navbar:
   left:
     - text: Home
-      href: index.html
+      href: index.md
     - text: Projects
-      href: projects.html
+      href: projects.md
     - text: Sample Project
-      href: sample_project.html
+      href: sample_project.Rmd
 ---
 
 
