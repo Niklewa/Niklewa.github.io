@@ -1,0 +1,214 @@
+---
+title: "HIV in Poland Report"
+output: 
+  flexdashboard::flex_dashboard:
+    theme:    
+      version: 4
+      bg: "#004063"
+      fg: "#FDF7F7"
+      primary: "#001030"
+      border-color: "#004063"
+    orientation: columns
+    vertical_layout: fill
+---
+
+
+```{r setup, include=FALSE}
+
+# in the YAML header, so the first chunk at the top of the file,
+# we have specified the colors of the dashboard along with orientation (columns)
+# you can use different colors, or use a plug and play theme
+
+# Colors to choose
+# https://www.color-hex.com/
+
+# general flexdashboard tutorial, also list of themes (appearance section)
+# https://pkgs.rstudio.com/flexdashboard/articles/using.html
+
+
+# bs_theme use and additional sass arguments 
+# https://sass-lang.com/documentation/variables
+# https://rstudio.github.io/bslib/articles/bslib.html
+
+
+# in the YAML section we did a little trick, we set border color (frames), 
+# to the same value as the background, it makes them not visible
+ 
+
+library(flexdashboard)
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(plotly)
+library(sf)
+
+# This line is important, we use it to change plots background color
+# to the color of the dashboard background, so generally a good thing.
+# But many themes won't work with that, so the price is, that we won't be able to use them
+thematic::thematic_rmd() # if you don't want to use it, comment out this line with a #
+
+```
+
+Column {data-width=650 .tabset}
+-----------------------------------------------------------------------
+
+### Map, Positive tests ratio
+
+```{r fig.dim = c(10.5, 9.5), fig.align='center'}
+
+map_percent_positive <- readRDS("map_percent_positive.RDS")
+
+
+# firstly we will create our custom color pallet
+# it's a palette aimed to represent continuous variables
+
+
+custom_palette <- colorRampPalette(c("#ff8a64",
+                                     "#842485", "#52107a", "#181041"))(n = 100)
+
+
+map_perc_positive_region <- ggplot() +
+  geom_sf(data = map_percent_positive, aes(fill = percent)) + 
+  geom_sf_text(data = map_percent_positive,
+               aes(label = paste0(round(percent, 1), "%"))
+                , size = 5, fontface = "bold")+
+  scale_fill_gradientn(
+    colours = custom_palette,
+    limits = c(0, 4),
+    labels = function(x) paste0(x, "%"))+
+  labs(title = "Percentage of Positive PKD Tests Results",
+       subtitle = "Poland, Summary from 2015 to 2022",
+        fill = "") +
+  theme_void()+
+  theme(                   # in theme section we specify the general style of the plot
+    plot.title = element_text(color = "white", size= "22"),
+    plot.subtitle = element_text(color = "white", size= "21"),
+    legend.title = element_text(color = "white", size= "16"),
+    legend.text = element_text(color = "white", size= "15"),
+    legend.key.size = unit(1.7, "lines"),
+    legend.position = "right"
+       )
+
+map_perc_positive_region
+
+
+
+
+```
+
+
+### Tests and Infections
+
+```{r}
+
+testsPosit_1517_100k <- readRDS("testsPosit_1517_100k.RDS")
+
+# names are long, so we will abbreviate them 
+
+abbreviation_labels <- c(
+  "DOLNOSLASKIE" = "DL",
+  "KUJAWSKO-POMORSKIE" = "KP",
+  "LODZKIE" = "LD",
+  "LUBELSKIE" = "LB",
+  "LUBUSKIE" = "LS",
+  "MALOPOLSKIE" = "MP",
+  "MAZOWIECKIE" = "MZ",
+  "OPOLSKIE" = "OP",
+  "PODKARPACKIE" = "PK",
+  "PODLASKIE" = "PD",
+  "POMORSKIE" = "PM",
+  "SLASKIE" = "SL",
+  "SWIETOKRZYSKIE" = "SK",
+  "WARMINSKO-MAZURSKIE" = "WM",
+  "WIELKOPOLSKIE" = "WP",
+  "ZACHODNIOPOMORSKIE" = "ZP"
+)
+
+
+# 16 colors, because we have 16 variables
+
+color_palette <- c("#08044C", "#2B118D", "#52107A", "#845ec2",  "#d65db1", "#E991FF", "#ff6f91", "#ff9671",
+                     "#ffc75f", "#f9f871", "#ffdbff", "#8f1ca7", "#2bfcf0", "#00c2b8", "#008b83", "#e2e8f5")
+
+
+# it should be a bubble plot, check the titles to use the right variables
+
+
+bubblesPlot <- ggplot(testsPosit_1517_100k, aes(x = tests100k , y = posit100k , size = population_size , color = Województwo )) +
+  geom_point(alpha = 0.8) +
+  scale_size( breaks = c(1, 2, 3, 4, 5), range = c(3, 12)) +
+  scale_color_manual(values = color_palette, name = "region name", labels = abbreviation_labels) +
+  labs(x = "Number of Tests per 100k", y = "Number of Infections per 100k", 
+       title= "Testing Scale and Infections", subtitle = "Polish Voivodeships, 2015 to 2017")+ 
+  theme(
+    
+    panel.grid.major = element_blank(),  # Removing major grid lines
+    panel.grid.minor = element_blank(),  # removing minor grid lines
+    panel.background = element_rect(fill = "#004063"), # plot panel color
+    axis.line = element_line(color = "gray")
+    
+    
+  )
+
+
+ggplotly(bubblesPlot)
+
+
+
+```
+
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+
+### HIV positive people remaine undiagnosed 
+
+```{r echo=FALSE}
+
+# "Still an estimated 1 in 8 people living with HIV in the EU/EEA remains undiagnosed."
+# https://www.who.int/europe/news/item/30-11-2022-who-europe-and-ecdc-report-reveals-increasing-numbers-living-with-undiagnosed-hiv-in-the-region  
+# you can find icons here: https://fontawesome.com/
+# be aware that not all of them will work
+
+valueBox("1 in 8", icon = "fa-user", color = "#C03D29")
+
+
+
+```
+
+
+### 
+
+```{r echo=FALSE, fig.dim = c(9, 12)}
+
+year_count <- readRDS("year_count.RDS")
+
+# create a lineplot that will represent the number of infections across the years
+
+infections_years <- ggplot(year_count, aes(x= rok, y= count)) + geom_line(linewidth= 1.5)+ 
+  scale_x_continuous(breaks = 1999:2017)+ # add a right scale for years
+  scale_y_continuous(breaks = seq(0, 1600, by= 200), limits = c(0, 1600))+
+  labs(title = "Number of Detected HIV Positive People",
+           subtitle = "Poland, 1999 to 2017", x = "", y= "")+
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text = element_text(size = 18),  
+    axis.title = element_text(size = 20),  
+    legend.text = element_text(size = 18),  
+    legend.title = element_text(size = 20),
+    plot.title = element_text(size = 22),
+    plot.subtitle = element_text(size = 20),
+    panel.background = element_rect(fill = "#004063"), # changing panel color
+    panel.grid.major = element_blank(), # Removing major grid lines
+    panel.grid.minor = element_line(color = "gray", linetype = "dashed"), # leaving minor lines
+    plot.title.position = "plot"
+       ) 
+
+
+infections_years
+```
+
+
+

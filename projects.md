@@ -1,12 +1,9 @@
 ---
-layout: default
-title: Projects
-navbar:
-  left:
-    - text: Home
-      href: index.m
-    - text: Projects
-      href: projects.m
-    - text: Sample Project
-      href: sample_project.Rmd
+title: ""
+layout: page
+toc: true
+output:
+  md_document:
+    variant: markdown_github
+    preserve_yaml: true
 ---
