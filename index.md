@@ -79,7 +79,7 @@ div.content { max-width: 800px;
 
 
 
-<img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\123-min.jpg">
+<img src="https://github.com/Niklewa/Niklewa.github.io/raw/main/123-min.jpg">
 <p align="justify" style="font-size:18px">I am a philosophy passionate about to complete a master's degree in formal epistemology. This specific branch of philosophy drew me towards data analysis and it became my second field of scientific inquiry. Applying formal methods from the philosophical plane to the real world is something that connects my different interests. Technologies that are the most familiar to me are: R, Python, and MS SQL. In my free time, I like to dive in head-first into classical culture: music, and literature. I am also a big fan of existential cinema (A. Tarkovsky is the love of my life), and existential philosophy too.</p>  
 
 &nbsp; <br>

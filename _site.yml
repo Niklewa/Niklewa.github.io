@@ -2,11 +2,11 @@ name: "Niklewa.github.io"
 navbar:
   left:
   - text: "Home"
-    href: index.md
+    href: index.html
   - text: "Projects"  # Add the "Projects" tab
-    href: projects.md  # Link it to your projects.html file
+    href: projects.html  # Link it to your projects.html file
   - text: "Sample Project"
-    href: sample_project.md
+    href: sample_project.html
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
