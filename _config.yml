@@ -1,0 +1,37 @@
+name: "Niklewa.github.io"
+output_dir: "docs"
+navbar:
+  left:
+  - text: "Home"
+    href: index.html
+  - text: "Sample Project"
+    href: sample_project.html
+  - text: "Projects"
+    href: SampleProjects.html
+output: html_document
+theme: jekyll-theme-minimal
+title: Nikodem Lewandowski
+
+
+
+# Site Build Settings
+
+# Jekyll-paginate-v2 configuration
+#  pagination:
+#   enabled: true
+#   per_page: 5
+#   permalink: '/page/:num/'
+#   title: ':title - page :num of :max'
+#   limit: 0
+#   sort_field: 'date'
+#   sort_reverse: true
+
+# jekyll-paginate configuration
+#paginate:            5
+
+# Build settings
+markdown:            kramdown
+highlighter:         rouge
+permalink:           none
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+
