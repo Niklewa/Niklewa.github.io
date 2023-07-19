@@ -58,10 +58,7 @@ div.content { max-width: 800px;
 
 <div class="container-fluid main-container">
 
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
@@ -73,12 +70,8 @@ div.content { max-width: 800px;
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="sample_project.html">Sample Project</a>
-</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sample_project.html">Sample Project</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -88,11 +81,6 @@ div.content { max-width: 800px;
 </div><!--/.navbar -->
 
 <div id="header">
-
-
-
-
-</div>
 
 
 
@@ -177,6 +165,7 @@ div.content { max-width: 800px;
 </div> 
 
 
+</div>
 </div>
 </body>
 
