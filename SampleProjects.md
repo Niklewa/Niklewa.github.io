@@ -13,6 +13,6 @@ Link second
 flexPart1DashFILLED.html
 
 
-<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/docs/flexPart1DashFILLED.html"> Dash</a>
+<a href="https://niklewa.github.io/flexPart1DashFILLED.html"> Dash</a>
 
 
