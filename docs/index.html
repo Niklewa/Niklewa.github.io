@@ -1,375 +1,274 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<title>index.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
+
+
+
+<title>index.knit</title>
+
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
+</script>
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
 img {
-	max-width: 100%;
-	max-height: 100%;
+  max-width:100%;
 }
-
-a {
-	text-decoration: none;
+.tabbed-pane {
+  padding-top: 12px;
 }
-
-a:hover {
-	text-decoration: underline;
+.html-widget {
+  margin-bottom: 20px;
 }
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
+button.code-folding-btn:focus {
+  outline: none;
 }
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
+summary {
+  display: list-item;
 }
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+details > summary > p:only-child {
+  display: inline;
 }
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
 pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
+  padding: 0;
 }
 </style>
 
-<style>
-/*
- * Markdown PDF CSS
- */
 
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
 }
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
 }
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
 }
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
 }
-
-.emoji {
-	height: 1.4em;
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
 }
-
-code {
-	font-size: 14px;
-	line-height: 19px;
+.dropdown-submenu.pull-left {
+  float: none;
 }
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
 </style>
 
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
 </head>
+
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="sample_project.html">Sample Project</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></p>
 <style>  
 .footer {  
 position: fixed;  
@@ -407,53 +306,119 @@ div.content { max-width: 800px;
 <body>
 <div class="content">
 <div class="example">
+
+
 <center>
-<p style="text-align:center;font-size:28px">Nikodem Lewandowski</p> 
-&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:24px;color:grey"></i></a>  &nbsp; &nbsp;
+<p style="text-align:center;font-size:28px">
+Nikodem Lewandowski
+</p>
+   
+<a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:24px;color:grey"></i></a>
+   
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:24px;color:grey"></i></a>
+   
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:24px;color:grey"></i></a>
+   
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:24px;color:grey"></i></a>
+   
 </center
-<p>  <br>
-  <br>
-  <br>
-  <br>
-  <br></p>
-<img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\123-min.jpg">
-<p align="justify" style="font-size:18px">I am a philosophy passionate about to complete a master's degree in formal epistemology. This specific branch of philosophy drew me towards data analysis and it became my second field of scientific inquiry. Applying formal methods from the philosophical plane to the real world is something that connects my different interests. Technologies that are the most familiar to me are: R, Python, and MS SQL. In my free time, I like to dive in head-first into classical culture: music, and literature. I am also a big fan of existential cinema (A. Tarkovsky is the love of my life), and existential philosophy too.</p>  
-<p>  <br>
-  <br>
-  <br>
-  <br>
-  <br></p>
+
+&nbsp; <br>
+<p>  <br>   <br>   <br>   <br></p>
+<img src="123-min.jpg">
+<p align="justify" style="font-size:18px">
+I am a philosophy passionate about to complete a master’s degree in
+formal epistemology. This specific branch of philosophy drew me towards
+data analysis and it became my second field of scientific inquiry.
+Applying formal methods from the philosophical plane to the real world
+is something that connects my different interests. Technologies that are
+the most familiar to me are: R, Python, and MS SQL. In my free time, I
+like to dive in head-first into classical culture: music, and
+literature. I am also a big fan of existential cinema (A. Tarkovsky is
+the love of my life), and existential philosophy too.
+</p>
+<p>  <br>   <br>   <br>   <br>   <br></p>
 <ul style="font-size:18px">
- <li> If you want to see a sample of my abilities, check out my sample project (and my github profile for more): <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
-&nbsp; <br>
-&nbsp; <br>
- <li>  If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf"> Resume</a>
+<li>
+If you want to see a sample of my abilities, check out my sample project
+(and my github profile for more):
+<a href="https://niklewa.github.io/sample_project.html">Sample
+Project</a>   <br>   <br>
+<li>
+If you want to know more about me, you can download my resume here:
+<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf">
+Resume</a>
 </ul>
-<p>  <br>
-  <br>
-  <br></p>
-<p style="font-size:18px">You can contact me through various channels, to do this click an icon of your choice at the top or at the bottom of this page. </p>
-<p>  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br></p>
-<div class="footer">  
+<p>  <br>   <br>   <br></p>
+<p style="font-size:18px">
+You can contact me through various channels, to do this click an icon of
+your choice at the top or at the bottom of this page.
+</p>
+<p>  <br>   <br>   <br>   <br>   <br>   <br></p>
+<div class="footer">
 <center>
-<p style="text-align:center;font-size:14px">Nikodem Lewandowski</p>  
-&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
-<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<p style="text-align:center;font-size:14px">
+Nikodem Lewandowski
+</p>
+<p>   
+<a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:18px;color:grey"></i></a>
+   
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:18px;color:grey"></i></a>
+   
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:18px;color:grey"></i></a>
+   
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:18px;color:grey"></i></a>
+   </p>
 </center>
-</div>  
-</div> 
+</div>
+</div>
 </div>
 </body>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
 </html>
