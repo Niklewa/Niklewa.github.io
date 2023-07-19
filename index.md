@@ -49,8 +49,19 @@ div.content { max-width: 800px;
   }
 }
 
+
+
+
+
+
 </style>
 
+<nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+  </nav>
 
 
 </head>
