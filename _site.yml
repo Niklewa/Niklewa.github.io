@@ -5,8 +5,6 @@ navbar:
     href: index.html
   - text: "Projects"  # Add the "Projects" tab
     href: projects.html  # Link it to your projects.html file
-  - text: "Sample Project"
-    href: sample_project.html
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
