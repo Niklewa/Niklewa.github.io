@@ -10,7 +10,10 @@ library(purrr)
 library(ggplot2)
 library(ggthemes)
 library(scales)
-dat_nsfg <- read.csv("C:\\Users\\nikod\\Documents\\Praca_dyplomowa\\main_data\\dat_nsfg.csv")
+library(kableExtra)
+library(ggpubr)
+
+dat_nsfg <- read.csv("C:/Users/nikod/Documents/RProjects/Cohab_nsfg/Data/dat_nsfg.csv")
 
 ```
 <head>
@@ -140,9 +143,13 @@ write.csv(dat_nsfg, "C:\\nikod\\Documents\\main_data\\dat_nsfg.csv",
 
 Let's have a quick look at the data frame:
 
-```{r echo=FALSE}
-head(dat_nsfg)
+```{r echo=FALSE,  fig.align='center'}
+h_dat_nsfg <- head(dat_nsfg, 10)
 
+
+kbl(h_dat_nsfg) %>%
+  kable_styling(position = "center", font_size = 7.5,
+                bootstrap_options = c("striped", "hover", "condensed", "scale_down", "HOLD_position"))
 ```
 
 
@@ -164,9 +171,11 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(purrr)
+library(ggpubr)
 library(ggplot2)
 library(ggthemes)
 library(scales)
+library(kableExtra)
 
 dat_nsfg$marrend[is.na(dat_nsfg$marrend)] <- 99 
 dat_nsfg$livtogn[is.na(dat_nsfg$livtogn)] <- 99  
@@ -241,10 +250,13 @@ dat_nsfg1 <- dat_nsfg %>%
 
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 df <- dat_nsfg1 %>%   
-  filter(cohab_bef_marr != 99) 
-head(df)
+  filter(cohab_bef_marr != 99) %>%  head(n = 10) 
+
+kbl(df) %>%
+  kable_styling(position = "center", font_size = 12,
+                bootstrap_options = c("striped", "scale_down", "HOLD_position"))
 ```
 &nbsp; <br>
 
@@ -282,7 +294,7 @@ The difference in probability of getting a divorce is slightly different in favo
 To create the plots below I have used the ggplot2 package, which is a powerful visualization tool. The trick to making those plots was creating a data frame that suits that purpose. The process of making those data frames was repetitive and boring, if you are curious about how I did it, check out the source code. It's pretty clean and well commented, so you should not have a problem with navigation in the code.        
 
 &nbsp; <br>
-```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%"}
+```{r echo=FALSE, fig.show="hold", fig.dim = c(8, 6.5)}
 df <- dat_nsfg1 %>%   
   filter(cohab_bef_marr != 99)
 
@@ -334,26 +346,49 @@ df69 <- data.frame(status6, divorce_truth_value, divorce_or_not, values, val_per
 
 
 p6 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6)) + 
-  geom_bar(position="stack", stat="identity") + theme_tufte() + 
-  scale_y_continuous(ylab("All Married"), limits = c(0, 20000)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+  geom_bar(position="stack", stat="identity", width = 0.6) + theme_tufte() + coord_flip()+
+  scale_y_continuous(limits = c(0, 20000)) +  
+  scale_x_discrete(xlab(""), limits=c("Cohab", "No cohab", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
-  ggtitle("Scale of divorces accros different statuses") + scale_fill_brewer(palette = "Paired") +
-  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Divorced") + theme(text = element_text(size = 24))
+ scale_fill_brewer(palette = "Paired") +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.title.position = "plot") +
+  labs(fill = "Divorced", y='Married',
+       title = "Divorce rates accros different statuses") +
+  theme(text = element_text(size = 20),
+        legend.position = c(0.85, 0.8))+
+   geom_text(
+    data = subset(df69, divorce_truth_value == "yes"),
+    aes(label = val_perc, y = divorce_or_not + 950),
+    position = "stack",
+    size = 6,
+    fontface = "bold"
+  )
 p6
 
+# p7 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6)) + 
+#   geom_bar(position="fill", stat="identity") + theme_tufte() + coord_flip()+
+#   scale_y_continuous(ylab("All married"), labels = percent) +  
+#   scale_x_discrete(xlab(""), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+#                                             "Devoted", "Not devoted")) +
+#   geom_text(data = subset(df69, divorce_truth_value == "yes"),
+#             aes(label = val_perc, y = values + 0.06),
+#             position = "stack", size=7, fontface = "bold") +
+#   scale_fill_brewer(palette = "Paired") +
+#   labs(fill = "Divorced")  +
+#   theme(plot.title = element_text(hjust = 0.5),
+#         legend.position = 'hide',
+#         plot.title.position = "plot") + 
+#   theme(text = element_text(size = 20))
 
-p7 <- ggplot(df69 , aes(fill=divorce_truth_value , y=divorce_or_not, x=status6)) + 
-  geom_bar(position="fill", stat="identity") + theme_tufte() + 
-  scale_y_continuous(ylab("All married"), labels = percent) +  
-  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
-                                            "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc, y=values), position = "stack", size=8) + scale_fill_brewer(palette = "Paired") +
-  labs(fill = "Divorced") + ggtitle("Scale of divorces accros different statuses") +
-  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 24))
-# theme(axis.text.x = element_text(angle = 45)) 
-p7
 
+# 
+# divInitital <- ggarrange(p6, p7, ncol = 1)
+# 
+# 
+# annotate_figure(divInitital,
+#                 top = text_grob("Divorce rates accros different statuses",
+#                                              face = "bold", size = 22))
 ```
 
 &nbsp; <br>
@@ -362,7 +397,7 @@ The plot on the left represents nominal values, it is easy to draw hasty conclus
 Now, let's see a similar plot that includes separation status along with divorce.
    
 &nbsp; <br>
-```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%"}
+```{r echo=FALSE, fig.dim = c(8, 6.5), fig.show="hold"}
 fun_33 <- function(x,y,z){
   dim(certain_df %>% 
         filter(x == y) %>% 
@@ -431,28 +466,58 @@ dfdiv2 <- data.frame(status33 , x_truth_value,
 dfdiv2$x_truth_value <-  factor(c("married", "div",  "sep"), levels = c("married", "div",  "sep"))
 
 p18<- ggplot(dfdiv2 , aes(fill=x_truth_value, y=three_comb, x=status33)) + 
-  geom_bar(position="stack", stat="identity", ) + theme_tufte() + 
-  scale_y_continuous(ylab("All married"), limits = c(0, 20000)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+  geom_bar(position="dodge", stat="identity", ) + theme_tufte() + 
+  scale_y_continuous(ylab("Married"), limits = c(0, 12500)) +  
+  coord_flip() +
+  scale_x_discrete(xlab(""), limits=c("Cohab", "No cohab", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
   ggtitle("Scale of divorce or separation accros different statuses") +
 
-  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Div or Sep") + 
-  scale_fill_brewer(palette = "Paired") + theme(text = element_text(size = 24))
+  theme(plot.title = element_text(hjust = 0.5),
+        text = element_text(size = 20),
+        legend.position = c(0.85, 0.8),
+        plot.title.position = "plot") + labs(fill = "") + 
+  scale_fill_brewer(palette = "Paired", labels = c("married", "divorced", "separated")) +
+  geom_text(aes(label = val_perc4, y = three_comb + 700),
+            position = position_dodge(width = 0.9), size = 6)
+# vjust = -0.5
 p18
 
-p19 <- ggplot(dfdiv2 , aes(fill=x_truth_value , y=three_comb, x=status33 )) + 
-  geom_bar(position="fill", stat="identity") + theme_tufte() + 
-  scale_y_continuous(ylab("All married"), labels = percent) +  
-  scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
-                                            "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc4, y=values4), position = "stack", size=8) + 
-  scale_fill_brewer(palette = "Paired") +
-  ggtitle("Scale of divorce or separation accros different statuses") +
-  theme(plot.title = element_text(hjust = 0.5)) +
-  labs(fill = "Div or Sep") + theme(text = element_text(size = 24))
+# p19 <- ggplot(dfdiv2 , aes(fill=x_truth_value , y=three_comb, x=status33 )) + 
+#   geom_bar(position="fill", stat="identity") + theme_tufte() + 
+#   scale_y_continuous(ylab("All married"), labels = percent) +  
+#   scale_x_discrete(xlab("Status"), limits=c("Cohab", "No cohab", "Believer", "Non believer",
+#                                             "Devoted", "Not devoted")) +
+#   geom_text(aes(label = val_perc4, y=values4), position = "stack", size=8) + 
+#   scale_fill_brewer(palette = "Paired") +
+#   ggtitle("Scale of divorce or separation accros different statuses") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   labs(fill = "Div or Sep") + theme(text = element_text(size = 24))
+# 
+# p19
 
-p19
+
+# p8 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) + 
+#   geom_bar(position="stack", stat="identity", width = 0.6) + theme_tufte() + 
+#   scale_y_continuous(ylab("Married"), limits = c(0, 20000)) + coord_flip() +
+#   scale_x_discrete(xlab(""), 
+#                    limits=c("Divorced", "No divorced", "Believer", "Non believer",
+#                                             "Devoted", "Not devoted")) +
+#   ggtitle("Rate of cohabitation accros different statuses") +
+#   scale_fill_brewer(palette = "Pastel1") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   labs(fill = "Cohabited")  + 
+#   theme(text = element_text(size = 20),
+#         legend.position = c(0.85, 0.8),
+#         plot.title.position = "plot")+
+#   geom_text(
+#     data = subset(df67, cohab_truth_value == "yes"),
+#     aes(label = val_perc2, y = cohab_or_not + 950),
+#     position = "stack",
+#     size = 6,
+#     fontface = "bold"
+#   )
+
 
 
 ```
@@ -461,7 +526,7 @@ p19
 The tendencies are similar, there is no meaningful difference in the proportion. Still, religion has the biggest influence on the divorce rate. Being a believer or being a devoted believer reduces the chances of getting a divorce. Religion is a base belief, therefore it can have a role of a basic factor. This belief has a great influence on one set of beliefs e.g. the attitude towards cohabitation before marriage. Let's then test the possibility of a correlation between religion and cohabitation.    
 
 &nbsp; <br>
-```{r echo=FALSE, fig.dim = c(10, 9), fig.show="hold",  out.width="50%" }
+```{r echo=FALSE,  fig.dim = c(8, 6.5), fig.show="hold"}
 
 status7 <- c(rep("Divorced", 2),rep("No divorced", 2),
              rep("Believer", 2), rep("Non believer", 2),
@@ -507,29 +572,40 @@ df67 <- data.frame(status7, cohab_truth_value, cohab_or_not, values2, val_perc2)
 
 
 p8 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) + 
-  geom_bar(position="stack", stat="identity") + theme_tufte() + 
-  scale_y_continuous(ylab("All married"), limits = c(0, 20000)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Divorced", "No divorced", "Believer", "Non believer",
+  geom_bar(position="stack", stat="identity", width = 0.6) + theme_tufte() + 
+  scale_y_continuous(ylab("Married"), limits = c(0, 20000)) + coord_flip() +
+  scale_x_discrete(xlab(""), 
+                   limits=c("Divorced", "No divorced", "Believer", "Non believer",
                                             "Devoted", "Not devoted")) +
-  ggtitle("Scale of cohabitation accros different statuses") + scale_fill_brewer(palette = "Paired") +
-  theme(plot.title = element_text(hjust = 0.5)) + labs(fill = "Cohabited")  + theme(text = element_text(size = 24))
+  ggtitle("Rate of cohabitation accros different statuses") +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(fill = "Cohabited")  + 
+  theme(text = element_text(size = 20),
+        legend.position = c(0.85, 0.8),
+        plot.title.position = "plot")+
+  geom_text(
+    data = subset(df67, cohab_truth_value == "yes"),
+    aes(label = val_perc2, y = cohab_or_not + 950),
+    position = "stack",
+    size = 6,
+    fontface = "bold"
+  )
+
+
 p8
 
-p9 <- ggplot(df67 , aes(fill=cohab_truth_value , y=cohab_or_not, x=status7)) + 
-  geom_bar(position="fill", stat="identity") + theme_tufte() + 
-  scale_y_continuous(ylab("All married"), labels = percent) +  
-  scale_x_discrete(xlab("Status"), limits=c("Divorced", "No divorced", "Believer", "Non believer",
-                                            "Devoted", "Not devoted")) +
-  geom_text(aes(label = val_perc2, y=values2), position = "stack", size=8) + scale_fill_brewer(palette = "Paired") +
-  labs(fill = "Cohabited") + ggtitle("Scale of cohabitation accros different statuses") +
-  theme(plot.title = element_text(hjust = 0.5))  + theme(text = element_text(size = 24))
-# theme(axis.text.x = element_text(angle = 45)) 
-p9
+
+
+
+
+
+
 
 ```
 &nbsp; <br>
 
-As it turns out, religious beliefs have a big influence on the probability of cohabiting, therefore we can risk a hypothesis that we find a hidden correlate. The bayesian dependency tree below illustrates the relation of the factors of our interest. $C$ stands for cohabitation, $A$ atheism, and $D$ divorce.
+As it turns out, religious beliefs have a big influence on the probability of cohabiting, therefore we can risk a hypothesis that we find a hidden correlate. The bayesian dependency tree below illustrates the relation of the factors of our interest. $C$ stands for cohabitation, $A$ atheism, and $D$ divorce. So a confounder.
 &nbsp; <br>
 
 <div style="text-align: center;"><img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\bayes network.png"></div>
@@ -595,7 +671,7 @@ div_sep_diff <- c(
 names <- c("Atheist - Believer", "Not Devoted - Devoted",
                "Atheist - Devoted", "Cohab - Not Cohab")
 df_differences <- data.frame(names, div_diff, div_sep_diff, cohab_diff)
-df_differences
+
 ```
 
 
