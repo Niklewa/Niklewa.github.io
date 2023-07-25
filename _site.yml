@@ -6,5 +6,7 @@ navbar:
     href: index.html
   - text: "Projects"
     href: SampleProjects.html
+  - text: "Papers"
+    href: papers.html
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski

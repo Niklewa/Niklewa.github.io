@@ -62,7 +62,7 @@ div.content { max-width: 800px;
 <a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
 <a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:24px;color:grey"></i></a> &nbsp; &nbsp;
 <a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:24px;color:grey"></i></a>  &nbsp; &nbsp;
-</center
+</center>
 
 &nbsp; <br>
 &nbsp; <br>

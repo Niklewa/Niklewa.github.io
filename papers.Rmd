@@ -1,0 +1,56 @@
+---
+theme: "jekyll-theme-minimal"
+layout: default
+---
+<head>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>  
+.footer {  
+position: fixed;  
+margin: 0 auto;
+left: 10px;  
+bottom: 5px;  
+right: 10px;   
+max-width: auto;  
+background-color: whitesmoke;  
+color: grey;  
+text-align: center;  
+}  
+
+img {  
+    max-width: 200px; 
+    float: left; 
+    margin-right: 10px; 
+  } 
+  
+  
+  
+div.content { max-width: 800px;
+              margin: auto}
+
+
+
+@media screen and (min-width: 600px) {
+  div.example {
+    max-width: auto;
+  }
+}
+
+</style>
+
+
+
+</head>
+
+
+
+My bachelors thesis
+
+My master thesis
