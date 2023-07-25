@@ -1,4 +1,5 @@
 ---
+title: "Papers"
 theme: "jekyll-theme-minimal"
 layout: default
 ---
@@ -49,11 +50,18 @@ div.content { max-width: 800px;
 
 </head>
 
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
 
 
 My bachelors thesis
 
+<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiBA.pdf">Bachelor's thesis</a>
+
 My master thesis
+
+<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiMA.pdf">Master's thesis</a>
 
 &nbsp; <br>
 &nbsp; <br>
