@@ -5,7 +5,7 @@ layout: default
 
 
 <head>
-
+<title>N. Lewandowski</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
@@ -92,8 +92,8 @@ div.content { max-width: 800px;
 &nbsp; <br>
 
 
-<ul style="font-size:18px">
- <li> If you want to see a sample of my abilities, check out my sample project (and my github profile for more): <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
+<ul style="font-size:16px">
+ <li> If you want to see a sample of my abilities, check out one of my sample projects (and my github profile for more): <a href="https://niklewa.github.io/sample_project.html">Sample Project</a>
 &nbsp; <br>
 &nbsp; <br>
  <li>  If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/N_Lewandowski_CV_1.pdf"> Resume</a>
@@ -106,7 +106,7 @@ div.content { max-width: 800px;
 &nbsp; <br>
 &nbsp; <br>
 
-<p style="font-size:18px">You can contact me through various channels, to do this click an icon of your choice at the top or at the bottom of this page. </p>
+<p style="font-size:16px">You can contact me through various channels, to do this click an icon of your choice at the top or at the bottom of this page. </p>
 
 &nbsp; <br>
 &nbsp; <br>
