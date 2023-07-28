@@ -54,14 +54,26 @@ div.content { max-width: 800px;
 &nbsp; <br>
 &nbsp; <br>
 
+<p align="justify" style="font-size:16px"> In this section you can find some of my research writings. </p>
 
-My bachelors thesis
+&nbsp; <br>
+&nbsp; <br>
 
-<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiBA.pdf">Bachelor's thesis</a>
+### My bachelor's thesis - Philosophical Challenges to Imprecise Probabilism
 
-My master thesis
+<p align="justify" style="font-size:14px">
+&nbsp; In this work, I introduce the concept of Imprecise Probabilism, a notion where intervals are utilized to represent an agent's beliefs instead of single values. I provide arguments both in favor of and against this approach, with a particular emphasis on the accuracy centered approach to epistemology. While imprecise probabilities find support in numerous evidential claims, they also encounter challenges from a more theoretical perspective, such as the accuracy-centered epistemology.</p>
 
-<a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiMA.pdf">Master's thesis</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiBA.pdf">Bachelor's thesis</a>
+
+&nbsp; <br>
+
+### My master's thesis -  Exploring the Maximally Sensitive Priors 
+
+<p align="justify" style="font-size:14px">
+&nbsp; In this work we explore the Maximum Sensitivity method (MaxSen) of selecting priors for Bayesian inference in the face of severe lack of evidence (Konek, 2013). The most popular and well-respected principle of dealing with uncertainty in such contexts is the Maximum Entropy principle (MaxEnt), which, roughly, recommends the least informative prior in a given situation. MaxSen, instead, minimizes the need of relying on the epistemic luck of true parameter values (such as chances) falling closely to their prior estimate. We start with a brief outline of MaxEnt and an explanation of Konek’s anti-luck approach to priors. Next, we explore his perspective on the theoretical role of priors and illustrate how this viewpoint informs the formulation of MaxSen. Then we explore the impact of the choice of the scoring method on the recommendations made by MaxSen. It turns out that if we use Kullback-Leibler Divergence (KLD) as a distance measure (instead of Cramer-von-Mises, which Konek originally used), the recommendations are the same as that of MaxEnt. Next, we estimate how quickly the recommended prior distribution concentration increases with the planned sample size. </p>
+
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiMA.pdf">Master's thesis</a>
 
 &nbsp; <br>
 &nbsp; <br>
