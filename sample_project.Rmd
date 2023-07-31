@@ -1,5 +1,5 @@
 ---
-title: "Cohabitation and Divorce"
+title: "Premarital Cohabitation and Divorce Rate"
 ---
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -682,7 +682,9 @@ The next step will be more substantial. We will construct a Bayesian statistical
 
 &nbsp; <br>
 
-## Model
+## The Model
+
+&nbsp; <br>
 
 To draw meaningful and epistemically modest observations, let's construct a Bayesian logistic regression model that will reveal the relationships between religious belief, premarital cohabitation, and divorce rate.    
 
