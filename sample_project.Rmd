@@ -64,10 +64,16 @@ div.collaps {
 &nbsp; <br>
 &nbsp; <br>
 
-In this project, I conduct an analysis of the NSFG database in order to test the hypothesis that cohabitation before marriage increases the probability of divorce. I aim to test the correlation between cohabitation and divorce and to look for other factors that may increase the probability of divorce and factors that might have a status of hidden correlate. To view the source code visit my GitHub repo: https://github.com/Niklewa/Cohab_nsfg            
+In this project, I am conducting an analysis of the NSFG (National Survey of Family and Growth) database to test the hypothesis that cohabitation before marriage increases the probability of divorce. My objective is to examine the correlation between cohabitation and divorce while also exploring other factors that could potentially influence the likelihood of divorce. Additionally, I will investigate factors that may have a status of hidden correlate. For the source code, you can visit my GitHub repository: https://github.com/Niklewa/Cohab_nsfg
+
 &nbsp; <br>
-This document has been created within R studio, as a markdown document. In this paper I will firstly describe shortly the data that I used, then I will proceed to the description of my analysis. My analysis consists of three parts. In the beginning, I intended to conduct this analysis fully in R studio, however, I had to use Python language (jupyter lab) to deal with some problems, because I didn't find a satisfying solution within R studio. Therefore, the first part, that is obtaining the data and saving it in .csv format was done in jupyter notebook. The second part, data cleaning, and wrangling were done in R, as well as the third part, that is, proper data analysis.    
-In the first two parts, I was preparing the data for the main part of this project. That's why they will be presented in the abbreviated version. The third part, proper analysis, consists of: testing conditional probabilities, visualization, and chi-squared test. Methods were chosen according to the nature of the data.    
+
+This document has been created within R Studio as a markdown document. The paper begins with a brief description of the data used, followed by an explanation of the analysis performed. The analysis is divided into three parts, primarily conducted in R Studio. However, the first part, which involves obtaining the data and saving it in .csv format, was completed using Jupyter Notebook due to some file extensions that do not save neatly in R data objects.     
+
+The second part, involving data cleaning and wrangling, as well as the third part, which encompasses the proper data analysis, were both done using R. In the first two parts, the data was prepared for the main analysis of the project, and therefore, they will be presented in an abbreviated version.    
+
+The third part, the proper analysis, includes the following techniques: testing conditional probabilities, visualization, conducting a chi-squared test, and building a Bayesian logistic regression model.   
+
 &nbsp; <br>
 
 
@@ -75,20 +81,32 @@ In the first two parts, I was preparing the data for the main part of this proje
 
 &nbsp; <br>
 
+The National Survey of Family Growth (NSFG) is a periodic questionnaire conducted in the USA to investigate social aspects of American families. The dataset I used for my analysis covered the years between 2002 and 2019. The variables of interest included marital status, cohabitation, age, religious beliefs, and socio-political opinions.       
 
-National Survey of Family Growth (NSFG) is a questionnaire conducted, irregularly, in the USA. The part of the data that I was using concerned the years between 2002-2019. The survey investigates social aspects of American families. There are many interesting variables, I was concerned with questions such as: marital status, cohabitation, age, religious beliefs, and socio-political opinions.   
-     
-<div class = "collaps">
-Source of the data: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NSFG/stata/  
-Data documentation: https://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm </div>     
 &nbsp; <br> 
-In the chosen data there were more than 70 000 respondents. A sample of 20 000 people was adequate for my analysis because to test various variables influence on divorce, I had to include only married people. The major problems of this database are: the data format, the size, and various names of the same variables. In order to deal with the first problem, I had to apply the following method.   
+
+<div class = "collaps">
+
+The data source for this project can be found at: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NSFG/stata/
+
+For data documentation, refer to: https://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm 
+</div>   
+
+&nbsp; <br> 
+
+The dataset contained over 70,000 respondents, but for my analysis focusing on variables' influence on divorce, I chose a sample of 20,000 married individuals, which was deemed adequate.
+
+The major challenges with this database were related to the data format, its size, and the existence of various names for the same variables. To address the data format issue, I employed a specific method to handle and organize the data effectively.
+
 &nbsp; <br>
 
 ## Data preparation   
 
 &nbsp; <br>
-The data were stored on the NSFG web page in a rather strange format. A single survey result was stored in .dat format, but to use it, it had to be connected with the adequate key file in the .dct format. Dealing with a file in a regular .dat format is not particularly problematic, but there are less than a few satisfying solutions to this problematic doubled format. I decided to use python for that, as I mentioned at the beginning. Statadict package delivers an elegant solution to that problem.
+
+The data storage format on the NSFG web page presented a unique challenge. Each survey result was stored in a .dat format, but in order to utilize it, it had to be connected with the corresponding key file in the .dct format. Handling a file in the regular .dat format is not particularly difficult, but dealing with this combined .dat and .dct format presented limited satisfactory solutions.      
+
+As mentioned earlier, I opted to use Python to tackle this issue. I found the Statadict package to provide an elegant and effective solution to handle the combined .dat and .dct format, making it possible to extract and work with the data for analysis. This choice allowed me to proceed with my analysis smoothly and efficiently.
 
 &nbsp; <br>
 ```{python  eval=FALSE}
@@ -103,9 +121,14 @@ for dat,dct in zip(dat_name, dct_name):
 ```
 
 &nbsp; <br>
-Firstly I automated the downloading process from the NSFG web page and saved the file in two lists: dat_name and dct_name. The function above connects .dat files with their keys and saves them in separate .csv files. The process of naming those files is also automated.      
-After obtaining the data and saving it in .csv files I proceeded to R studio, in order to deal with the next two problems: the size of the data, and various names of the same variables.     
-At first, I divided the data files into 3 groups, every group has common names of variables. The groups were placed in separate folders. My tactic was to create separate data frames where the variable names will be unified. The problem was the number of variables, in some files, there were more than 1 400 variables! To deal with it, firstly I read the data documentation and I have chosen the variables that interest me. Then, by specifying this data, I was able to extract only significant variables.    
+
+Firstly, I automated the downloading process from the NSFG web page and saved the files in two lists: dat_name and dct_name. The function mentioned above connects .dat files with their keys and saves them in separate .csv files. The entire file-naming process is also automated.      
+
+After successfully obtaining the data and saving it in .csv files, I proceeded to work in R Studio to address the next two challenges: dealing with the size of the data and handling various names of the same variables.     
+
+To manage the data effectively, I started by dividing the data files into three groups, where each group shared common variable names. These groups were then placed in separate folders. My approach was to create separate data frames for each group, unifying the variable names within each frame. However, one major challenge arose due to the relatively large number of variables, some files contained more than 1,400 variables.         
+
+To tackle this issue, I referred to the data documentation and carefully selected the variables relevant to my analysis. By specifying these variables, I was able to extract and work with only the significant variables for my project, streamlining the data analysis process.       
  
 &nbsp; <br>    
 ```{r eval=FALSE}
@@ -125,10 +148,9 @@ dat_list_1 <- lapply(temp_1, col_function_1)
 ```
 &nbsp; <br>     
       
-The code above returns the list of data frames with specified variables, I repeated this process for all of the groups. Initially, there were three groups, but later I added three more, that were grouped by gender, and in the same way, I have dealt with different names of variables.     
-
-   
-At the end I simply merged those data frames together, and with that I obtained a usable version of the data that interests me: 
+The code above successfully returns a list of data frames with the specified variables. I repeated this process for all three initial groups. Later, I added three more groups, which were grouped by gender, to further organize the data. Dealing with different names of variables in each group was also handled effectively.      
+         
+In the final step, I merged all of these data frames together to create a comprehensive and usable version of the data that aligns with my specific research interests: a version containing relevant variables from all groups combined. This merging process allowed me to have a consolidated dataset for my analysis, incorporating the necessary information from various groups and gender categories.  
 
 &nbsp; <br>
 ```{r eval=FALSE}
@@ -154,7 +176,7 @@ kbl(h_dat_nsfg) %>%
 
 
 
-As you can see, there are many missing values, but I will deal with them in the next part of this project.
+As you can see, there are many missing values, I will deal with them in the next part of this project.
 
 &nbsp; <br>
 
@@ -162,7 +184,7 @@ As you can see, there are many missing values, but I will deal with them in the 
 
 &nbsp; <br>
 
-The aim of the third file is to test a hyphotesis that cohabitation before marriage increases the probability of divorce. Firslty i defined libraries that I will use and dealt with missing variables. 
+The aim of the third file is to test a hypothesis that cohabitation before marriage increases the probability of divorce. Firstly i defined libraries that I will use and dealt with missing variables. 
 
 &nbsp; <br>
 ```{r eval=FALSE}
@@ -185,7 +207,7 @@ dat_nsfg$reldlife[is.na(dat_nsfg$reldlife)] <- 0
 ```
 &nbsp; <br>
 
-In the next step I defined some functions that will help in the process of analysis and with dplyr package I defined the data frame with by specifying the variables:
+In the next step, I defined some functions that will aid in the analysis process. Utilizing the dplyr package in R, I created a data frame and specified the relevant variables by applying appropriate functions. This data frame will serve as the foundation for conducting further analysis on the dataset.     
 
 &nbsp; <br>
 
@@ -213,7 +235,7 @@ dat_nsfg1 <- dat_nsfg %>%
 ```
 &nbsp; <br>
 
-In the next step I have limited the sample to the people that are, or were married.  
+In the following step I have limited the sample to the people that are, or were married.  
 
 &nbsp; <br>
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -260,12 +282,15 @@ kbl(df) %>%
 ```
 &nbsp; <br>
 
-With that, we can do some counting:    
-- $27\%$ of people that have been married at least once, were at least once divorced    
-- $35\%$ were divorced or separated   
-- $56\%$ people that cohabited before marriage have divorced   
-- $58\%$ of people that divorced or separated have cohabited   
-By looking at these values, one can say that there is a visible difference, people that cohabited more commonly end their marriage with a divorce. But the Bayesian approach will unravel to us dependencies that are not visible without taking the initial probability of cohabiting. As it turns out, the majority of people cohabited before marriage, and this fact influences the data above.      
+With the current data, we can observe the following percentages:     
+
+- $27\%$ of people who have been married at least once have experienced divorce at least once.     
+- $35\%$ of people who have been married at least once have gone through either divorce or separation.       
+- $56%\%$ of people who cohabited before marriage have ended up getting divorced.        
+- $58\%$ of people who experienced divorce or separation had previously cohabited.        
+
+From these percentages, it seems evident that there is a visible difference, indicating that people who cohabited before marriage are more likely to end their marriage with a divorce. However, employing a Bayesian approach will allow us to uncover dependencies that may not be readily apparent when only considering the initial probability of cohabiting. It's important to note that the majority of people have cohabited before marriage, and this fact can significantly influence the data presented above. Therefore, a Bayesian analysis will provide a more nuanced understanding of the relationship between cohabitation and divorce.
+      
 
 &nbsp; <br>
 ```{r eval=FALSE}
@@ -290,10 +315,12 @@ cond_P_DB <- bayes_fun(divorced_believer, all_rell_married, believers) #0.26
 ```
 &nbsp; <br>
 
-The difference in probability of getting a divorce is slightly different in favor of not cohabiting, which is rather odd. But between being a believer and an atheist there is a much bigger difference. Let's represent these dependencies visually to get a better look at them.   
-To create the plots below I have used the ggplot2 package, which is a powerful visualization tool. The trick to making those plots was creating a data frame that suits that purpose. The process of making those data frames was repetitive and boring, if you are curious about how I did it, check out the source code. It's pretty clean and well commented, so you should not have a problem with navigation in the code.        
+The probability difference in favor of not cohabiting, though seems slightly odd, suggests that there may be some interesting insights to explore. However, the difference between being a believer and an atheist shows a much more significant contrast. Visual representations of these dependencies will provide a better look at the data.    
+
+To create the plots below, I utilized the ggplot2 package in R. ggplot2 is a powerful visualization tool that allows for creating informative and visually appealing plots, helping us gain deeper insights into the relationships between variables and their impact on divorce probability.   
 
 &nbsp; <br>
+
 ```{r echo=FALSE, fig.show="hold", fig.dim = c(8, 6.5)}
 df <- dat_nsfg1 %>%   
   filter(cohab_bef_marr != 99)
@@ -393,8 +420,9 @@ p6
 
 &nbsp; <br>
 
-The plot on the left represents nominal values, it is easy to draw hasty conclusions if one is not paying attention to the initial probability distribution. Far more informative is a plot on the right, it represents the initial probability distribution. In my search for dependencies between variables, the plot on the right is very helpful. As you can see, cohabiting has less impact on the probability of getting a divorce than being a believer.     
-Now, let's see a similar plot that includes separation status along with divorce.
+The columns in the first plot represent nominal values observed in the data. Dark and light blue bars depict the proportions of divorced individuals (considering only married people), and these proportions are represented with numerical values.      
+
+As you can see, cohabiting has a smaller impact on the probability of getting a divorce compared to being a believer. Now, let's explore a similar plot that includes separation status alongside divorce.   
    
 &nbsp; <br>
 ```{r echo=FALSE, fig.dim = c(8, 6.5), fig.show="hold"}
@@ -523,7 +551,9 @@ p18
 ```
 &nbsp; <br>
 
-The tendencies are similar, there is no meaningful difference in the proportion. Still, religion has the biggest influence on the divorce rate. Being a believer or being a devoted believer reduces the chances of getting a divorce. Religion is a base belief, therefore it can have a role of a basic factor. This belief has a great influence on one set of beliefs e.g. the attitude towards cohabitation before marriage. Let's then test the possibility of a correlation between religion and cohabitation.    
+In the second plot, the tendencies are similar, and there are no significant differences in the proportions. However, religion still stands out as having the most significant influence on the divorce rate. Being a believer or a devoted believer appears to reduce the chances of getting a divorce. Religion, being a fundamental belief, can serve as a foundational factor influencing other beliefs, such as attitudes towards cohabitation before marriage.    
+
+Let's now proceed to test the possibility of a correlation between religion and cohabitation.      
 
 &nbsp; <br>
 ```{r echo=FALSE,  fig.dim = c(8, 6.5), fig.show="hold"}
@@ -605,119 +635,14 @@ p8
 ```
 &nbsp; <br>
 
-As it turns out, religious beliefs have a big influence on the probability of cohabiting, therefore we can risk a hypothesis that we find a hidden correlate. The bayesian dependency tree below illustrates the relation of the factors of our interest. $C$ stands for cohabitation, $A$ atheism, and $D$ divorce. So a confounder.
-&nbsp; <br>
-
-<div style="text-align: center;"><img src="C:\Users\nikod\Documents\Praca_dyplomowa\Cohabitation and divorce, nsfg, N.Lewandowski\Niklewa.github.io\bayes network.png"></div>
+In this visualization, we can observe that non-believers tend to cohabit before marriage far more often than believers. Additionally, the lowest rate of cohabitation is observed among religiously devoted individuals. Let's now reorient our analysis to compare the influence of religion and cohabitation on divorce. It appears that religion may act as a powerful confounding factor in this context.    
 
 &nbsp; <br>
-Now, let's try to compare the strength of the influence on divorce of three chosen variables: cohabitation, being a believer, and being a devoted believer. I will do it by simply counting the differences between a factor being present or absent. The differences are counted by simply subtracting the divorce conditional probability of factors.   
 
-&nbsp; <br>
-```{r echo=FALSE}
-fun_sep_div <- function(x,y,z){
-  dim(certain_df %>% 
-        filter(x == y) %>% 
-        filter(div_separated == z) )[1]
-}
-
-div_sep_or_not <- c(
-  cohab_divsep <- fun_sep_div(certain_df$cohabitation,1 , 1),
-  cohab_ndivsep <- fun_sep_div(certain_df$cohabitation,1 , 0),
-  ncohab_divsep <- fun_sep_div(certain_df$cohabitation,0 , 1),
-  ncohab_ndivsepb <- fun_sep_div(certain_df$cohabitation,0 , 0),
-  bel_divsep <- fun_sep_div(certain_df$believer,1 , 1),
-  bel_ndivsep <- fun_sep_div(certain_df$believer,1 , 0),
-  nbel_divsep <- fun_sep_div(certain_df$believer,0 , 1),
-  nbel_ndivsep <- fun_sep_div(certain_df$believer,0 , 0),
-  devot_divsep <- fun_sep_div(certain_df$devoted,1, 1),
-  devot_ndivsep <- fun_sep_div(certain_df$devoted,1 , 0),
-  ndevot_divsep <- fun_sep_div(certain_df$devoted,0 , 1),
-  ndevot_ndivsep<- fun_sep_div(certain_df$devoted,0 , 0)
-)
+Next, we will conduct a classical statistical test to explore this further. I will perform a chi-square test of correlation, which requires the data to be presented in the form of a contingency table. We will examine two tables, one for cohabitation and divorce, and another for atheism and divorce.     
 
 
-ciag3 <- c(rep(sum(cohab_divsep, cohab_ndivsep  ),2), 
-           rep(sum(ncohab_divsep, ncohab_ndivsepb),2),
-           rep(sum(bel_divsep, bel_ndivsep),2),
-           rep(sum(nbel_divsep ,  nbel_ndivsep),2),
-           rep(sum(devot_divsep,  devot_ndivsep),2),
-           rep(sum(ndevot_divsep,  ndevot_ndivsep),2) )
-
-
-
-values3 <- div_sep_or_not / ciag3
-
-cohab_diff <- c(
-nbel_bel_coh_diff <- (values2[7] - values2[5]),
-ndev_dev_coh_diff <- (values2[11] - values2[9]),
-nbel_dev_coh_diff <- (values2[7] - values2[9]), NA
-)
-
-div_diff <- c(
-  nbel_bel_div_diff <- (values[7] - values[5]),
-  ndev_dev_div_diff <- (values[11] - values[9]),
-  nbel_dev_div_diff <- (values[7] - values[9]),
-  coh_ncoh_div_diff <- (values[1] - values[3])
-)
-
-div_sep_diff <- c(
-  nbel_bel_div_diff <- (values3[7] - values3[5]),
-  ndev_dev_div_diff <- (values3[11] - values3[9]),
-  nbel_dev_div_diff <- (values3[7] - values3[9]),
-  coh_ncoh_div_diff <- (values3[1] - values3[3])
-)
-
-names <- c("Atheist - Believer", "Not Devoted - Devoted",
-               "Atheist - Devoted", "Cohab - Not Cohab")
-df_differences <- data.frame(names, div_diff, div_sep_diff, cohab_diff)
-
-```
-
-
-
-
-```{r echo=FALSE, fig.dim=c(8, 7), fig.show="hold", warning=FALSE, out.width="33.3%"}
-
-
-# The strongest parameter pair is atheist - devoted, it is a mixed up value,
-# although the measure is valuable because one cannot be both an atheist and a devoted believer
-
-p44 <- ggplot(df_differences , aes(y=div_diff, x=names)) + 
-  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
-  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
-                                            "Atheist - Devoted", "Cohab - Not Cohab"),
-                   labels = c("Athe - Bel", "~Devot - Devot", "Athe - Devot", "Cohab - ~Cohab")) +
-  ggtitle("Difference parameters to divorce") + 
-  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 15))  + theme(text = element_text(size = 22))
-p44
-
-p55 <- ggplot(df_differences , aes(y=div_sep_diff, x=names)) + 
-  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
-  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
-                                            "Atheist - Devoted", "Cohab - Not Cohab"), 
-                   labels = c("Athe - Bel", "~Devot - Devot", "Athe - Devot", "Cohab - ~Cohab")) +
-  ggtitle("Difference parameters to div or sep") + 
-  theme(plot.title = element_text(hjust = 0.5))+ theme(text = element_text(size = 15))  + theme(text = element_text(size = 22))
-p55
-
-p66 <- ggplot(df_differences , aes(y=cohab_diff, x=names)) + 
-  geom_bar(stat="identity", fill = "dodgerblue2") + theme_tufte() + 
-  scale_y_continuous(ylab("All married") , limits = c(-0.013, 0.3)) +  
-  scale_x_discrete(xlab("Status"), limits=c("Atheist - Believer", "Not Devoted - Devoted",
-                                            "Atheist - Devoted")) +
-  ggtitle("Difference parameters to cohabitation") + 
-  theme(plot.title = element_text(hjust = 0.5)) + theme(text = element_text(size = 15))   + theme(text = element_text(size = 22))
-p66
-
-```
-&nbsp; <br>
-
-The absolute leader of correlation is the pair "Atheist - Devoted", in all three categories. Therefore religious belief is the strongest factor in increasing the probability of a divorce, and also in decreasing the probability of cohabitation.    
-But before we draw conclusions let's test one more thing. As the last analysis, I will do a chi-square test of correlation. To be able to conduct this test, I will need the data in a form of a contingency table. We will check two tables, one with cohabitation and divorce, and one with atheism and divorce.   
-Let's assume that $\alpha$ is $0.05$ and the degree of freedom is 1 (this degree value is also automatically assumed by the program). The zero hypothesis $H_{0}$ will say that a factor $x$ does not influence divorce, the alternative hypothesis $H_{1}$ says that there is a correlation. Therefore, a p-value below $0.05$ can be used as a premise for abandoning hypothesis $H_{0}$ and adopting $H_{1}$. Notice that it only gives a premise of a certain strength, the p-value should not be perceived as a total sentence. There is a lot of literature that shows how p-value can be overrated. (This experiment is a great example: https://www.scientificamerican.com/article/the-mind-reading-salmon/)    
+Assuming a significance level $\alpha$ of $0.05$ and a degree of freedom of $1$ (automatically assumed by the program), the null hypothesis $H_{0}$) states that a factor $x$ does not influence divorce, while the alternative hypothesis $H_{1}$) posits that there is a correlation. If the p-value is below $0.05$, it can be used as evidence to reject the null hypothesis $H_{0}$ and accept the alternative hypothesis $H_{1}$. However, it's essential to remember that the p-value only provides a premise of certain strength, and it should not be seen as an absolute conclusion. There is a significant body of literature showing that p-values can be overrated (as exemplified in the "mind-reading salmon" experiment: https://www.scientificamerican.com/article/the-mind-reading-salmon/).     
 
 
 &nbsp; <br>
@@ -751,13 +676,134 @@ cat("p-value in a regural format:", p_value)
 ```
 &nbsp; <br>
 
-Here we see a strong influence of the factor, the correlation between religious beliefs and divorce is very strong, according to this test. Therefore $H_{1}$ should be adopted as a true hypothesis and $H_{0}$ should be abandoned.    
+Here we observe a strong influence of the factor; the correlation between religious beliefs and divorce is very pronounced, according to this test. Consequently, we should adopt $H_{1}$ as the true hypothesis and abandon $H_{0}$.      
+
+The next step will be more substantial. We will construct a Bayesian statistical model to visualize the relationships that we observed in the previous visualizations and in this test. This model will provide a more comprehensive understanding of the connections between religious beliefs, cohabitation, and divorce, offering deeper insights into their interplay.      
+
 &nbsp; <br>
+
+## Model
+
+To draw meaningful and epistemically modest observations, let's construct a Bayesian logistic regression model that will reveal the relationships between religious belief, premarital cohabitation, and divorce rate.    
+
+Firstly, using our main dataset, I constructed a dataframe with structured values that represent the following categories: Cohabitation and Divorce variables are binary, and reldlife values represent three categories as follows: 1 - religion is very important to me; 2 - it is somewhat important; 3 - it is not important.    
+
+&nbsp; <br>
+
+```{r echo=FALSE, eval=TRUE}
+
+df_cohabModel <- readRDS("df_cohabModel.RDS")
+
+df_cohabModelTable <- df_cohabModel %>%   
+    head(n = 10) 
+
+
+kbl(df_cohabModelTable) %>%
+  kable_styling(position = "center", font_size = 12,
+                bootstrap_options = c("striped", "scale_down", "HOLD_position"))
+
+```
+&nbsp; <br>
+
+Then, I created logistic regression model using the rethinking package in R. Priors are created as very non informative on purpose, to allow the data to draw the shape of those relations between variables.
+
+&nbsp; <br>
+
+```{r, eval=FALSE, echo=TRUE}
+
+library(rethinking)
+
+divorced_cohabRel_model <- ulam(
+  alist(
+    divorced ~ dbinom( 1 , p ) ,
+    logit(p) <- a + b[cohabitation] + c[reldlife],
+    a ~ dnorm( 0, 1),
+    b[cohabitation] ~ dnorm( 0 , .5 ),
+    c[reldlife]  ~ dnorm( 0 , .5 )
+  ) , data=df_cohab, log_lik = TRUE )
+
+```
+&nbsp; <br>
+
+The results of this model is visualized in the following plot.   
+
+&nbsp; <br>
+```{r echo=FALSE, eval=TRUE,  fig.dim = c(8, 6.5), fig.show="hold", fig.align='center'}
+
+postDFALL <- readRDS("postModelDF.RDS")
+
+
+
+custom_labels_facet <- c("1" = "Religiously Devoted",
+                         "2" = "Moderate Believer",
+                         "3" = "Not a Believer")
+
+
+violPlotModel <- ggplot(postDFALL, aes(x = factor(Cohab), y = probability)) +
+  geom_violin(aes(fill = Cohab), alpha= 0.5) +
+  geom_jitter(width = 0.2, height = 0.02, alpha = 0.2, size = 1.2, color= "black") +
+  stat_summary(fun = mean, geom = "label", aes(label = round(after_stat(y), 3)),
+               show.legend = FALSE, size = 5, fontface = "bold",
+               color = "black", fill = "white", label.padding = unit(0.4, "lines")) +
+  stat_summary(fun = mean, geom = "text", aes(label = round(after_stat(y), 3)),
+               show.legend = FALSE, size = 5, fontface = "bold",
+               color = "black") +
+  facet_wrap(~ RelLife, labeller = labeller(RelLife = custom_labels_facet)) + theme_minimal()+
+  labs(y = 'Probability of Divorce', x = '')+
+  theme(legend.position = "")+ scale_fill_manual(values = c("#56B4E9", "#4B0092")) 
+
+violPlotModel
+
+
+```
+
+&nbsp; <br>
+
+In this visualization, you can see several violin plots, each representing the probability of divorce given a certain configuration of categories, namely religious belief and whether a person cohabited premaritally. The points on the plots represent observations simulated by the model, which learned from the priors and the data. The values in the boxes represent the means of those distributions. It is a good example of how a mean may not provide sufficient information. By utilizing the entire distribution as evidence for our analysis, we can gain a more comprehensive view of the relationships.         
+
+The influence of a person's religious beliefs has a far greater impact on the probability of divorce than the fact that they cohabited before marriage. If we wish to compare the effects of cohabitation, one can argue that cohabiting is slightly less risky than not cohabiting for all categories. However, the difference is very small, leading us to conclude that cohabitation has little to no significant effect on the probability of divorce, especially in comparison to other factors.      
+
+Additionally, it appears that religious beliefs have a considerable influence on the probability of cohabitation. Thus, we can propose a hypothesis that there might be a hidden correlate.      
+
+To facilitate our analysis, let's consider the graph of relations between the variables, known as the Directed Acyclic Graph (DAG). This graph exemplifies the direction of the alleged causal relations between the variables: C - cohabitation; R - religious belief; D - divorce. Religious beliefs play the role of a confounder, as they appear to influence both cohabitation and divorce rates.     
+
+
+&nbsp; <br>
+
+```{r echo=FALSE, eval=TRUE, fig.align='center', fig.dim = c(6, 4.5), warning=FALSE, results='hide'}
+
+library(dagitty)
+
+dag1 <- dagitty(
+"dag{
+R -> D; R -> C; C -> D
+}"
+)
+
+
+rethinking::drawdag(dag1, goodarrow = TRUE, cex = 2, radius = 3)
+
+
+```
+
+
+&nbsp; <br>
+
 
 ## Conlusions
 
 &nbsp; <br>
-The statistical test does give us a premise for the argument that religious beliefs affect the probability of divorce, stronger than cohabitation, which is compatible with our earlier analysis. The analysis of conditional probabilities gives us a reason to claim that there are stronger correlates than cohabitation, and the influence of cohabitation on the probability of divorce is questionable. The best correlates are: atheism and devotism. Furthermore, religious beliefs are a hidden correlate, they strongly influence the probability of cohabiting and through this, it affects the probability of divorce. Therefore the hypothesis that cohabitation significantly increases the probability of divorce should be abandoned.
+
+In this work, I analyzed the relationship between premarital cohabitation and divorce, aiming to test if cohabitation truly increases the probability of divorce. As it turns out, that assumption is not true.         
+
+Initially, the visualizations showed little or no influence of cohabitation on divorce. However, interestingly, religious beliefs did make a difference.       
+
+This was confirmed by the chi-squared test, where religion seemed to have a far stronger influence on the divorce rate than cohabitation. Given the unclear relation among these three variables, I constructed a Bayesian logistic regression model to delve deeper into the analysis.         
+
+The model revealed that religious beliefs act as a confounder, as depicted in the DAG above. The violin plots, representing simulations made by the model, demonstrated that cohabitation has the opposite relationship than what was initially hypothesized. Nonetheless, the degree of that influence is very small, making it inconclusive.     
+
+What is truly conclusive and the most intriguing finding of this analysis is that religious people, especially the devoted ones, have a significantly smaller probability of getting a divorce. On the other hand, non-believers showed a wider spread of values in this regard.          
+
 
 &nbsp; <br>
 &nbsp; <br>
