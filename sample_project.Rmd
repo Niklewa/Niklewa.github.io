@@ -727,7 +727,7 @@ divorced_cohabRel_model <- ulam(
 ```
 &nbsp; <br>
 
-The results of this model is visualized in the following plot.   
+The results of this model are visualized in the following plot.   
 
 &nbsp; <br>
 ```{r echo=FALSE, eval=TRUE,  fig.dim = c(8, 6.5), fig.show="hold", fig.align='center'}
