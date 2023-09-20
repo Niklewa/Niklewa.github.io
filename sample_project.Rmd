@@ -792,7 +792,7 @@ rethinking::drawdag(dag1, goodarrow = TRUE, cex = 2, radius = 3)
 &nbsp; <br>
 
 
-## Conlusions
+## Conclusions
 
 &nbsp; <br>
 
