@@ -79,8 +79,7 @@ div.content { max-width: 800px;
 <p align="justify" style="font-size:16px"> 
 &nbsp; I am a philosophy enthusiast who recently completed Master's degree in the field of formal epistemology, which explores the nature of knowledge and reasoning using mathematical and logical tools. This specific branch of philosophy drew me towards data analysis, and it became my second field of scientific inquiry. <br>
 &nbsp; I am proficient in R, Python, and MS SQL. I am also familiar with a variety of data science tools and techniques, including Bayesian data analysis. I am always eager to learn new things and am excited to see what the future holds for Bayesian data science. <br>
-&nbsp; I am currently seeking a PhD position in formal epistemology. I am particularly interested in research that applies formal methods to problems such as uncertainty quantification, risk, belief representation, and Bayesian inference.<br>
-&nbsp; In my free time, I enjoy exploring classical culture, such as music, literature, and cinema.
+&nbsp; Presently, I am actively seeking opportunities in data science roles that will allow me to apply my analytical skills and knowledge to real world problems. My overarching goal is to grow as a researcher, with a specific focus on using formal methods to address complex issues such as uncertainty quantification, risk assessment, belief representation, and Bayesian inference.
 </p>
 
 
@@ -96,7 +95,7 @@ div.content { max-width: 800px;
  <li> If you want to see a sample of my abilities, check out one of my sample projects (and my github profile for more): <a href="https://niklewa.github.io/SampleProjects.html">Sample Projects</a>
 &nbsp; <br>
 &nbsp; <br>
- <li>  If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/NLewandowskiResume.pdf"> Resume</a>
+ <li>  If you want to know more about me, you can download my resume here: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/ResumeNikodemLewandowski.pdf"> Resume</a>
 </ul>
 
 
