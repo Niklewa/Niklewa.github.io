@@ -1,10 +1,11 @@
 ---
-title: My Projects
+title: "My Projects"
 theme: "jekyll-theme-minimal"
 layout: default
 output:
   html_document:
-    self_contained: false
+    self_contained: no
+  pdf_document: default
 ---
 
 
@@ -23,7 +24,7 @@ output:
     padding: 10px; /* Add padding to create space between content and box */
     max-width: 400px; /* Set a maximum width for the container */
     margin: 50px auto; /* Center the container horizontally using margin: 0 auto; */
-    text-align: center;
+    text-align: left;
 }
 
 .toc_title {
@@ -54,7 +55,8 @@ output:
 <p class="toc_title">Projects list</p>
 <ul class="toc_list">
 <li><a href="#Cohab">1 Cohabitation and divorce</a></li>
-<li><a href="#Dash">2 HIV in Poland dashboard</a></li>
+<li><a href="#PKD">2 Bayesian Modeling of HIV Risk Factors</a></li>
+<li><a href="#Dash">3 HIV in Poland dashboard</a></li>
 </ul>
 </div>
 
@@ -67,18 +69,31 @@ output:
 
 &nbsp; <br>
 
-In this project I conduct a analysis of NSFG dataset (National Survey of Family and Growth) in order to check how does the premarital cohabitation influence the probability of a divorce. The analysis confronts a rather stereotypical belief that, partners that were cohabiting before marriage are more prone to getting a divorce.
+In this project I conduct a analysis of NSFG dataset (National Survey of Family and Growth) in order to check how does the premarital cohabitation influence the probability of a divorce. The analysis confronts a rather stereotypical belief that, partners that were cohabiting before marriage are more prone to getting a divorce. Project's repository can be found [here](https://github.com/Niklewa/Cohab_nsfg)
 
 - <a href="https://niklewa.github.io/sample_project.html">Cohabitation and Divorce report</a>
 
 &nbsp; <br>
 
 
+<h2 id="PKD">Bayesian Modeling of HIV Risk Factors</h2>
+
+&nbsp; <br>
+
+This project challenges the stereotype associating HIV infection primarily with non-heteronormative males. Through Bayesian logistic regression models and risk profile analysis, I have uncovered that risky behaviors, rather than sexual identity or gender, are the primary drivers of HIV infection.   
+
+The research employs a dataset created from a survey conducted in Polish HIV diagnostic centers. Poland is currently experiencing a rise in new HIV infections, with non-heteronormative males constituting the majority of new cases. However, the findings reveal that high-risk behavior serves as a more accurate predictor of infection than gender or sexual identity. This highlights the complexity of the factors driving new infections among non-heteronormative males. Project's repository can be found [here](https://github.com/Niklewa/hivPKDproject)
+
+
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/HIVPaperLewandowski.pdf">HIV paper</a>
+
+&nbsp; <br>
+
 <h2 id="Dash">HIV Infections in Poland Across the Years</h2>
 
 &nbsp; <br>
 
-In this project I conduct an analysis of PKD (punkt konsultacyjno diagonstyczny; consultation and diagnostic center) surveys dataset. PKD are medical centers located across Poland in which people can test for STIs anonymously and free of charge. The analysis unravels growing problem of HIV infections in Poland, which also resembles the tendency that can be observed in other European countries. Check the link below to view the dashboard that sums up some of my findings.
+In this project I conduct an analysis of PKD (punkt konsultacyjno diagonstyczny; consultation and diagnostic center) surveys dataset. PKD are medical centers located across Poland in which people can test for STIs anonymously and free of charge. The analysis unravels growing problem of HIV infections in Poland, which also resembles the tendency that can be observed in other European countries. Check the link below to view the dashboard that sums up some of my findings. 
 
 - <a href="https://niklewa.github.io/flexPart1DashFILLED.html">Dashboard</a>
 
