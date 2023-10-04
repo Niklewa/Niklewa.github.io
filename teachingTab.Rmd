@@ -1,0 +1,196 @@
+---
+title: "Teaching, 2023/2024"
+subtitle: "Data analysis and visualization for journalists"
+theme: "jekyll-theme-minimal"
+layout: default
+---
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+#toc_container {
+    background: transparent; /* Set the background to transparent */
+    border: none;
+    padding: 10px; /* Add padding to create space between content and box */
+    max-width: 400px; /* Set a maximum width for the container */
+    margin: 50px auto; /* Center the container horizontally using margin: 0 auto; */
+    text-align: center;
+}
+
+.toc_title {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+    font-size: 16px;        
+}
+
+#toc_container a {
+    color: #000;
+}
+</style>
+
+</head>
+
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+<div id="toc_container">
+<p class="toc_title">Sections:</p>
+<ul class="toc_list">
+<li><a href="#news">News</a></li>
+<li><a href="#tutorials">Tutorials</a></li>
+<li><a href="#materials">Materials</a></li>
+</ul>
+</div>
+
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+<h2 id="news">News</h2>
+
+&nbsp; <br>
+
+
+### Welcome on our course webpage!
+
+This is the place where all the files needed for our tutorials will be linked. Additionally, here you will always find any important information regarding our classes.
+
+The first thing to do is to get familiar with the 'Materials' section.
+
+If you have any questions or encounter any problems, you can contact me via email through the icon at the bottom of the page (it is a Gmail address; the contact email will change when I obtain a university email)
+
+
+&nbsp; <br>
+&nbsp; <br>
+
+<h2 id="tutorials">Tutorials</h2>
+
+&nbsp; <br>
+
+In this section, there will be tutorial materials used in our classes.
+
+
+
+&nbsp; <br>
+&nbsp; <br>
+
+<h2 id="materials">Materials</h2>
+
+&nbsp; <br>
+
+In this section, I provide some introductory remarks and links to materials worth reading or watching. They are arranged in order from basic to more advanced levels. These materials cover mostly what you will learn in our classes, so they might be very helpful if you miss a tutorial or two.
+
+&nbsp; <br>
+
+### R installation
+
+&nbsp; <br>
+
+I strongly recommend installing R and RStudio on your personal computer and becoming familiar with them.
+
+To set up the installation, follow this tutorial:
+
+- <a href="https://www.youtube.com/watch?v=YrEe2TLr3MI">R installation tutorial</a>
+
+
+
+&nbsp; <br>
+
+### Basics of R 
+
+&nbsp; <br>
+
+To learn the very basics of using R and RStudio, which were covered in our first meeting, you can watch the following videos:
+
+- <a href="https://www.youtube.com/watch?v=FIrsOBy5k58">Using R part 1</a>           
+- <a href="https://www.youtube.com/watch?v=FY8BISK5DpM ">Using R part 2</a>
+
+
+Additionally, you can follow a very useful R tutorial in the swirl package. You can find more information about swirl here:
+
+
+-  <a href="https://swirlstats.com/students.html">How to use swirl</a>
+
+I recommend starting with this part:
+
+     1: R Programming: The basics of programming in R
+     
+
+Furthermore, if you really want to delve into R basics, I recommend reading the relevant chapter from Kruschke's book, "Doing Bayesian Data Analysis: 
+
+
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/Ch3_Kruschke.pdf">download it here</a> (you can omit the following sections: 3.2.1; 3.7.5; 3.7.6; 3.8; 3.9)
+
+
+
+
+&nbsp; <br>
+
+### Additional materials
+
+&nbsp; <br>
+
+The following literature concerns creating visualizations, so it's important to understand some basics first. These materials cover, to a large extent, what we will do in our classes:
+
+
+
+- <a href="https://r4ds.had.co.nz/data-visualisation.html">ggplot2 visualizations part 1</a>
+
+- <a href="https://rkabacoff.github.io/datavis/">ggplot2 visualizations part 2</a>
+
+
+
+Additionally, there is a theoretical side to data visualization, and you can find recommended literature about it in our syllabus.
+
+
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+
+<div class="footer">  
+<center>
+
+<p style="text-align:center;font-size:14px">Nikodem Lewandowski</p>  
+&nbsp; &nbsp; <a href=mailto:"nikodemlewandowski@gmail.com/"><i class="fa fa-envelope" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://github.com/Niklewa"><i class="fa fa-github" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.linkedin.com/in/nikodem-lewandowski-96b482244/"><i class="fa fa-linkedin-square" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+<a href="https://www.facebook.com/nikodem.lewandowski.754"><i class="fa fa-facebook-f" style="font-size:18px;color:grey"></i></a> &nbsp; &nbsp;
+
+ 
+</center>
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
