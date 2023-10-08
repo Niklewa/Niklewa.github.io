@@ -9,6 +9,6 @@ navbar:
   - text: "Papers"
     href: papers.html
   - text: "Teaching"
-    href: teachingTab.html
+    href: teaching.html
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski

@@ -9,7 +9,7 @@ navbar:
   - text: "Projects"
     href: SampleProjects.html
   - text: "Teaching"
-    href: teachingTab.html
+    href: teaching.html
 output: html_document
 theme: jekyll-theme-minimal
 title: Nikodem Lewandowski
