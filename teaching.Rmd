@@ -84,7 +84,7 @@ If you have any questions or encounter any problems, you can contact me via emai
 
 In this section, there will be tutorial materials used in our classes.
 
-
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut1TheBasics.zip">Tutorial 1, the basics</a>
 
 
 
