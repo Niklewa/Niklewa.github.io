@@ -95,9 +95,10 @@ In this section, there will be tutorial materials used in our classes.
 
 &nbsp; <br>
 
+
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/whatIsDataAnalysisP1.pdf">What's data analysis? 09.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/perceptionAndDataAnalysisP2.pdf">Perception and Data Visualization 16.10.2023</a>
-
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/DataandVisualizationTypesP3.pdf">Data and Visualization types 23.10.2023</a>
 
 
 &nbsp; <br>
