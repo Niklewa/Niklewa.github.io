@@ -76,6 +76,27 @@ If you have any questions or encounter any problems, you can contact me via emai
 
 
 &nbsp; <br>
+
+### Project Information
+
+The final deadline for your projects will be at the end of the semester, but it is advisable to get started as soon as possible. I will provide you with all the project details at a later date. For now, concentrate on choosing your project topic and locating a suitable dataset in `.csv` or `.xlsx` format, which is the most user-friendly option. Think about what genuinely interests you and what you can effectively present through data in the form of a brief article with at least two visualizations. Ensure your article addresses a specific problem or problems rather than merely presenting the dataset. Below, you'll find some sources for datasets that might assist you in finding a suitable one:
+
+
+- <a href="https://www.kaggle.com/datasets">kaggle</a>         
+- <a href="https://datasetsearch.research.google.com/">Google Dataset Search</a>        
+- <a href="https://github.com/search?q=dataset+&type=repositories">Github</a> 
+- <a href=" https://data.worldbank.org/">World Bank Open Data</a> 
+- <a href="https://ec.europa.eu/eurostat/web/main/data/database">Eurostat</a>       
+- Polish sources:      
+- <a href="https://dane.gov.pl/pl">Otwarte Dane .gov</a>         
+- <a href="https://stat.gov.pl/banki-i-bazy-danych/">GUS</a>           
+
+
+
+
+
+
+&nbsp; <br>
 &nbsp; <br>
 
 <h2 id="tutorials">Tutorials</h2>
@@ -99,6 +120,7 @@ In this section, there will be tutorial materials used in our classes.
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/whatIsDataAnalysisP1.pdf">What's data analysis? 09.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/perceptionAndDataAnalysisP2.pdf">Perception and Data Visualization 16.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/DataandVisualizationTypesP3.pdf">Data and Visualization types 23.10.2023</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/principlesOfDataVisualizationP4.pdf">6 Principles of Graphical Integrity 30.10.2023</a>
 
 
 &nbsp; <br>
