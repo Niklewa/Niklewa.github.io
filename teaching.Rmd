@@ -127,7 +127,7 @@ In this section, there will be tutorial materials used in our classes.
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/perceptionAndDataAnalysisP2.pdf">Perception and Data Visualization 16.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/DataandVisualizationTypesP3.pdf">Data and Visualization types 23.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/principlesOfDataVisualizationP4.pdf">6 Principles of Graphical Integrity 30.10.2023</a>
-
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/deceptiveVisualsP5.pdf">Deceptive Visuals 13.11.2023</a>
 
 &nbsp; <br>
 &nbsp; <br>
