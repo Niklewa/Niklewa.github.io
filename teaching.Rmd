@@ -129,6 +129,8 @@ In this section, there will be tutorial materials used in our classes.
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/principlesOfDataVisualizationP4.pdf">6 Principles of Graphical Integrity 30.10.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/deceptiveVisualsP5.pdf">Deceptive Visuals 13.11.2023</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/someStatisticalTrapsP6.pdf">Some Statistical Traps 20.11.2023</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/CorelationAndCausationP7.pdf">Correlation vs Causation 04.12.2023</a>
+
 
 
 
