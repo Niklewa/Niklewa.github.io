@@ -114,6 +114,8 @@ In this section, there will be tutorial materials used in our classes.
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut1TheBasics.zip">Tutorial 1, the basics</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut2CambridgeDataset.zip">Tutorial 2, Cambridge Dataset</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut3hateCrimes.zip">Tutorial 3, Hate Crimes</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/maps_vis.zip">Maps Tutorial</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/shootings_vis.zip">Shootings Tutorial</a>
 
 
 &nbsp; <br>
