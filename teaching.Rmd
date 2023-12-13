@@ -100,7 +100,14 @@ Through the link below, you can download the template for the project assignment
 
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/projectsTemplate.zip">Project's template</a>
 
+&nbsp; <br>
 
+### Project's Deadlines
+
+The link for submitting your projects will be on this website around one week prior to the deadline.
+
+- First version deadline: 08.01.2024
+- Final version deadline: 22.01.2024
 
 &nbsp; <br>
 &nbsp; <br>
