@@ -112,15 +112,21 @@ The link for submitting your projects will be on this website around one week pr
 
 &nbsp; <br>
 
+<!--
+
 ### Project's Submission Link
 
 Throughout this Google form, you can submit a folder with your project files. Please refer to the exact guidelines detailed in the project's template. I appreciate your commitment!    
 
 - <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGZFlcM8DKLHwwkolpCo5857JEyDurQeNvv3aFYQPx8ULkXQ/viewform?usp=sf_link">Sumbission Link</a>
 
+-->
 
+### Project's Feedback Info
 
+Thank you all for sending me your first versions of your projects! I really appreciate your hard work, effort, and commitment that it took from you to learn that. For now, all the feedback has been sent. If you have not received it, check your spam folder first (of the email provided in the form). If you still have not received it, let me know.
 
+Good luck in working on the final versions, can't wait to see it!
 
 &nbsp; <br>
 &nbsp; <br>
