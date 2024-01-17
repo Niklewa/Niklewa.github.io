@@ -129,6 +129,17 @@ Thank you all for sending me your first versions of your projects! I really appr
 Good luck in working on the final versions, can't wait to see it!
 
 &nbsp; <br>
+
+### Points from the tutorials
+
+In the file below you can check how many points you have collected throughout the tutorials:
+
+  - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/grades/visGrades17_01_2024.pdf">The list of points</a>
+
+
+
+
+&nbsp; <br>
 &nbsp; <br>
 
 <h2 id="tutorials">Tutorials</h2>
