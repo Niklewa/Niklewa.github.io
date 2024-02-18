@@ -1,6 +1,6 @@
 ---
 title: "Teaching, 2023/2024"
-subtitle: "Data analysis and visualization for journalists"
+subtitle: "Criminological Research Methods"
 theme: "jekyll-theme-minimal"
 layout: default
 ---
@@ -72,10 +72,12 @@ This is the place where all the files needed for our tutorials will be linked. A
 
 The first thing to do is to get familiar with the 'Materials' section.
 
-If you have any questions or encounter any problems, you can contact me via email through the icon at the bottom of the page (it is a Gmail address; the contact email will change when I obtain a university email)
+If you have any questions or encounter any problems, you can contact me via email through the icon at the bottom of the page
 
 
 &nbsp; <br>
+
+<!--
 
 ### Project Information
 
@@ -102,40 +104,12 @@ Through the link below, you can download the template for the project assignment
 
 &nbsp; <br>
 
-### Project's Deadlines
 
-The link for submitting your projects will be on this website around one week prior to the deadline.
-
-- First version deadline: 08.01.2024
-- Final version deadline: 22.01.2024
-
+-->
 
 &nbsp; <br>
 
 
-
-### Project's Submission Link
-
-Throughout this Google form, you can submit a folder with your project files. Please refer to the exact guidelines detailed in the project's template. Remember that, in order to receive points for the project, you need to first answer three questions regarding its content. You will have the opportunity to do so during our last meeting on 22.01.2024 
-
-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGZFlcM8DKLHwwkolpCo5857JEyDurQeNvv3aFYQPx8ULkXQ/viewform?usp=sf_link">Sumbission Link</a>
-
-
-
-&nbsp; <br>
-
-### Points from the tutorials
-
-In the file below you can check how many points you have collected throughout the tutorials:
-
-  - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/grades/visGrades17_01_2024.pdf">The list of points</a>
-
-
-&nbsp; <br>
-
-### Final meeting
-
-The final meeting during which you can present your project or your solved assignments will be on 08.02 at 11 a.m. in the S330 classroom. I remind you that the only way to obtain points for the project is to positively answer questions regarding its contents, which serves as a method of verifying your authorship.
 
 &nbsp; <br>
 &nbsp; <br>
@@ -146,13 +120,7 @@ The final meeting during which you can present your project or your solved assig
 
 In this section, there will be tutorial materials used in our classes.
 
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut1TheBasics.zip">Tutorial 1, the basics</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut2CambridgeDataset.zip">Tutorial 2, Cambridge Dataset</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut3hateCrimes.zip">Tutorial 3, Hate Crimes</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/maps_vis.zip">Maps Tutorial</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/shootings_vis.zip">Shootings Tutorial</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/dashboardsTutorialStud.zip">Dashboards Tutorial</a>
-
+- Empty!
 
 &nbsp; <br>
 
@@ -161,16 +129,8 @@ In this section, there will be tutorial materials used in our classes.
 &nbsp; <br>
 
 
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/whatIsDataAnalysisP1.pdf">What's data analysis? 09.10.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/perceptionAndDataAnalysisP2.pdf">Perception and Data Visualization 16.10.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/DataandVisualizationTypesP3.pdf">Data and Visualization types 23.10.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/principlesOfDataVisualizationP4.pdf">6 Principles of Graphical Integrity 30.10.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/deceptiveVisualsP5.pdf">Deceptive Visuals 13.11.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/someStatisticalTrapsP6.pdf">Some Statistical Traps 20.11.2023</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/presentations/CorelationAndCausationP7.pdf">Correlation vs Causation 04.12.2023</a>
-
-
-
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim0.pdf">Bayesian Bite</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim1.pdf">Introduction to Bayesian Thinking</a>
 
 
 &nbsp; <br>
@@ -179,6 +139,7 @@ In this section, there will be tutorial materials used in our classes.
 <h2 id="materials">Materials</h2>
 
 &nbsp; <br>
+
 
 In this section, I provide some introductory remarks and links to materials worth reading or watching. They are arranged in order from basic to more advanced levels. These materials cover mostly what you will learn in our classes, so they might be very helpful if you miss a tutorial or two.
 
@@ -218,7 +179,7 @@ I recommend starting with this part:
      1: R Programming: The basics of programming in R
      
 
-Furthermore, if you really want to delve into R basics, I recommend reading the relevant chapter from Kruschke's book, "Doing Bayesian Data Analysis: 
+Furthermore, if you really want to delve into R basics, I recommend reading the relevant chapter from Kruschke's book, "Doing Bayesian Data Analysis": 
 
 
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/Ch3_Kruschke.pdf">download it here</a> (you can omit the following sections: 3.2.1; 3.7.5; 3.7.6; 3.8; 3.9)
@@ -232,17 +193,10 @@ Furthermore, if you really want to delve into R basics, I recommend reading the 
 
 &nbsp; <br>
 
-The following literature concerns creating visualizations, so it's important to understand some basics first. These materials cover, to a large extent, what we will do in our classes:
 
+- The course follows the first couple of chapters of the book 'Statistical Rethinking' by Richard McElreath
+- I strongly recommend watching video-lecture made by the author:  <a href="https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus">here</a>
 
-
-- <a href="https://r4ds.had.co.nz/data-visualisation.html">ggplot2 visualizations part 1</a>
-
-- <a href="https://rkabacoff.github.io/datavis/">ggplot2 visualizations part 2</a>
-
-
-
-Additionally, there is a theoretical side to data visualization, and you can find recommended literature about it in our syllabus.
 
 
 
