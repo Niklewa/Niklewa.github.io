@@ -131,7 +131,8 @@ In this section, there will be tutorial materials used in our classes.
 
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim0.pdf">Bayesian Bite</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim1.pdf">Introduction to Bayesian Thinking</a>
-
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim2.pdf">Sampling and Uncertainty</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim3.pdf">Linear Models</a>
 
 &nbsp; <br>
 &nbsp; <br>
