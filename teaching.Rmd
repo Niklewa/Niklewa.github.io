@@ -121,7 +121,10 @@ Through the link below, you can download the template for the project assignment
 In this section, there will be tutorial materials used in our classes.
 
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crimTut1.zip">Tutorial 1: The Basics</a>
-- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut2CambridgeDataset.zip">Tutorial 2: Delinquet Development Dataset</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/ModelsFirstStab.zip">Tutorial 2: Model Building</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/tut2CambridgeDataset.zip">Additional: Delinquet Development Dataset</a>
+
+
 
 
 
