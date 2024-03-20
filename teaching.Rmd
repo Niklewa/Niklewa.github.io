@@ -140,6 +140,10 @@ In this section, there will be tutorial materials used in our classes.
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim1.pdf">Introduction to Bayesian Thinking</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim2.pdf">Sampling and Uncertainty</a>
 - <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim3.pdf">Linear Models</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim4.pdf">The Stuff Called Causality</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim5.pdf">Causal Models and Multivariate Regression
+</a>
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/crim/crim6.pdf">Logistic Regression</a>
 
 &nbsp; <br>
 &nbsp; <br>
