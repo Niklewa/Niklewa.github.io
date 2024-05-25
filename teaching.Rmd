@@ -104,6 +104,13 @@ Through the link below, you can download the template for the project assignment
 
 &nbsp; <br>
 
+### Project Submission
+
+Please use the link below to submit the first version of your project. This is a Google Form where you should input all the relevant information and upload a folder containing the following files: an .Rmd file, a PDF file, and the dataset.
+
+- <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWzhZg9AWULkeuGVBtpikJQ7qSd49Cih-GvU8ZQMDZgHogcQ/viewform?usp=sf_link">Form Link</a>
+
+&nbsp; <br>
 
 
 
