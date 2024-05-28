@@ -113,6 +113,10 @@ Please use the link below to submit the first version of your project. This is a
 &nbsp; <br>
 
 
+### Points Board
+
+In this file you can find the summary of points that you were able to collect: <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/pointsCrim2805.pdf">The points</a>
+
 
 &nbsp; <br>
 
