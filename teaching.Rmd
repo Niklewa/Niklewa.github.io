@@ -121,6 +121,14 @@ In this file you can find the summary of points that you were able to collect: <
 &nbsp; <br>
 
 
+### Installing the Rethinking Package
+
+As some of you had a problem with the installation of the rethinking package, I am sharing instructions on how to do it in this file:
+
+- <a href="https://github.com/Niklewa/Niklewa.github.io/raw/main/materials/installGuide.pdf">Rethinking installation guide</a> 
+
+
+&nbsp; <br>
 
 &nbsp; <br>
 &nbsp; <br>
