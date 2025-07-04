@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CT - Nikodem Lewandowski</title>
+  <!-- Tailwind CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts for modern typography -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero-text-shadow {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .testimonial-scroller {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-left 60s linear infinite;
+    width: max-content;
+  }
+  .testimonial-wrapper {
+    overflow: hidden;
+  }
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .testimonial-card {
+    min-width: 300px;
+    max-width: 300px;
+    flex: 0 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 768px) {
+    .testimonial-scroller {
+      animation-duration: 90s;
+    }
+  }
+
+  
+
+  /* --- Mobile Hero Background Controls ---
+   * Tweak these variables to adjust the background image:
+   * --hero-bg-zoom: 1 = normal, 1.2 = 20% zoom in, etc.
+   * --hero-bg-x: horizontal position (0% = left, 50% = center, 100% = right)
+   * --hero-bg-y: vertical position (0% = top, 50% = center, 100% = bottom)
+   * Example: To zoom in and move image up, use a higher zoom and lower y value.
+   *
+   * The image will always keep its natural proportions (no squishing)!
+   */
+  .mobile-hero-bg {
+    --hero-bg-zoom: 1;      /* Zoom factor (1 = normal, >1 = zoom in) */
+    --hero-bg-x: 70%;          /* Horizontal position (0% = left, 50% = center) */
+    --hero-bg-y: 0%;          /* Vertical position (0% = top, 50% = center) */
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .mobile-hero-bg-inner {
+    position: absolute;
+    inset: 0;
+    background-image: url('fotkiCF2/meClassroom1.jpg');
+    background-size: cover;
+    background-position: var(--hero-bg-x) var(--hero-bg-y);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transform: scale(var(--hero-bg-zoom));
+    transition: transform 0.3s, background-position 0.3s;
+    will-change: transform, background-position;
+  }
+
+  /* --- Mobile Hero Overlay Darkness Control ---
+   * Tweak this variable to control the darkness of the mobile hero overlay:
+   * --mobile-hero-overlay-opacity: 0.7 = 70% dark, 0.9 = 90% dark, etc.
+   * Example: To make the overlay darker, increase the value (max 1.0).
+   */
+  
+  :root {
+    --mobile-hero-overlay-opacity: 0.5;
+    --bubble-img-x: -6%;  /* move left/right */
+    --bubble-img-y: 26%;  /* move up/down */
+    --bubble-img-zoom: 1.3;
+  }
+
+  /* --- Mobile Hero Text Block Controls (Mobile only) ---
+   * Tweak these variables to adjust the position and width of the hero text block on mobile:
+   * --mobile-hero-text-top: how far from the top (e.g. 12vh, 80px)
+   * --mobile-hero-text-left: how far from the left (e.g. 0, 5vw, 20px)
+   * --mobile-hero-text-max-width: max width of the text block (e.g. 95vw, 400px)
+   *
+   * Example: To move the text block further down, increase --mobile-hero-text-top.
+   */
+  .mobile-hero-text {
+    position: absolute;
+    top: var(--mobile-hero-text-top, -12vh);
+    max-width: var(--mobile-hero-text-max-width, 400px); /* set a reasonable max width */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 20;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center image and button */
+    padding-left: 1.5rem; /* increased from 0.5rem to 1.5rem */
+    padding-right: 0.5rem;
+  }
+  @media (min-width: 1024px) {
+    .mobile-hero-text { display: none !important; }
+  }
+
+  @media (max-width: 1023px) {
+    .mobile-menu-btn svg {
+      color: #fff !important;
+      stroke: #fff !important;
+    }
+  }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans" x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })">
+
+  <div class="fixed top-0 left-0 w-full h-14 bg-white shadow z-50 flex items-center justify-between px-4 lg:hidden">
+    <span class="font-bold text-lg text-gray-900">Nikodem Lewandowski</span>
+    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle menu"
+      class="mobile-menu-btn focus:outline-none transition-transform duration-300">
+      <svg x-show="!open" class="w-8 h-8" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg x-show="open" class="w-8 h-8" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Button (hidden on mobile, visible on desktop) -->
+  <div class="fixed top-4 right-4 z-50 hidden lg:block">
+    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle menu"
+      class="mobile-menu-btn focus:outline-none transition-transform duration-300"
+      :class="scrolled ? 'text-green-900' : 'text-white'">
+      <svg x-show="!open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg x-show="open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
+  <div class="fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-white via-gray-50 to-green-50 border-l-4 border-green-600 shadow-2xl rounded-l-2xl z-50 p-6 transform transition-transform duration-300 ease-in-out" :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+    <button @click="open = false" aria-label="Close menu" class="absolute top-4 right-4 text-gray-700 hover:text-red-500 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <nav class="space-y-4 text-lg mt-8">
+      <a href="index.html" @click="open = false" class="block text-xl font-bold text-gray-900 hover:text-green-700 mb-2 transition">Home</a>
+      <a href="index.html#about" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">About</a>
+      <a href="index.html#trainings" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Workshops</a>
+      <a href="index.html#testimonials" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Testimonials</a>
+      <a href="index.html#youtube" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">YouTube</a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-green-800 py-24 px-6 flex flex-col items-center justify-center text-center border-b border-gray-100">
+    <span class="inline-flex items-center justify-center mb-8 mt-2" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-16 h-16 mx-auto"><text x="6" y="25" font-size="24" font-family="serif" font-weight="bold">Φ</text></svg>
+    </span>
+    <h1 class="text-4xl md:text-5xl font-semibold mb-8 text-white leading-tight tracking-tight" style="letter-spacing:-0.01em;">Better Thinking.<br><span style="white-space:nowrap">Better Business.</span></h1>
+    <div class="w-full flex flex-col items-center mb-10">
+      <span class="block text-xl md:text-2xl text-gray-100 font-light px-2 py-1 w-full md:w-auto text-center tracking-wide leading-snug mb-4" style="max-width: 32rem;">
+        <span class="italic text-white text-xl md:text-2xl font-normal">Critical thinking is not just a skill — it's your team’s competitive edge.</span>
+      </span>
+    </div>
+    <a href="mailto:nikodem@email.com" class="inline-block bg-white hover:bg-gray-100 text-green-800 font-bold px-10 py-4 rounded-lg shadow-lg text-lg transition mt-2">Book a Free Strategy Call</a>
+  </section>
+
+  <!-- PROBLEM / SOLUTION SECTION -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+      <div class="flex flex-col items-center md:items-start">
+        <img src="fotkiCF2/meClassroom2.jpg" alt="Frustrated team" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg mb-8 md:mb-0">
+      </div>
+      <div class="px-1 md:px-0 w-full">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-800 tracking-tight leading-tight mb-5 md:mb-6 font-sans">
+          Every Day Without Better Thinking <span class="font-extrabold italic text-green-400 underline underline-offset-4">Costs You Money</span>
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl text-gray-700 mb-6 md:mb-7 leading-relaxed">Your team makes hundreds of decisions every week—under pressure, with incomplete data, and hidden biases.<br>Each poor decision wastes time, increases rework, and risks your billable outcomes.</p>
+        <div class="bg-white border-l-4 border-green-700 rounded-lg shadow-sm px-5 py-4 mt-2 w-full max-w-xl">
+          <div class="font-bold text-green-800 text-lg md:text-xl">How can we improve it?</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-14 md:my-20 border-gray-200">
+  </section>
+
+  <!-- WHAT I OFFER + HOW IT WORKS SECTION (merged, light gray bg) -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex justify-center mb-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-sans text-green-800 tracking-tight leading-tight">The Solution Tailored for Your Team</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-stretch">
+        <div class="flex flex-col justify-center h-full">
+          <div class="bg-white border-l-4 border-green-700 rounded-lg shadow-sm px-5 py-3 mb-2 w-full max-w-xl">
+            <span class="font-bold text-lg md:text-xl text-green-500">Customized Critical Thinking Workshops</span>
+            <span class="block text-gray-700 text-base md:text-lg mt-1">for your team's real-world challenges and business goals</span>
+          </div>
+          <ul class="list-disc pl-7 md:pl-8 space-y-3 text-base sm:text-lg md:text-xl text-gray-700 mt-2">
+            <li>Available in <span class="font-bold">Polish or English</span></li>
+            <li>Format: <span class="font-bold">on-site or online</span>, 3-hour sessions to full-day intensives</li>
+            <li>Built on the <span class="font-bold">Experiential Learning Cycle (Kolb)</span> — your team learns by doing, reflecting, and applying</li>
+            <li>Tailored to <span class="font-bold">your industry, decision-making culture, and business context</span></li>
+          </ul>
+        </div>
+        <!-- Right: Method Steps as Timeline -->
+        <div class="flex flex-col justify-center h-full">
+          <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex flex-col justify-center h-full border-t-4 border-green-700">
+            <div class="text-base sm:text-lg md:text-xl font-bold text-green-700 mb-5 text-left tracking-tight">My method in 4 steps:</div>
+            <ol class="relative border-l-4 border-green-100 pl-7 space-y-6">
+              <li class="group flex items-start">
+                <span class="absolute -left-4 flex items-center justify-center w-7 h-7 bg-green-700 text-white rounded-full font-bold text-lg shadow-md group-hover:scale-110 transition-transform">1</span>
+                <div>
+                  <span class="font-bold text-green-700">Experience:</span> Tackle real business challenges from your world.
+                </div>
+              </li>
+              <li class="group flex items-start">
+                <span class="absolute -left-4 flex items-center justify-center w-7 h-7 bg-green-700 text-white rounded-full font-bold text-lg shadow-md group-hover:scale-110 transition-transform">2</span>
+                <div>
+                  <span class="font-bold text-green-700">Reflect:</span> Spot thinking habits and hidden traps as a team.
+                </div>
+              </li>
+              <li class="group flex items-start">
+                <span class="absolute -left-4 flex items-center justify-center w-7 h-7 bg-green-700 text-white rounded-full font-bold text-lg shadow-md group-hover:scale-110 transition-transform">3</span>
+                <div>
+                  <span class="font-bold text-green-700">Learn:</span> Get practical, science-backed tools you use right away.
+                </div>
+              </li>
+              <li class="group flex items-start">
+                <span class="absolute -left-4 flex items-center justify-center w-7 h-7 bg-green-700 text-white rounded-full font-bold text-lg shadow-md group-hover:scale-110 transition-transform">4</span>
+                <div>
+                  <span class="font-bold text-green-700">Apply:</span> Practice and embed new habits in your real work.
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12 text-green-700 font-semibold text-base sm:text-lg md:text-xl tracking-tight">No lectures. Just active learning with real impact.</div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT SECTION (flattened, two-column text) -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-sans mb-7 md:mb-8 text-green-800 flex items-center gap-2 tracking-tight leading-tight">Tangible Business Impact</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-base sm:text-lg md:text-xl text-gray-700">
+        <div class="bg-white border-l-4 border-green-700 rounded-xl shadow-sm p-5 md:p-6 flex flex-col justify-center min-h-[80px]">
+          <div class="font-bold text-green-800 mb-1 md:mb-2 text-lg md:text-xl">Sharper Decisions, Faster</div>
+          <div>Make better choices under pressure.</div>
+        </div>
+        <div class="bg-white border-l-4 border-green-700 rounded-xl shadow-sm p-5 md:p-6 flex flex-col justify-center min-h-[80px]">
+          <div class="font-bold text-green-800 mb-1 md:mb-2 text-lg md:text-xl">Reduced Risk of Costly Mistakes</div>
+          <div>Spot and prevent thinking traps before they cause damage.</div>
+        </div>
+        <div class="bg-white border-l-4 border-green-700 rounded-xl shadow-sm p-5 md:p-6 flex flex-col justify-center min-h-[80px]">
+          <div class="font-bold text-green-800 mb-1 md:mb-2 text-lg md:text-xl">Stronger Collaboration</div>
+          <div>Shared frameworks align teams around smarter problem-solving.</div>
+        </div>
+        <div class="bg-white border-l-4 border-green-700 rounded-xl shadow-sm p-5 md:p-6 flex flex-col justify-center min-h-[80px]">
+          <div class="font-bold text-green-800 mb-1 md:mb-2 text-lg md:text-xl">Improved Business Outcomes</div>
+          <div>Smarter work, fewer errors, better results on what matters most.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ...existing code... (removed What Your Team Will Master section as per new instructions) ... -->
+
+  <!-- WHY WORK WITH ME SECTION (no shadow, no border) -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="flex justify-center md:justify-start">
+        <img src="profilePicLarge1.png" alt="Nikodem Lewandowski" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg">
+      </div>
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold font-sans mb-6 text-green-800 flex items-center gap-2">Why Work With Me?</h2>
+        <ul class="space-y-3 text-lg">
+          <li><span class="font-bold">Academic Expertise:</span> PhD candidate specializing in rational decision-making, cognitive science, and critical thinking</li>
+          <li><span class="font-bold">Workshop Facilitator:</span> Skilled in teaching critical thinking, logic, and data science with a focus on practical, real-world application</li>
+          <li><span class="font-bold">Business Impact:</span> Empowering teams to adopt sustainable critical thinking habits that enhance decision-making and drive measurable results</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION (keep as is, clean) -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold font-sans mb-8 text-green-800 flex items-center gap-2">💬 What Others Say</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 p-8 rounded-xl shadow text-lg italic flex items-center">“Inspiring, sharp, and engaging. The best workshop I’ve attended in years.”</div>
+        <div class="bg-gray-50 p-8 rounded-xl shadow text-lg italic flex items-center">“Nikodem makes abstract concepts crystal clear—and actually fun.”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="py-20 px-6 bg-white text-center border-t border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold font-sans mb-6 text-green-800">Ready to Sharpen Your Team’s Thinking?</h2>
+      <p class="text-2xl mb-8 text-gray-700">Let’s build a team that makes smarter, faster, and better decisions—one thinking habit at a time.</p>
+      <a href="mailto:nikodem@email.com" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold px-10 py-4 rounded-lg shadow-lg text-lg transition">Book a Free Consultation</a>
+    </div>
+  </section>
+
+
+ <!-- Footer -->
+<footer class="bg-gray-800 text-white py-10 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto mb-8">
+    <div class="footer-grid">
+      <div class="footer-logo-desc flex items-center gap-4 mb-8 lg:mb-0 justify-center sm:justify-center w-full" style="text-align:left;">
+        <span class="inline-flex items-center justify-center" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="8" y="40" font-size="38" font-family="serif" font-weight="bold" fill="white" stroke="white" stroke-width="1">Φ</text>
+          </svg>
+        </span>
+        <div>
+          <h4 class="text-2xl font-bold mb-1">Nikodem Lewandowski</h4>
+          <p class="text-gray-400 text-sm leading-snug max-w-xs">Bridging the gap between theory and practice, intuition and reason, ideas and action.</p>
+        </div>
+      </div>
+      <div class="footer-links flex flex-col items-start" style="align-items: flex-start;">
+        <h4 class="text-xl font-semibold mb-4 w-full text-left" style="text-align:left;">Shortcuts</h4>
+        <ul class="space-y-2 w-full text-left" style="text-align:left;">
+          <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+          <li><a href="#trainings" class="text-gray-400 hover:text-white transition-colors">Workshops</a></li>
+          <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="footer-connect flex flex-col items-start" style="align-items: flex-start;">
+        <h4 class="text-xl font-semibold mb-4">Connect</h4>
+        <ul class="space-y-2">
+          <li><a href="mailto:nikodem@email.com" class="text-gray-400 hover:text-white transition-colors" aria-label="Email">Email</a></li>
+          <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+    © 2025 Nikodem Lewandowski. All rights reserved.
+  </div>
+</footer>
+
+<style>
+  /* Footer grid base: 1 column on mobile, but Shortcuts and Connect in a row */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem 2rem;
+  }
+  /* On mobile, Shortcuts and Connect in a row, nicely aligned */
+  @media (max-width: 1023px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      align-items: start;
+    }
+    .footer-logo-desc {
+      grid-column: 1 / 3;
+    }
+    .footer-links {
+      grid-row: 2;
+      grid-column: 1 / 2;
+      align-items: flex-start !important;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .footer-connect {
+      grid-row: 2;
+      grid-column: 2 / 3;
+      align-items: flex-start !important;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .footer-links h4,
+    .footer-links ul,
+    .footer-connect h4,
+    .footer-connect ul {
+      text-align: left;
+      align-items: flex-start;
+      margin-left: 0;
+    }
+  }
+  /* Logo full width on mobile, centered horizontally but text stays left-aligned */
+  .footer-logo-desc {
+    grid-column: 1 / -1;
+    justify-content: center;
+    width: 100%;
+  }
+  /* On small screens >=640px: two columns */
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-logo-desc {
+      grid-column: 1 / -1; /* Keep full width first row */
+      justify-content: center;
+    }
+    .footer-links {
+      align-items: center !important;
+      justify-content: center !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-links h4,
+    .footer-links ul {
+      text-align: left;
+      align-items: flex-start;
+      margin-left: 0;
+    }
+  }
+  /* On large screens >=1024px: three columns */
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer-logo-desc {
+      grid-column: 1 / 2;
+      margin-bottom: 0 !important;
+      justify-content: flex-start;
+    }
+    .footer-links {
+      align-items: center;
+    }
+    .footer-links h4,
+    .footer-links ul {
+      text-align: left;
+      align-items: flex-start;
+      margin-left: 0;
+    }
+  }
+
+  /* No icon styling needed for text links */
+</style>
+
+  <style>
+    /* Footer: true two-column flex on mobile, grid on desktop */
+    .footer-mobile-flex {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .footer-mobile-flex > div {
+      flex: 1 1 0%;
+      min-width: 0;
+      margin-right: 2rem;
+    }
+    .footer-mobile-flex > div:last-child {
+      margin-right: 0;
+    }
+    @media (min-width: 768px) {
+      .footer-mobile-flex {
+        display: grid !important;
+        flex-direction: unset !important;
+        align-items: unset !important;
+        justify-content: unset !important;
+      }
+      .footer-mobile-flex > div {
+        margin-right: 0;
+      }
+    }
+  </style>
+</body>
+</html>
