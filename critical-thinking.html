@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CT - Nikodem Lewandowski</title>
+  <title>Critical Thinking Workshop – Nikodem Lewandowski</title>
+  <meta name="description" content="Join Nikodem Lewandowski's Critical Thinking Workshop to master logical reasoning, spot fallacies, and improve decision-making for your team or organization." />
+  <meta name="keywords" content="critical thinking workshop, Nikodem Lewandowski, logic, fallacies, business training, decision making, Poland, English, Polish">
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:title" content="Critical Thinking Workshop – Nikodem Lewandowski" />
+  <meta property="og:description" content="Master logical reasoning and decision-making with Nikodem Lewandowski's expert-led critical thinking workshop." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/profilePicLarge1.png" />
+  <meta property="og:url" content="https://nikodemlewandowski.com/critical-thinking.html" />
+  <meta name="twitter:card" content="summary_large_image" />
   <!-- Tailwind CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -92,7 +100,7 @@
   .mobile-hero-bg-inner {
     position: absolute;
     inset: 0;
-    background-image: url('fotkiCF2/meClassroom1.jpg');
+    background-image: url('assets/images/meClassroom1.jpg');
     background-size: cover;
     background-position: var(--hero-bg-x) var(--hero-bg-y);
     background-repeat: no-repeat;
@@ -150,6 +158,52 @@
     }
   }
   </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikodem Lewandowski",
+    "url": "https://nikodemlewandowski.com/",
+    "image": "https://nikodemlewandowski.com/assets/images/profilePicLarge1.png",
+    "sameAs": [
+      "https://linkedin.com/in/nikodem-lewandowski",
+      "https://youtube.com/@Nikodem.Lewandowski"
+    ],
+    "jobTitle": "Workshop Leader, Philosopher, Data Scientist",
+    "description": "Nikodem Lewandowski offers expert-led critical thinking and data visualization workshops for teams and organizations."
+  }
+  </script>
+
+<!--   
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Critical Thinking Workshop",
+    "description": "A workshop to master logical reasoning, spot fallacies, and improve decision-making for your team or organization.",
+    "image": "https://nikodemlewandowski.com/assets/images/profilePicLarge1.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Online or On-site",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      }
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Nikodem Lewandowski",
+      "url": "https://nikodemlewandowski.com/"
+    }
+  }
+  </script> -->
+  
 </head>
 
 <body class="bg-white text-gray-900 font-sans" x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })">
@@ -214,7 +268,7 @@
   <section class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
       <div class="flex flex-col items-center md:items-start">
-        <img src="fotkiCF2/meClassroom2.jpg" alt="Frustrated team" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg mb-8 md:mb-0">
+        <img src="assets/images/meClassroom2.jpg" alt="Nikodem Lewandowski teaching a critical thinking workshop to a team" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg mb-8 md:mb-0">
       </div>
       <div class="px-1 md:px-0 w-full">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-800 tracking-tight leading-tight mb-5 md:mb-6 font-sans">
@@ -311,13 +365,11 @@
     </div>
   </section>
 
-  <!-- ...existing code... (removed What Your Team Will Master section as per new instructions) ... -->
-
   <!-- WHY WORK WITH ME SECTION (no shadow, no border) -->
   <section class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div class="flex justify-center md:justify-start">
-        <img src="profilePicLarge1.png" alt="Nikodem Lewandowski" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg">
+        <img src="assets/images/profilePicLarge1.png" alt="Nikodem Lewandowski professional profile photo" class="rounded-2xl w-full max-w-md md:max-w-lg shadow-lg">
       </div>
       <div>
         <h2 class="text-3xl md:text-4xl font-bold font-sans mb-6 text-green-800 flex items-center gap-2">Why Work With Me?</h2>
@@ -372,6 +424,8 @@
           <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
           <li><a href="#trainings" class="text-gray-400 hover:text-white transition-colors">Workshops</a></li>
           <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+          <li><a href="visualizations.html" class="text-gray-400 hover:text-white transition-colors">Data Visualization Workshops</a></li>
         </ul>
       </div>
       <div class="footer-connect flex flex-col items-start" style="align-items: flex-start;">

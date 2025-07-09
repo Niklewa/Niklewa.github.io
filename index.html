@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikodem Lewandowski</title>
-  <link rel="canonical" href="https://nikodemlewandowski.com/" />
+  <title>Nikodem Lewandowski – Critical Thinking & Data Visualization Workshops</title>
+  <meta name="description" content="Nikodem Lewandowski offers expert-led critical thinking and data visualization workshops for teams and organizations. Boost your team's decision-making and communication skills." />
+  <meta name="keywords" content="Nikodem Lewandowski, critical thinking workshops, data visualization workshops, business training, decision making, Poland, English, Polish">
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:title" content="Nikodem Lewandowski – Critical Thinking & Data Visualization Workshops" />
+  <meta property="og:description" content="Expert-led workshops to boost your team's thinking and communication." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/profilePicLarge1.png" />
+  <meta property="og:url" content="https://nikodemlewandowski.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <!-- Tailwind CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -15,6 +22,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikodem Lewandowski",
+    "url": "https://nikodemlewandowski.com/",
+    "image": "https://nikodemlewandowski.com/assets/images/profilePicLarge1.png",
+    "sameAs": [
+      "https://linkedin.com/in/nikodem-lewandowski",
+      "https://youtube.com/@Nikodem.Lewandowski"
+    ],
+    "jobTitle": "Workshop Leader, Philosopher, Data Scientist",
+    "description": "Nikodem Lewandowski offers expert-led critical thinking and data visualization workshops for teams and organizations."
+  }
+  </script>
+  
+  <!-- <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Critical Thinking Workshop",
+    "description": "A workshop to master logical reasoning, spot fallacies, and improve decision-making for your team or organization.",
+    "image": "https://nikodemlewandowski.com/assets/images/profilePicLarge1.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Online or On-site",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      }
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Nikodem Lewandowski",
+      "url": "https://nikodemlewandowski.com/"
+    }
+  }
+  </script> -->
 
   <style>
   html {
@@ -259,9 +309,9 @@
     <div class="absolute inset-0 z-0 lg:hidden">
       <div class="mobile-hero-bg" x-data="{
         images: [
-          { url: 'fotkiCF2/meClassroom1.jpg', x: '70%', y: '0%', zoom: 1 },
-          { url: 'fotkiCF2/meClassroom2.jpg', x: '50%', y: '10%', zoom: 1.1 },
-          { url: 'fotkiCF2/mePiano2.jpg', x: '60%', y: '0%', zoom: 1.15 }
+          { url: 'assets/images/meClassroom1.jpg', x: '70%', y: '0%', zoom: 1 },
+          { url: 'assets/images/meClassroom2.jpg', x: '50%', y: '10%', zoom: 1.1 },
+          { url: 'assets/images/mePiano2.jpg', x: '60%', y: '0%', zoom: 1.15 }
         ],
         current: 0,
         interval: null,
@@ -290,14 +340,14 @@
     </div>
     <!-- Desktop background and overlay -->
     <div class="absolute inset-0 z-0 hidden lg:block">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('profilePicLarge1bckdimmedSMALL.jpg');"></div>
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/images/profilePicLarge1bckdimmedSMALL.jpg');"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
     </div>
     <div class="relative z-20 container mx-auto px-6 pt-40 pb-10 lg:py-0 flex flex-col items-center lg:block w-full">
       <div class="mobile-hero-text lg:static lg:pl-16 lg:max-w-3xl lg:mx-0 lg:items-start lg:text-left">
 
         <div class="bubble-img-wrapper" style="overflow: hidden; border-radius: 50%; width: 10rem; height: 10rem; margin-bottom: 1.5rem; border: 4px solid white; position: relative;">
-        <img src="mePICNICER1.jpg" alt="A photo of Nikodem"
+        <img src="assets/images/mePICNICER1.jpg" alt="Nikodem Lewandowski portrait, outdoors at a picnic, smiling and looking at the camera"
           style="
             position: absolute;
             top: 50%;
@@ -352,7 +402,7 @@
   <section id="about" class="py-24 px-6 bg-gray-50">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div class="order-2 md:order-1">
-        <img src="fotkiCF2/mePoster2.jpg" alt="Nikodem Lewandowski" class="rounded-2xl shadow-xl fade-in" />
+        <img src="assets/images/mePoster2.jpg" alt="Nikodem Lewandowski presenting at a workshop, standing in front of a poster" class="rounded-2xl shadow-xl fade-in" />
       </div>
       <div class="flex flex-col gap-3 md:gap-3 text-gray-800 fade-in order-1 md:order-2" style="text-align:justify;font-size:1rem;">
         <h3 class="text-3xl font-extrabold mb-1 text-gray-900">Hi, I'm Nikodem</h3>
@@ -469,7 +519,7 @@
   <section id="youtube" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
       <div class="flex-1 flex justify-center items-center">
-        <img src="fotkiCF2/meYT2.png" alt="YouTube Setup" class="rounded-2xl shadow-xl w-full max-w-xs md:max-w-sm" style="background: none; border: none; box-shadow: 0 6px 32px 0 rgba(34,197,94,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.07);" />
+        <img src="assets/images/meYT2.png" alt="Nikodem Lewandowski's YouTube video setup with camera and microphone" class="rounded-2xl shadow-xl w-full max-w-xs md:max-w-sm" style="background: none; border: none; box-shadow: 0 6px 32px 0 rgba(34,197,94,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.07);" />
       </div>
       <div class="flex-1 flex flex-col justify-center h-full" style="background:none; box-shadow:none; padding:0;">
         <h3 class="text-4xl font-extrabold mb-4" style="color:#166534;">Philosophy for Everyone</h3>
@@ -502,6 +552,8 @@
           <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
           <li><a href="#trainings" class="text-gray-400 hover:text-white transition-colors">Workshops</a></li>
           <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+          <li><a href="critical-thinking.html" class="text-gray-400 hover:text-white transition-colors">Critical Thinking Workshops</a></li>
+          <li><a href="visualizations.html" class="text-gray-400 hover:text-white transition-colors">Data Visualization Workshops</a></li>
         </ul>
       </div>
       <div class="footer-connect flex flex-col items-start" style="align-items: flex-start;">
