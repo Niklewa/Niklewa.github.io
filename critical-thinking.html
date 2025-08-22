@@ -383,13 +383,13 @@
   <script>
     // Success callback for popup form (ID must match container id: mlb2-29731922)
     function ml_webform_success_29731922() {
-      // try { localStorage.setItem('ml_popup_ebook_submitted', '1'); } catch(e){}
+      try { localStorage.setItem('ml_popup_ebook_submitted', '1'); } catch(e){}
       var c = document.getElementById('ebook-popup-content');
       var t = document.getElementById('ebook-popup-thanks');
       if (c) c.classList.add('hidden');
       if (t) t.classList.remove('hidden');
       // Auto-close after a short delay
-      setTimeout(function(){ hideEbookPopup(false); }, 1800);
+      setTimeout(function(){ hideEbookPopup(); }, 1800);
     }
 
     // Popup show/hide + timing
@@ -405,8 +405,10 @@
       try { hiddenUntil = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); } catch(e) {}
       var submitted = false; try { submitted = !!localStorage.getItem(SUBMITTED_KEY); } catch(e) {}
 
-  // Always show during work; suppression disabled for now
-  setTimeout(function(){ showEbookPopup(); }, SHOW_DELAY);
+      // Show only if not suppressed and not submitted
+      if (!submitted && now >= hiddenUntil) {
+        setTimeout(function(){ showEbookPopup(); }, SHOW_DELAY);
+      }
 
       function showEbookPopup(){
         // Suppression disabled for now
@@ -415,12 +417,12 @@
         document.addEventListener('keydown', onKey);
       }
 
-      window.hideEbookPopup = function(setCooldown){
+    window.hideEbookPopup = function(setCooldown){
         overlay.classList.add('hidden');
         overlay.classList.remove('flex');
         document.removeEventListener('keydown', onKey);
         if (setCooldown !== false) {
-          // Suppression disabled for now
+      try { localStorage.setItem(DISMISS_KEY, String(Date.now() + COOL_DOWN_MS)); } catch(e) {}
         }
       }
 
@@ -635,7 +637,7 @@
             <li><a href="#ebook-cta" class="text-gray-400 hover:text-white transition-colors">E-book</a></li>
             <li><a href="#konsultacja" class="text-gray-400 hover:text-white transition-colors">Konsultacja</a></li>
             <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="visualizations.html" class="text-gray-400 hover:text-white transition-colors">Data Visualization Workshops</a></li>
+            <!-- <li><a href="visualizations.html" class="text-gray-400 hover:text-white transition-colors">Data Visualization Workshops</a></li> -->
           </ul>
         </div>
         <div class="footer-connect flex flex-col items-start" style="align-items: flex-start;">
