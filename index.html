@@ -680,25 +680,25 @@
   <!-- Timed popup: Ebook lead (MailerLite) -->
   <div id="ebook-popup" class="fixed inset-0 z-50 hidden items-center justify-center" style="z-index:9999;">
     <div class="absolute inset-0 bg-black bg-opacity-50" data-ml-close="overlay" aria-hidden="true"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="ebook-popup-title" class="relative bg-white rounded-2xl w-11/12 max-w-2xl px-8 py-10 shadow-2xl border-t-4 border-green-700 max-h-screen overflow-y-auto">
+  <div role="dialog" aria-modal="true" aria-labelledby="ebook-popup-title" class="relative bg-white rounded-2xl w-11/12 sm:w-10/12 max-w-3xl px-6 md:px-10 py-10 shadow-2xl border-t-4 border-green-700 max-h-screen overflow-y-auto">
       <button type="button" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" aria-label="Zamknij" data-ml-close="button">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
       <div id="ebook-popup-content">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start md:items-stretch">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start md:items-stretch">
           <!-- Cover -->
           <div class="flex justify-center md:justify-start md:col-span-2">
-            <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych w biznesie" class="w-36 md:w-48 xl:w-52 h-auto rounded-lg shadow-2xl border border-white" />
+            <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych w biznesie" class="w-44 md:w-56 xl:w-64 h-auto object-contain rounded-lg shadow-2xl border border-white" />
           </div>
           <!-- Copy + form -->
           <div class="md:col-span-3 flex flex-col h-full">
-            <h3 id="ebook-popup-title" class="text-5xl md:text-6xl font-extrabold text-green-800 leading-tight tracking-tight mb-4">Zdobądź przewagę nad innymi</h3>
-            <p class="text-gray-800 text-sm md:text-base mb-3">W moim <span class="font-extrabold italic text-green-400 underline underline-offset-4">darmowym e‑booku</span> dowiesz się jak zapobiegać 7 najczęstszym błędom poznawczym i podejmować trafne decyzje.</p>
+            <h3 id="ebook-popup-title" class="text-3xl md:text-4xl font-extrabold text-green-800 leading-tight tracking-tight mb-4">Zdobądź przewagę nad innymi</h3>
+            <p class="text-gray-800 text-sm md:text-base leading-relaxed mb-4 md:mb-5">W moim <span class="font-extrabold italic text-green-400 underline underline-offset-4">darmowym e‑booku</span> dowiesz się jak zapobiegać 7 najczęstszym błędom poznawczym i podejmować trafne decyzje.</p>
             <!-- MailerLite popup form (short) -->
             <div id="mlb2-29731922" class="ml-subscribe-form ml-subscribe-form-29731922 mt-auto">
               <div class="ml-form-embedWrapper embedForm">
                 <div class="ml-form-embedBody row-form">
-                  <form class="ml-block-form flex flex-col gap-3" action="https://assets.mailerlite.com/jsonp/1674736/forms/163075283659785564/subscribe" method="post" target="_self">
+                  <form class="ml-block-form flex flex-col gap-4" action="https://assets.mailerlite.com/jsonp/1674736/forms/163075283659785564/subscribe" method="post" target="_self">
                     <input type="email" name="fields[email]" aria-label="Twój e‑mail" placeholder="Twój e‑mail" required class="border rounded-full px-5 h-12 w-full shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
                     <input type="hidden" name="ml-submit" value="1">
                     <input type="hidden" name="anticsrf" value="true">
@@ -744,12 +744,12 @@
       var SUBMITTED_KEY = 'ml_popup_ebook_submitted';
       var COOL_DOWN_MS = 30*24*60*60*1000; // 30 days suppression
       var now = Date.now();
-      var hiddenUntil = 0;
-      try { hiddenUntil = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); } catch(e) {}
-      var submitted = false; try { submitted = !!localStorage.getItem(SUBMITTED_KEY); } catch(e) {}
+  var hiddenUntil = 0;
+  try { hiddenUntil = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); } catch(e) {}
+  var submitted = false; try { submitted = !!localStorage.getItem(SUBMITTED_KEY); } catch(e) {}
 
       // Show only if not suppressed and not submitted
-      if (!submitted && now >= hiddenUntil) {
+  if (!submitted && now >= hiddenUntil) {
         setTimeout(function(){ showEbookPopup(); }, SHOW_DELAY);
       }
 
