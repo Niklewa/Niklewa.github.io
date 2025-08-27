@@ -33,6 +33,14 @@
   .offer-list { list-style: disc; padding-left: 1.25rem; }
   .offer-list li { line-height: 1.7; }
 
+  /* reCAPTCHA container tweaks to match spacing and center */
+  .ml-form-recaptcha { margin: .5rem auto 1rem; text-align: center; }
+  .ml-form-recaptcha .g-recaptcha { display: inline-block; }
+  .ml-form-recaptcha.ml-error iframe { border: 1px solid #ff0000; }
+  @media (max-width: 480px) {
+    .ml-form-recaptcha { width: 220px !important; }
+    .ml-form-recaptcha .g-recaptcha { transform: scale(0.78); -webkit-transform: scale(0.78); transform-origin: center center; -webkit-transform-origin: center center; }
+  }
     
 
 
@@ -221,7 +229,7 @@
                   </div>
 
                   <div>
-                    <label for="ml-phone" class="block text-sm font-semibold text-gray-700 mb-1">Nr telefonu</label>
+                    <label for="ml-phone" class="block text-sm font-semibold text-gray-700 mb-1">Nr telefonu (jeśli BLIK)</label>
                     <input id="ml-phone" type="text" name="fields[phone]"
                            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
                            placeholder="np. 500 600 700">
@@ -244,6 +252,11 @@
                 </div>
 
                 <!-- Submit -->
+                  <!-- Google reCAPTCHA (required by MailerLite) -->
+                  <div class="ml-form-recaptcha ml-validate-required mt-4 mb-2">
+                    <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                  </div>
+
                 <input type="hidden" name="ml-submit" value="1">
                 <input type="hidden" name="anticsrf" value="true">
                 <button type="submit"
@@ -277,6 +290,8 @@
 
 <!-- MailerLite JS -->
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <!-- MailerLite success callback: dopasowany do ID formularza (mlb2-29923029) -->
 <script>
