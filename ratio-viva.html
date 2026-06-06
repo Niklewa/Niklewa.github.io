@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Myślenie krytyczne w biznesie – Umów darmową konsultację | Nikodem Lewandowski</title>
-  <meta name="description" content="Popraw decyzje w firmie. Umów darmową konsultację w temacie myślenia krytycznego, unikaj błędów poznawczych i podejmuj lepsze decyzje." />
+  <title>Myślenie krytyczne w biznesie | Nikodem Lewandowski</title>
+  <meta name="description" content="Popraw decyzje w firmie. Zapytaj o warsztaty lub wystąpienie w temacie myślenia krytycznego, unikaj błędów poznawczych i podejmuj lepsze decyzje." />
   <meta name="keywords" content="myślenie krytyczne, błędy poznawcze, konsultacje biznesowe, szkolenia, warsztaty, lepsze decyzje" />
   <!-- Open Graph & Twitter Cards -->
-  <meta property="og:title" content="Myślenie krytyczne w biznesie – Darmowa konsultacja" />
-  <meta property="og:description" content="Unikaj kosztownych błędów poznawczych. Umów darmową konsultację i popraw proces decyzyjny w zespole." />
+  <meta property="og:title" content="Myślenie krytyczne w biznesie" />
+  <meta property="og:description" content="Unikaj kosztownych błędów poznawczych. Skontaktuj się i popraw proces decyzyjny w zespole." />
   <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg" />
   <meta property="og:url" content="https://nikodemlewandowski.com/ratio-viva.html" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -17,6 +17,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Alpine Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+  <!-- Alpine Core -->
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
 
   <style>
@@ -131,8 +134,7 @@
   <div class="w-full flex flex-col items-center mb-14 md:mb-16">
       <span class="block text-xl md:text-2xl text-gray-100 font-light px-2 py-1 w-full md:w-auto text-center tracking-wide leading-snug mb-4" style="max-width: 32rem;">
         <span class="italic text-white text-xl md:text-2xl font-normal">„Krytyczne myślenie to nie tylko umiejętność, to Twoja realna przewaga.”</span> </span>
-  <a href="#konsultacja" class="inline-block bg-white hover:bg-gray-100 text-green-800 font-extrabold px-10 py-4 rounded-lg shadow-2xl text-lg transition mt-8 md:mt-12">Umów darmową konsultację</a>
-  <div class="mt-4 text-sm text-gray-300">Dostępne dla 10 osób miesięcznie.</div>
+  <a href="#oferta" class="inline-block bg-white hover:bg-gray-100 text-green-800 font-extrabold px-10 py-4 rounded-lg shadow-2xl text-lg transition mt-8 md:mt-12">Przejdź do oferty</a>
    </section>
 
   <!-- PROBLEM / PAIN (skrócone, ostrzejsze) -->
@@ -183,7 +185,7 @@
    </section>
 
   <!-- Przykłady gigantów: błędy w akcji -->
-  <section id="case-studies" class="py-16 px-6 bg-white">
+  <section id="case-studies" class="py-16 px-6 bg-green-50">
     <div class="max-w-5xl mx-auto">
   <div class="flex justify-center mb-10 md:mb-12">
    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-sans text-green-800 tracking-tight leading-tight text-center max-w-3xl mx-auto">
@@ -230,275 +232,115 @@
      </div>
    </section>
 
-  <!-- E-BOOK CTA (lead magnet) -->
-<section id="ebook-cta" class="py-16 px-6 bg-gray-50 flex justify-center">
-  <div class="max-w-5xl w-full flex flex-col items-center text-center bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-0.5 transition duration-200 border-t-4 border-green-700 p-8">
-
-    <!-- Główna treść -->
-    <div id="ebook-cta-card-content" class="w-full">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-
-  <!-- Lewa kolumna: okładka (ukryta na mobile) -->
-  <div class="hidden md:block">
-          <div class="w-full flex justify-center md:justify-center">
-      <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych"
-        class="block w-44 sm:w-56 md:w-64 lg:w-72 xl:w-80 h-auto rounded-xl shadow-md border border-white"
-                 onerror="this.classList.add('hidden'); var fb=this.nextElementSibling; fb.classList.remove('hidden');">
-            <!-- Fallback mockup (gdy nie ma okładki) -->
-      <div aria-hidden="true" class="hidden relative w-44 h-60 bg-gradient-to-br from-green-600 to-emerald-500 rounded-xl shadow-md transform -rotate-2 md:ml-2">
-              <div class="absolute inset-0 rounded-xl border-2 border-white" style="opacity:.25"></div>
-              <div class="absolute inset-0 flex items-center justify-center px-4 text-white text-center">
-                <div>
-                  <div class="text-sm opacity-90">Darmowy ebook</div>
-                  <div class="font-black leading-tight mt-1">7 pułapek poznawczych w biznesie</div>
-                  <div class="mt-2 text-xs opacity-90">Nikodem Lewandowski</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Prawa kolumna: treść + formularz -->
-        <div>
-          <h3 class="text-2xl md:text-3xl font-bold text-green-800 mb-3 text-left">Przestań popełniać te same błędy co wszyscy</h3>
-          <!-- Mobile-only cover obrazek tuż pod tytułem -->
-          <div class="md:hidden w-full flex justify-center mb-3">
-            <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych" class="block w-44 sm:w-56 h-auto rounded-xl shadow-md border border-white" onerror="this.classList.add('hidden');">
-          </div>
-          <p class="text-lg text-gray-700 mb-4 text-left">
-            Mój <span class="font-extrabold italic text-green-400 underline underline-offset-4">darmowy ebook</span> odkryje przed Tobą 7 najczęstszych pułapek myślenia, które sabotują Twój sukces,
-            oraz pokaże jak je neutralizować, zanim zrujnują Twoją następną decyzję.
-          </p>
-          <ul class="text-left text-gray-700 mb-6 space-y-2">
-            <li class="relative pl-7">
-              <svg class="absolute left-0 top-0.5 w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-green-400 font-semibold">Dowiesz się</span>, dlaczego inteligentni ludzie podejmują kosztowne, złe decyzje.
-            </li>
-            <li class="relative pl-7">
-              <svg class="absolute left-0 top-0.5 w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-green-400 font-semibold">Poznasz</span> narzędzia do przeciwdziałania tym błędom i podejmowania lepszych decyzji.
-            </li>
-            <li class="relative pl-7">
-              <svg class="absolute left-0 top-0.5 w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-green-400 font-semibold">Zrobisz</span> pierwszy krok w stronę myślenia, które daje Ci przewagę nad innymi.
-            </li>
-          </ul>
-
-          <!-- Formularz MailerLite -->
-          <div id="mlb2-29731921" class="ml-subscribe-form ml-subscribe-form-29731921">
-            <div class="ml-form-embedWrapper embedForm">
-              <div class="ml-form-embedBody row-form">
-                <form class="ml-block-form flex flex-col gap-3"
-                      action="https://assets.mailerlite.com/jsonp/1674736/forms/163075283659785564/subscribe"
-                      method="post"
-                      target="_self">
-
-                  <input type="email" name="fields[email]" placeholder="Twój email" required
-                         class="border rounded-full px-5 py-3 w-full shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-
-                  <input type="hidden" name="ml-submit" value="1">
-                  <input type="hidden" name="anticsrf" value="true">
-
-      <button type="submit"
-        class="bg-green-700 hover:bg-green-800 transition-colors duration-200 text-white font-bold py-3 px-6 rounded-full shadow-md w-full">
-                    Pobierz teraz
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Thank-you state -->
-    <div id="ebook-cta-thanks" class="w-full" style="display:none;">
-      <div class="mx-auto max-w-sm px-3">
-        <div class="flex flex-col items-center text-center bg-white rounded-xl shadow-sm px-4 py-4" aria-live="polite">
-          <div class="mb-2 text-green-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0zm14.28-2.53a.75.75 0 10-1.06-1.06l-4.72 4.72-2.22-2.22a.75.75 0 10-1.06 1.06l2.75 2.75c.3.3.79.3 1.06 0l5.25-5.25z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl md:text-2xl font-bold text-green-800 mb-1">Dziękuję! 🎉</h3>
-          <p class="text-sm text-gray-700">Miłej lektury! Super, że chcesz się rozwijać.</p>
-          <p class="text-xs text-gray-500 mt-2">Link do ebooka jest w drodze. Jeśli nie widzisz wiadomości, sprawdź folder <span class="font-semibold">Oferty/Spam</span>.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  function ml_webform_success_29731921() {
-    var content = document.getElementById('ebook-cta-card-content');
-    var thanks = document.getElementById('ebook-cta-thanks');
-    if (content) content.style.display = 'none';
-    if (thanks) thanks.style.display = 'block';
-  }
-</script>
-
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
-
-
-
-  <!-- MOJA OFERTA (trening „mięśnia”) -->
-  <!-- Timed popup: Ebook lead (MailerLite) -->
-  <div id="ebook-popup" class="fixed inset-0 z-50 hidden items-center justify-center" style="z-index:9999;">
-    <div class="absolute inset-0 bg-black bg-opacity-50" data-ml-close="overlay" aria-hidden="true"></div>
-  <div role="dialog" aria-modal="true" aria-labelledby="ebook-popup-title" class="relative bg-white rounded-2xl w-11/12 max-w-2xl px-8 py-10 shadow-2xl border-t-4 border-green-700 max-h-screen overflow-y-auto">
-      <button type="button" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" aria-label="Zamknij" data-ml-close="button">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-      </button>
-      <div id="ebook-popup-content">
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start md:items-stretch">
-          <!-- Cover -->
-          <div class="flex justify-center md:justify-start md:col-span-2">
-            <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych w biznesie" class="w-36 md:w-48 xl:w-52 h-auto rounded-lg shadow-2xl border border-white" />
-          </div>
-          <!-- Copy + form -->
-          <div class="md:col-span-3 flex flex-col h-full">
-            <h3 id="ebook-popup-title" class="text-5xl md:text-6xl font-extrabold text-green-800 leading-tight tracking-tight mb-4">Zdobądź przewagę nad innymi</h3>
-            <p class="text-gray-800 text-sm md:text-base mb-3">W moim <span class="font-extrabold italic text-green-400 underline underline-offset-4">darmowym e‑booku</span> dowiesz się jak zapobiegać 7 najczęstszym błędom poznawczym i podejmować trafne decyzje.</p>
-            <!-- MailerLite popup form (short) -->
-            <div id="mlb2-29731922" class="ml-subscribe-form ml-subscribe-form-29731922 mt-auto">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody row-form">
-                  <form class="ml-block-form flex flex-col gap-3" action="https://assets.mailerlite.com/jsonp/1674736/forms/163075283659785564/subscribe" method="post" target="_self">
-                    <input type="email" name="fields[email]" aria-label="Twój e‑mail" placeholder="Twój e‑mail" required class="border rounded-full px-5 h-12 w-full shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-                    <input type="hidden" name="ml-submit" value="1">
-                    <input type="hidden" name="anticsrf" value="true">
-                    <button type="submit" class="bg-green-700 hover:bg-green-800 transition-colors duration-200 text-white font-bold h-12 px-6 rounded-full shadow-md w-full text-base md:text-lg">Pobierz e‑book</button>
-                    <div class="text-xs text-gray-500 text-center mt-1">Zero spamu. Wypisz się w dowolnym momencie.</div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="ebook-popup-thanks" class="hidden">
-        <div class="flex flex-col items-center text-center px-2 py-2" aria-live="polite">
-          <div class="mb-2 text-green-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0zm14.28-2.53a.75.75 0 10-1.06-1.06l-4.72 4.72-2.22-2.22a.75.75 0 10-1.06 1.06l2.75 2.75c.3.3.79.3 1.06 0l5.25-5.25z"/></svg>
-          </div>
-          <h4 class="text-xl font-bold text-green-800">Dziękuję! 🎉</h4>
-          <p class="text-sm text-gray-700 mt-1">Link do e‑booka jest w drodze. Sprawdź też folder Oferty/Spam.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Success callback for popup form (ID must match container id: mlb2-29731922)
-    function ml_webform_success_29731922() {
-      try { localStorage.setItem('ml_popup_ebook_submitted', '1'); } catch(e){}
-      var c = document.getElementById('ebook-popup-content');
-      var t = document.getElementById('ebook-popup-thanks');
-      if (c) c.classList.add('hidden');
-      if (t) t.classList.remove('hidden');
-      // Auto-close after a short delay
-      setTimeout(function(){ hideEbookPopup(); }, 1800);
-    }
-
-    // Popup show/hide + timing
-    (function(){
-      var overlay = document.getElementById('ebook-popup');
-      if (!overlay) return;
-      var SHOW_DELAY = 5000; // 5s after page open
-      var DISMISS_KEY = 'ml_popup_ebook_hidden_until';
-      var SUBMITTED_KEY = 'ml_popup_ebook_submitted';
-      var COOL_DOWN_MS = 30*24*60*60*1000; // 30 days suppression
-      var now = Date.now();
-      var hiddenUntil = 0;
-      try { hiddenUntil = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); } catch(e) {}
-      var submitted = false; try { submitted = !!localStorage.getItem(SUBMITTED_KEY); } catch(e) {}
-
-      // Show only if not suppressed and not submitted
-      if (!submitted && now >= hiddenUntil) {
-        setTimeout(function(){ showEbookPopup(); }, SHOW_DELAY);
-      }
-
-      function showEbookPopup(){
-        // Suppression disabled for now
-        overlay.classList.remove('hidden');
-        overlay.classList.add('flex');
-        document.addEventListener('keydown', onKey);
-      }
-
-    window.hideEbookPopup = function(setCooldown){
-        overlay.classList.add('hidden');
-        overlay.classList.remove('flex');
-        document.removeEventListener('keydown', onKey);
-        if (setCooldown !== false) {
-      try { localStorage.setItem(DISMISS_KEY, String(Date.now() + COOL_DOWN_MS)); } catch(e) {}
-        }
-      }
-
-      function onKey(e){ if (e.key === 'Escape') hideEbookPopup(); }
-      // Close interactions
-      overlay.querySelector('[data-ml-close="button"]').addEventListener('click', function(){ hideEbookPopup(); });
-      overlay.querySelector('[data-ml-close="overlay"]').addEventListener('click', function(){ hideEbookPopup(); });
-    })();
-  </script>
-
-  <section class="py-20 px-6 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex flex-col items-center mb-10">
-        <p class="text-lg md:text-xl text-gray-700 text-center max-w-2xl mt-2">
-          <span class="font-bold text-green-400">Brutalna prawda?</span>
-          Znajomość błędów to pierwszy krok, ale sama wiedza nie wystarczy.
-          Myślenie krytyczne to umiejętność wymagająca praktyki — wypracujmy ją wspólnie
-          <svg class="inline-block w-5 h-5 text-green-400 align-middle ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v12.19l4.72-4.72a.75.75 0 111.06 1.06l-6 6a.75.75 0 01-1.06 0l-6-6a.75.75 0 111.06-1.06l4.72 4.72V4.5a.75.75 0 01.75-.75z" />
-          </svg>
+  <section id="oferta" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col items-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-green-800 text-center mb-4">Oferta Współpracy</h2>
+        <p class="text-lg md:text-xl text-gray-700 text-center max-w-2xl">
+          Wybierz format, który najlepiej odpowiada potrzebom Twojej organizacji.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        <!-- Dla osób indywidualnych (pierwsze) -->
-  <div class="bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-0.5 transition duration-200 border-t-4 border-green-700 p-8 flex flex-col h-full">
-  <h3 class="font-bold text-green-800 text-xl mb-2">Sesje indywidualne 1 na 1</h3>
-  <p class="text-gray-700 text-base mb-2">Zyskaj profesjonalne przewodnictwo na drodze ku lepszemu myśleniu.</p>
-  <p class="text-gray-700 text-base mb-4">Pracując na twoich caseach kreujemy zdolności myślenia nakierowanego na to co dla ciebie najważniejsze.</p>
-  <div class="text-gray-800 font-semibold mb-2">Co zyskujesz:</div>
-  <ul class="list-disc pl-5 text-gray-700 text-sm mb-4 space-y-1">
-    <li>Nowe nawyki uoadparniające na błędy poznawcze.</li>
-    <li>Konkretne narzędzia i plan na polepszenie swojego myślenia.</li>
-    <li>Oszczędność czasu, pieniędzy i nerwów.</li>
-  </ul>
-  <p class="text-gray-600 text-sm mb-6">50 minut, format zdalny, pełna poufność, 150zł za sesję</p>
-  <a href="#konsultacja" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-3 rounded-lg shadow text-base transition self-center mt-auto">Umów sesję</a>
-</div>
 
-        <!-- Dla firm (drugie) -->
-  <div class="bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-0.5 transition duration-200 border-t-4 border-green-700 p-8 flex flex-col h-full">
-  <h3 class="font-bold text-green-800 text-xl mb-2">Warsztaty dla zespołów</h3>
-  <p class="text-gray-700 text-base mb-2">Pracując na realnych wyzwaniach Twojego zespołu budujemy waszą odporność na błędy poznawcze.</p>
-  <p class="text-gray-700 text-base mb-4">Twój zespół zdobędzie konkretne narzędzia krytycznego myślenia, oraz nauczy się jak je wdrażać bez powodowania konfliktów.</p>
-  <div class="text-gray-800 font-semibold mb-2">Co zyskujecie :</div>
-  <ul class="list-disc pl-5 text-gray-700 text-sm mb-4 space-y-1">
-    <li>Decyzje podejmowane szybciej i trafniej, na podstawie faktów.</li>
-    <li>Zespół, który sam wychwytuje błędy w rozumowaniu i je eliminuje.</li>
-    <li>Kulturę pracy opartą na logicznych pytaniach i rzetelnej analizie.</li>
-  </ul>
-  <p class="text-gray-600 text-sm mb-6">Zdalnie lub na miejscu (PL/EN), format 4–8h lub cykl rozwojowy, indywidualna wycena</p>
-  <a href="#konsultacja" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-3 rounded-lg shadow text-base transition self-center mt-auto">Zapytaj o warsztat dla zespołu</a>
-</div>
+      <!-- Top Row: Accordions -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Card 1: Power Speech -->
+        <div class="bg-white border-t-4 border-green-700 rounded-2xl shadow-lg transition duration-300 transform hover:shadow-2xl hover:-translate-y-1 overflow-hidden flex flex-col" x-data="{ open: false }">
+          <div @click="open = !open" class="p-8 cursor-pointer flex justify-between items-start hover:bg-gray-50 transition min-h-[160px]">
+            <div class="flex-1 pr-4">
+              <h3 class="font-bold text-green-800 text-xl mb-3">POWER SPEECH</h3>
+              <div x-show="!open" class="text-gray-700 italic leading-relaxed">
+                "Inspiracja i Wstrząs. 45-60 minut, które zmieniają paradygmat myślenia w firmie."
+              </div>
+            </div>
+            <div class="pt-1">
+              <svg class="w-6 h-6 text-green-700 transform transition-transform duration-300" :class="{'rotate-180': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div x-show="open" x-collapse>
+             <div class="px-8 pb-8 pt-0 border-t border-gray-100 bg-gray-50">
+                <ul class="space-y-3 mt-4 text-gray-700 mb-6">
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Twój mózg sabotuje Twój biznes</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Koniec Ery Prawdy (Fake News)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Inżynieria Decyzji</span>
+                  </li>
+                </ul>
+                <a href="#konsultacja" class="block w-full text-center bg-green-700 text-white font-bold py-3 rounded-lg hover:bg-green-800 transition">Zapytaj o termin</a>
+             </div>
+          </div>
+        </div>
 
+        <!-- Card 2: Warsztaty -->
+        <div class="bg-white border-t-4 border-green-700 rounded-2xl shadow-lg transition duration-300 transform hover:shadow-2xl hover:-translate-y-1 overflow-hidden flex flex-col" x-data="{ open: false }">
+          <div @click="open = !open" class="p-8 cursor-pointer flex justify-between items-start hover:bg-gray-50 transition min-h-[160px]">
+            <div class="flex-1 pr-4">
+              <h3 class="font-bold text-green-800 text-xl mb-3">WARSZTATY & SZKOLENIA</h3>
+              <div x-show="!open" class="text-gray-700 italic leading-relaxed">
+                "Praktyka i System. Od symulacji kryzysowych po wdrażanie procedur decyzyjnych."
+              </div>
+            </div>
+            <div class="pt-1">
+              <svg class="w-6 h-6 text-green-700 transform transition-transform duration-300" :class="{'rotate-180': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+           <div x-show="open" x-collapse>
+             <div class="px-8 pb-8 pt-0 border-t border-gray-100 bg-gray-50">
+                <ul class="space-y-3 mt-4 text-gray-700 mb-6">
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Laboratorium Decyzyjne</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Architektura Myślenia</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Tailor-Made (Dedykowane)</span>
+                  </li>
+                </ul>
+                <a href="#konsultacja" class="block w-full text-center bg-green-700 text-white font-bold py-3 rounded-lg hover:bg-green-800 transition">Zapytaj o warsztat</a>
+             </div>
+          </div>
         </div>
       </div>
+
+       <!-- Mentoring Section (Separate & Compact) -->
+       <div class="max-w-3xl mx-auto">
+         <div class="bg-white border border-yellow-600 rounded-xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+            <div class="flex-1 text-center md:text-left">
+              <h3 class="text-xl font-bold font-serif text-gray-900 mb-2">Executive Logic Sparring (Mentoring 1:1)</h3>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Twój Adwokat Diabła". Oferta ekskluzywna dla C-Level. Indywidualny trening intelektualny, analiza kluczowych decyzji "na sucho" i eliminacja błędów poznawczych.
+              </p>
+            </div>
+            <a href="#konsultacja" class="whitespace-nowrap bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-6 py-2 rounded-lg shadow transition text-sm">
+              Aplikuj
+            </a>
+         </div>
+       </div>
+
     </div>
   </section>
 
   <!-- Callout after Offer -->
-  <section class="px-6 py-12 bg-white">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-xl md:text-2xl text-gray-900 tracking-tight">Dobre myślenie procentuje jak pieniądze trzymane na koncie oszczędnościowym.</p>
-      <p class="mt-2 text-xl md:text-2xl text-gray-700">Każdy dzień z błędami decyzyjnymi to pieniądze topniejące na inflacji.</p>
-      <div class="mt-6 h-px w-16 bg-gray-200 mx-auto" aria-hidden="true"></div>
-      <p class="mt-6 text-xl md:text-2xl text-green-800 font-semibold">Nie odkładaj tego na później.</p>
+  <section class="px-6 py-20 bg-green-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-2xl md:text-3xl text-white font-serif italic leading-relaxed">"Dobre myślenie procentuje jak pieniądze trzymane na koncie oszczędnościowym."</p>
+      <p class="mt-6 text-lg md:text-xl text-green-100 font-light">Każdy dzień z błędami decyzyjnymi to pieniądze topniejące na inflacji.</p>
+      <div class="mt-8 h-px w-24 bg-green-500 opacity-60 mx-auto" aria-hidden="true"></div>
+      <p class="mt-8 text-xl md:text-2xl text-white font-bold tracking-wide">Nie odkładaj tego na później.</p>
     </div>
   </section>
 
@@ -525,13 +367,19 @@
   </section>
 
   <!-- SOCIAL PROOF -->
-  <section class="py-12 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold font-sans mb-6 text-green-800">Opinie</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <li class="pl-4 border-l-4 border-green-600 text-gray-800 italic text-base md:text-sm leading-relaxed">„Bardzo mi się podobało, uznaję warsztaty za wartościowe i ciekawe.”</li>
-        <li class="pl-4 border-l-4 border-green-600 text-gray-800 italic text-base md:text-sm leading-relaxed">„Można wynieść dużo informacji do wykorzystania w codziennym życiu, prowadzący opowiada w ciekawy sposób i aktywnie uczestniczy w rozmowie.”</li>
-        <li class="pl-4 border-l-4 border-green-600 text-gray-800 italic text-base md:text-sm leading-relaxed">„Uważam, że te warsztaty wniosły dużo do mojego życia.”</li>
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold font-sans mb-8 text-green-800">Opinie</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <li class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+           <p class="text-gray-700 italic text-base leading-relaxed">„Bardzo mi się podobało, uznaję warsztaty za wartościowe i ciekawe.”</p>
+        </li>
+        <li class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+           <p class="text-gray-700 italic text-base leading-relaxed">„Można wynieść dużo informacji do wykorzystania w codziennym życiu, prowadzący opowiada w ciekawy sposób i aktywnie uczestniczy w rozmowie.”</p>
+        </li>
+        <li class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+           <p class="text-gray-700 italic text-base leading-relaxed">„Uważam, że te warsztaty wniosły dużo do mojego życia.”</p>
+        </li>
       </ul>
     </div>
   </section>
@@ -558,18 +406,22 @@
           <!-- Rodzaj współpracy: radio -->
           <fieldset class="md:col-span-2">
             <legend class="block text-sm font-semibold text-gray-700 mb-2">Interesuje mnie</legend>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400">
-                <input type="radio" name="type" id="type-individual" value="Sesja indywidualna" required class="text-emerald-600 focus:ring-emerald-400">
-                <span>Sesja indywidualna</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400 bg-white">
+                <input type="radio" name="type" id="type-Powerspeech" value="Power Speech" required class="text-emerald-600 focus:ring-emerald-400">
+                <span>Power Speech</span>
               </label>
-              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400">
-                <input type="radio" name="type" id="type-workshop" value="Warsztaty grupowe" class="text-emerald-600 focus:ring-emerald-400">
-                <span>Warsztaty grupowe</span>
+              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400 bg-white">
+                <input type="radio" name="type" id="type-Warsztaty" value="Warsztaty / Szkolenia" class="text-emerald-600 focus:ring-emerald-400">
+                <span>Warsztaty / Szkolenia</span>
               </label>
-              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400">
-                <input type="radio" name="type" id="type-free-consult" value="Darmowa sesja konsultacyjna" class="text-emerald-600 focus:ring-emerald-400">
-                <span>Darmowa sesja konsultacyjna</span>
+              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400 bg-white">
+                <input type="radio" name="type" id="type-Mentoring" value="Mentoring VIP" class="text-emerald-600 focus:ring-emerald-400">
+                <span>Mentoring VIP</span>
+              </label>
+              <label class="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-3 cursor-pointer hover:border-emerald-400 bg-white">
+                <input type="radio" name="type" id="type-Inne" value="Inne" class="text-emerald-600 focus:ring-emerald-400">
+                <span>Inne</span>
               </label>
             </div>
           </fieldset>
