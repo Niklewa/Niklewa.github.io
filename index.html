@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikodem Lewandowski – Critical Thinking & Data Visualization Workshops</title>
-  <meta name="description" content="Nikodem Lewandowski offers expert-led critical thinking and data visualization workshops for teams and organizations. Boost your team's decision-making and communication skills." />
-  <meta name="keywords" content="Nikodem Lewandowski, critical thinking workshops, data visualization workshops, business training, decision making, Poland, English, Polish">
-  <!-- Open Graph & Twitter Cards -->
-  <meta property="og:title" content="Nikodem Lewandowski – Critical Thinking & Data Visualization Workshops" />
-  <meta property="og:description" content="Expert-led workshops to boost your team's thinking and communication." />
-  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/profilePicLarge1.png" />
+  <title>Nikodem Lewandowski — myślenie krytyczne, które działa w realu</title>
+  <meta name="description" content="Doktorant filozofii i twórca Ratio Viva. Warsztaty z myślenia krytycznego dla firm i mentoring 1:1 dla osób, które muszą podjąć ważną decyzję." />
+  <meta name="keywords" content="Nikodem Lewandowski, myślenie krytyczne, warsztaty B2B, mentoring, Ratio Viva, filozofia praktyczna, podejmowanie decyzji">
+  <meta property="og:title" content="Nikodem Lewandowski — myślenie krytyczne, które działa w realu" />
+  <meta property="og:description" content="Warsztaty B2B dla zespołów i mentoring 1:1 dla osób przed ważną decyzją." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg" />
   <meta property="og:url" content="https://nikodemlewandowski.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- Tailwind CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
-  <!-- Google Fonts for modern typography -->
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,748 +30,327 @@
       "https://linkedin.com/in/nikodem-lewandowski",
       "https://youtube.com/@Nikodem.Lewandowski"
     ],
-    "jobTitle": "Workshop Leader, Philosopher, Data Scientist",
-    "description": "Nikodem Lewandowski offers expert-led critical thinking and data visualization workshops for teams and organizations."
+    "jobTitle": "Doktorant filozofii, trener myślenia krytycznego",
+    "description": "Warsztaty z myślenia krytycznego dla firm i mentoring 1:1."
   }
   </script>
-
-  <!-- <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Critical Thinking Workshop",
-    "description": "A workshop to master logical reasoning, spot fallacies, and improve decision-making for your team or organization.",
-    "image": "https://nikodemlewandowski.com/assets/images/profilePicLarge1.png",
-    "startDate": "2025-09-01",
-    "endDate": "2025-09-01",
-    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": "Online or On-site",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PL"
-      }
-    },
-    "organizer": {
-      "@type": "Person",
-      "name": "Nikodem Lewandowski",
-      "url": "https://nikodemlewandowski.com/"
-    }
-  }
-  </script> -->
 
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Inter', sans-serif;
-  }
-  .fade-in {
-    animation: fadeIn 1s ease-in-out;
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .hero-text-shadow {
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  }
-  .testimonial-scroller {
-    display: flex;
-    gap: 2rem;
-    animation: scroll-left 60s linear infinite;
-    width: max-content;
-  }
-  .testimonial-wrapper {
-    overflow: hidden;
-  }
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  .testimonial-card {
-    min-width: 200px;
-    max-width: 240px;
-    width: 220px;
-    flex: 0 0 auto;
-    background: rgba(255,255,255,0.92);
-    padding: 1rem 1rem 0.8rem 1rem;
-    border-radius: 0.75rem;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    margin-bottom: 0.5rem;
-  }
-  .testimonial-card blockquote {
-    font-size: 1.05rem;
-    color: #374151;
-    font-style: italic;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-    padding-left: 0.5rem;
-    position: relative;
-  }
-  .testimonial-card blockquote:before {
-    content: "\201C";
-    color: #34d399;
-    font-size: 2.2rem;
-    line-height: 1;
-    position: absolute;
-    left: -0.5rem;
-    top: -0.7rem;
-    font-family: serif;
-    opacity: 0.7;
-  }
-  .testimonial-card footer {
-    font-size: 0.98rem;
-    color: #6b7280;
-    margin-top: 0.2rem;
-    font-weight: 500;
-    padding-left: 0.5rem;
-  }
-  .testimonial-scroller {
-    gap: 2.5rem;
-  }
-  @media (max-width: 768px) {
-    .testimonial-scroller {
-      animation-duration: 40s;
-    }
-  }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,0.55); }
 
-  /* --- Mobile Hero Background Controls ---
-   * Tweak these variables to adjust the background image:
-   * --hero-bg-zoom: 1 = normal, 1.2 = 20% zoom in, etc.
-   * --hero-bg-x: horizontal position (0% = left, 50% = center, 100% = right)
-   * --hero-bg-y: vertical position (0% = top, 50% = center, 100% = bottom)
-   * Example: To zoom in and move image up, use a higher zoom and lower y value.
-   *
-   * The image will always keep its natural proportions (no squishing)!
-   */
-  .mobile-hero-bg {
-    --hero-bg-zoom: 1;      /* Zoom factor (1 = normal, >1 = zoom in) */
-    --hero-bg-x: 70%;          /* Horizontal position (0% = left, 50% = center) */
-    --hero-bg-y: 0%;          /* Vertical position (0% = top, 50% = center) */
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .mobile-hero-bg-inner {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: var(--hero-bg-x) var(--hero-bg-y);
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    transform: scale(var(--hero-bg-zoom));
-    transition: opacity 1.5s, transform 0.3s, background-position 0.3s;
-    will-change: opacity, transform, background-position;
-    opacity: 0;
-    z-index: 1;
-  }
-  .mobile-hero-bg-inner.active {
-    opacity: 1;
-    z-index: 2;
-  }
+    .hero-bg {
+      background:
+        radial-gradient(1100px 600px at 80% -10%, rgba(16,185,129,0.18), transparent 60%),
+        radial-gradient(900px 500px at -10% 80%, rgba(6,95,70,0.22), transparent 60%),
+        linear-gradient(160deg, #0b1f1a 0%, #11362d 55%, #0a3b2c 100%);
+    }
 
-  /* --- Mobile Hero Overlay Darkness Control ---
-   * Tweak this variable to control the darkness of the mobile hero overlay:
-   * --mobile-hero-overlay-opacity: 0.7 = 70% dark, 0.9 = 90% dark, etc.
-   * Example: To make the overlay darker, increase the value (max 1.0).
-   */
-  
-  :root {
-    --mobile-hero-overlay-opacity: 0.5;
-    --bubble-img-x: 0%;  /* move left/right */
-    --bubble-img-y: 12%;  /* move up/down */
-    --bubble-img-zoom: 0.98;
-  }
+    .cta-primary {
+      display: inline-block;
+      background: linear-gradient(180deg, #047857 0%, #065f46 100%);
+      color: white; font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 24px -8px rgba(6,95,70,0.55);
+      transition: transform .15s ease, box-shadow .25s ease, filter .15s ease;
+    }
+    .cta-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
-  /* --- Mobile Hero Text Block Controls (Mobile only) ---
-   * Tweak these variables to adjust the position and width of the hero text block on mobile:
-   * --mobile-hero-text-top: how far from the top (e.g. 12vh, 80px)
-   * --mobile-hero-text-left: how far from the left (e.g. 0, 5vw, 20px)
-   * --mobile-hero-text-max-width: max width of the text block (e.g. 95vw, 400px)
-   *
-   * Example: To move the text block further down, increase --mobile-hero-text-top.
-   */
-  .mobile-hero-text {
-    position: absolute;
-    top: var(--mobile-hero-text-top, -12vh);
-    max-width: var(--mobile-hero-text-max-width, 400px); /* set a reasonable max width */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 20;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* center image and button */
-    padding-left: 1.5rem; /* increased from 0.5rem to 1.5rem */
-    padding-right: 0.5rem;
-  }
-  @media (min-width: 1024px) {
-    .mobile-hero-text { display: none !important; }
-  }
+    .cta-ghost {
+      display: inline-block;
+      background: transparent; color: white;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .cta-ghost:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
-  @media (max-width: 1023px) {
-    .mobile-menu-btn svg {
-      color: #fff !important;
-      stroke: #fff !important;
+    /* Fork cards */
+    .fork-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display: flex; flex-direction: column; height: 100%;
+      position: relative; overflow: hidden;
     }
-  }
-  @media (min-width: 1024px) {
-    .mobile-menu-btn svg {
-      color: #fff !important;
-      stroke: #fff !important;
-      transition: color 0.3s, stroke 0.3s;
+    .fork-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px -20px rgba(6,95,70,0.3);
+      border-color: #047857;
     }
-    body.scrolled .mobile-menu-btn svg {
-      color: #1f2937 !important;
-      stroke: #1f2937 !important;
+    .fork-card .fork-arrow {
+      transition: transform .25s ease;
     }
-    .lg\:bg-transparent .mobile-menu-btn svg {
-      color: #fff !important;
-      stroke: #fff !important;
+    .fork-card:hover .fork-arrow { transform: translateX(6px); }
+
+    .fork-card.b2b::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, #047857, #10b981);
     }
-  }
+    .fork-card.b2c::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 9999px;
+    }
+    .badge-green { background: #d1fae5; color: #065f46; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+    .badge-dark  { background: rgba(167,243,208,0.15); color: #a7f3d0; }
+
+    .trust-logo {
+      color: #6b7280; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em;
+      padding: 0.5rem 1rem; border-radius: 0.5rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1023px) {
+      .mobile-menu-btn svg { color: #1f2937 !important; stroke: #1f2937 !important; }
+    }
   </style>
-  
-  <!-- MailerLite Universal -->
-  <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1674736');
-  </script>
-  <!-- End MailerLite Universal -->
 </head>
 
-<body class="bg-white text-gray-900 font-sans" x-data="{ open: false, atTop: true }" x-init="window.addEventListener('scroll', () => { atTop = window.scrollY < 50 })">
+<body class="bg-white text-gray-900" x-data="{ open: false }">
 
-  <!-- Mobile Top Bar (only on mobile) -->
+  <!-- Mobile top bar -->
   <div class="fixed top-0 left-0 w-full h-14 bg-white shadow z-50 flex items-center justify-between px-4 lg:hidden">
-    <span class="font-bold text-lg text-gray-900">Nikodem Lewandowski</span>
-    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle menu"
-      class="mobile-menu-btn focus:outline-none transition-transform duration-300">
-      <svg x-show="!open" class="w-8 h-8" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <svg x-show="open" class="w-8 h-8" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+    <a href="/" class="font-bold text-lg text-gray-900">Nikodem Lewandowski</a>
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="mobile-menu-btn focus:outline-none">
+      <svg x-show="!open" class="w-8 h-8" fill="none" viewBox="0 0 24 24"><path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-8 h-8" fill="none" viewBox="0 0 24 24"><path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
-  <!-- Mobile Menu Button (hidden on mobile, visible on desktop) -->
+  <!-- Desktop menu button -->
   <div class="fixed top-4 right-4 z-50 hidden lg:block">
-    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle menu"
-      class="mobile-menu-btn focus:outline-none transition-transform duration-300 text-white">
-      <svg x-show="!open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <svg x-show="open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="focus:outline-none text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur">
+      <svg x-show="!open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Side menu -->
   <div class="fixed inset-0 bg-black bg-opacity-50 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
-  <div class="fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-white via-gray-50 to-green-50 border-l-4 border-green-600 shadow-2xl rounded-l-2xl z-50 p-6 transform transition-transform duration-300 ease-in-out" :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
-    <button @click="open = false" aria-label="Close menu" class="absolute top-4 right-4 text-gray-700 hover:text-red-500 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-    </button>
+  <div class="fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-white via-gray-50 to-green-50 border-l-4 border-green-600 shadow-2xl rounded-l-2xl z-50 p-6 transform transition-transform duration-300 ease-in-out"
+       :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open"
+       x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+    <button @click="open = false" aria-label="Zamknij" class="absolute top-4 right-4 text-gray-700 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     <nav class="space-y-4 text-lg mt-8">
-      <a href="#" @click="open = false" class="block text-xl font-bold text-gray-900 hover:text-green-700 mb-2 transition">Home</a>
-      <a href="#about" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">About</a>
-  <a href="ratio-viva.html" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Critical Thinking</a>
-  <!-- Unused for now: Testimonials section is not active
-  <a href="#testimonials" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Testimonials</a>
-  -->
-  <!-- Unused for now: YouTube section is not active
-  <a href="#youtube" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">YouTube</a>
-  -->
+      <a href="/" @click="open = false" class="block text-xl font-bold text-green-700 mb-2">Strona główna</a>
+      <a href="/warsztaty/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Warsztaty (B2B)</a>
+      <a href="/mentoring/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Mentoring 1:1</a>
+      <a href="/o-mnie/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">O mnie</a>
     </nav>
   </div>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center bg-gray-100 lg:bg-transparent text-white transition-colors duration-500">
-    <!-- Mobile background and overlay -->
-    <div class="absolute inset-0 z-0 lg:hidden">
-      <div class="mobile-hero-bg" x-data="{
-        images: [
-          { url: 'assets/images/nikodem_teaching1.jpg', x: '70%', y: '0%', zoom: 1 },
-          { url: 'assets/images/nikodem_teaching2.jpg', x: '50%', y: '10%', zoom: 1.1 },
-          { url: 'assets/images/mePiano2.jpg', x: '60%', y: '0%', zoom: 1.15 }
-        ],
-        current: 0,
-        interval: null,
-        next() {
-          this.current = (this.current + 1) % this.images.length;
-        },
-        start() {
-          this.interval = setInterval(() => this.next(), 7000);
-        },
-        stop() {
-          clearInterval(this.interval);
-        }
-      }" x-init="start()" @mouseenter="stop()" @mouseleave="start()">
-        <template x-for="(img, i) in images" :key="i">
-          <div class="mobile-hero-bg-inner" :class="{ 'active': current === i }"
-            :style="
-              `background-image: url('${img.url}'); \
-              background-position: ${img.x} ${img.y}; \
-              transform: scale(${img.zoom}); \
-              opacity: ${current === i ? 1 : 0};`
-            ">
-          </div>
-        </template>
+  <!-- HERO -->
+  <section class="relative hero-bg text-white pt-28 pb-24 lg:pt-36 lg:pb-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
+         style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 22px 22px;"></div>
+
+    <div class="relative max-w-5xl mx-auto text-center">
+      <span class="badge badge-dark mb-6 fade-in">Filozof. Praktyk. Twórca Ratio Viva.</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6 fade-in hero-text-shadow">
+        Myślenie krytyczne,<br/>
+        <span class="text-green-300 italic">które działa</span> w realu.
+      </h1>
+      <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 fade-in leading-relaxed">
+        Pomagam zespołom i ludziom podejmować <strong class="text-white">trafniejsze decyzje</strong> —
+        zanim koszt błędu stanie się zbyt wysoki.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center fade-in">
+        <a href="/warsztaty/" class="cta-primary text-base sm:text-lg">Warsztaty dla firm →</a>
+        <a href="/mentoring/" class="cta-ghost text-base sm:text-lg">Mentoring 1:1 →</a>
       </div>
-      <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,var(--mobile-hero-overlay-opacity)), rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.08) 100%);"></div>
     </div>
-    <!-- Desktop background and overlay -->
-    <div class="absolute inset-0 z-0 hidden lg:block">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/images/nikodem_profile.jpg');"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
-    </div>
-    <div class="relative z-20 container mx-auto px-6 pt-40 pb-10 lg:py-0 flex flex-col items-center lg:block w-full">
-      <div class="mobile-hero-text lg:static lg:pl-16 lg:max-w-3xl lg:mx-0 lg:items-start lg:text-left">
 
-        <div class="bubble-img-wrapper" style="overflow: hidden; border-radius: 50%; width: 10rem; height: 10rem; margin-bottom: 1.5rem; border: 4px solid white; position: relative;">
-        <img src="assets/images/nikodem_portrait.jpg" alt="Nikodem Lewandowski portrait, criticall thinking trainer professional photo"
-          style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 180%;
-            height: 180%;
-            object-fit: cover;
-            transform: translate(-50%, -50%) scale(var(--bubble-img-zoom, 1)) translate(var(--bubble-img-x, 0%), var(--bubble-img-y, 0%));
-            transform-origin: center center;
-            transition: transform 0.3s;
-          " />
-        </div>
-
-
-
-
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 fade-in hero-text-shadow text-white lg:text-white text-left w-full" style="max-width:95vw;padding-left:min(0.5rem,env(safe-area-inset-left));padding-right:0.5rem;">
-          <span style="display:block;white-space:nowrap;overflow-wrap:normal;text-align:left;width:100%;font-size:clamp(2rem,7vw,2.9rem);margin-left:auto;margin-right:auto;">My goal is to breach</span>
-          <span class="text-green-400 italic font-extrabold hero-text-shadow" style="display:block;text-align:left;font-size:clamp(2.5rem,9vw,3.6rem);">the gap</span>
-        </h1>
-        <p class="text-lg md:text-xl mb-8 leading-relaxed fade-in hero-text-shadow text-white lg:text-white text-left w-full">
-          Between theory and practice.<br>
-          Between intuition and reason.<br>
-          Between ideas and action.
-        </p>
-        <div class="flex justify-center w-full fade-in">
-          <a href="#trainings" class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-lg shadow-lg transition text-lg font-semibold max-w-xs mx-auto text-center">
-            Explore Workshops
-          </a>
-        </div>
-      </div>
-      <div class="w-full lg:max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start lg:mt-32 lg:flex hidden lg:block">
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 fade-in hero-text-shadow text-white lg:text-white">
-          My goal is <span class="whitespace-nowrap">to breach</span><br>
-          <span class="text-green-400 italic text-5xl md:text-6xl font-extrabold hero-text-shadow">the gap</span>
-        </h1>
-        <p class="text-lg md:text-xl mb-8 leading-relaxed fade-in hero-text-shadow text-white lg:text-white">
-          Between theory and practice.<br>
-          Between intuition and reason.<br>
-          Between ideas and action.
-        </p>
-        <div class="flex justify-center w-full lg:justify-start fade-in">
-          <a href="#trainings" class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-lg shadow-lg transition text-lg font-semibold w-full sm:w-auto max-w-xs lg:max-w-none">
-            Explore Workshops
-          </a>
-        </div>
-      </div>
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] block"><path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <div class="order-2 md:order-1">
-        <img src="assets/images/nikodem_workshop_poster.jpg" alt="Nikodem Lewandowski next to his criticall thinking workshops poster" class="rounded-2xl shadow-xl fade-in" />
-      </div>
-      <div class="flex flex-col gap-3 md:gap-3 text-gray-800 fade-in order-1 md:order-2" style="text-align:justify;font-size:1rem;">
-        <h3 class="text-3xl font-extrabold mb-1 text-gray-900">Hi, I'm Nikodem</h3>
-        <p class="italic text-green-700 text-lg mb-2 font-semibold" style="font-size:1.15rem;">I always find it a bit cringy to call myself a philosopher—but that's true.</p>
-        <p>I work at the intersection of critical thinking, logic, and data science, currently pursuing a PhD in philosophy.</p>
-        <p>Tackling abstract ideas is my passion—and I can't help but bring them to people. My mission is to bridge the gap between theory and practice, turning complex concepts into tools that actually work in everyday life.</p>
-        <p>I design workshops that help individuals and teams think more clearly, reason more rigorously, and communicate ideas that stick. My focus is on rationality, structured thinking, and clear communication—essential skills in an age of noise and speed.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Workshops Section -->
-  <section id="trainings" class="py-24 px-6">
+  <!-- TRUST STRIP -->
+  <section class="py-10 px-6 bg-white border-b border-gray-100">
     <div class="max-w-5xl mx-auto">
-      <div class="w-full max-w-xl mx-auto">
-        <article class="group bg-white rounded-2xl shadow-xl border border-green-200 p-6 sm:p-8 transition transform hover:-translate-y-1 hover:shadow-2xl hover:border-green-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="inline-flex items-center justify-center text-green-700 transition group-hover:text-green-800">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" class="w-12 h-12"><text x="6" y="31" font-size="28" font-family="serif" font-weight="bold">Φ</text></svg>
-            </span>
-            <h4 class="text-2xl font-extrabold text-green-900 transition group-hover:text-green-800">Critical Thinking Workshop</h4>
-          </div>
-          <p class="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-            Critical thinking is the most important 21st‑century competence — it helps you make better decisions, understand evidence, and avoid cognitive traps.
-          </p>
-          <a href="ratio-viva.html" class="inline-block bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition hover:bg-green-800 text-base">See more</a>
-        </article>
+      <p class="text-center text-xs uppercase tracking-widest text-gray-500 font-bold mb-6">Prowadziłem warsztaty i wystąpienia dla</p>
+      <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-80">
+        <span class="trust-logo">Orange</span>
+        <span class="text-gray-300">·</span>
+        <span class="trust-logo">Grupa LOTOS / Rafineria</span>
+        <span class="text-gray-300">·</span>
+        <span class="trust-logo">Uniwersytet Gdański</span>
+        <span class="text-gray-300">·</span>
+        <span class="trust-logo">Społeczność Ratio Viva 140k+</span>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <!-- <section id="testimonials" class="py-24 px-6 bg-gray-50">
+  <!-- FORK: B2B / B2C -->
+  <section class="py-20 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl md:text-4xl font-extrabold text-center mb-14 text-gray-900 tracking-tight">What People Say</h3>
-      <div class="testimonial-wrapper">
-        <div class="testimonial-scroller">
-          <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“Inspiring, sharp, and engaging. The best workshop I’ve attended in years.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">Workshop Participant</footer>
+      <div class="text-center mb-12 reveal">
+        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Z kim pracuję</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+          Wybierz <span class="text-green-700">ścieżkę</span>.
+        </h2>
+        <p class="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">Dwa różne konteksty. Jedna metoda. Krótki opis, długie skutki.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- B2B -->
+        <a href="/warsztaty/" class="fork-card b2b reveal group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-green">Dla firm</span>
+            <span class="text-3xl">🏢</span>
           </div>
-          <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“He makes abstract concepts crystal clear and actually fun.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">University Student</footer>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 group-hover:text-green-700 transition">
+            Warsztaty z myślenia krytycznego
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-5">
+            Twój zespół podejmuje decyzje, których koszt liczy się w setkach tysięcy złotych.
+            Uczę ich rozpoznawać błędy poznawcze, zanim staną się stratą w P&L.
+          </p>
+          <ul class="space-y-1.5 text-gray-700 mb-6 text-sm">
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Online lub on-site, PL/EN</li>
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Case studies z Twojej branży</li>
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Brief → warsztat → follow-up</li>
+          </ul>
+          <div class="mt-auto pt-2 flex items-center gap-2 text-green-700 font-bold">
+            <span>Zobacz ofertę B2B</span>
+            <span class="fork-arrow">→</span>
           </div>
-          <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“It changed how I structure my thinking — and my team’s.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">Team Leader</footer>
-          </div> -->
-          <!-- Duplicate for smooth looping -->
-          <!-- <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“Inspiring, sharp, and engaging. The best workshop I’ve attended in years.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">Workshop Participant</footer>
+        </a>
+
+        <!-- B2C -->
+        <a href="/mentoring/" class="fork-card b2c reveal group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-amber">Dla osób</span>
+            <span class="text-3xl">🧭</span>
           </div>
-          <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“He makes abstract concepts crystal clear and actually fun.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">University Student</footer>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 group-hover:text-amber-700 transition">
+            Mentoring 1:1 — decyzja, której nie pożałujesz
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-5">
+            Krążysz wokół jednej decyzji od miesięcy. Premium mentoring dla ludzi, którzy
+            wiedzą, co powinni zrobić — i są gotowi to zrobić.
+          </p>
+          <ul class="space-y-1.5 text-gray-700 mb-6 text-sm">
+            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Aplikacja → rozmowa diagnostyczna</li>
+            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Metoda, nie pocieszanie</li>
+            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Tańsza diagnostyka 200 zł dla niezdecydowanych</li>
+          </ul>
+          <div class="mt-auto pt-2 flex items-center gap-2 text-amber-700 font-bold">
+            <span>Zobacz mentoring</span>
+            <span class="fork-arrow">→</span>
           </div>
-          <div class="testimonial-card flex flex-col items-center text-center hover:shadow-lg transition mx-2">
-            <div class="mb-1 flex items-center justify-center w-7 h-7 rounded-full bg-green-50">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><text x="6" y="22" font-size="14" font-family="serif" font-weight="bold" fill="#22c55e">“</text></svg>
-            </div>
-            <blockquote class="italic text-sm text-gray-800 leading-relaxed mb-1 px-1">“It changed how I structure my thinking — and my team’s.”</blockquote>
-            <footer class="font-semibold text-green-800 text-xs">Team Leader</footer>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
-  </section> -->
+  </section>
 
-  <!-- Projects Section -->
-  <!-- <section id="projects" class="py-24 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-12">Projects & Work</h3>
-      <p class="text-lg mb-6">Coming soon: articles, collaborations, and personal projects across philosophy, epistemology, and data science.</p>
-    </div>
-  </section> -->
-
-  <!-- YouTube Section -->
-  <!-- <section id="youtube" class="py-24 px-6 bg-white">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
-      <div class="flex-1 flex justify-center items-center">
-        <img src="assets/images/nikodem_youtube.png" alt="Nikodem Lewandowski's YouTube video setup smilling to a camera" class="rounded-2xl shadow-xl w-full max-w-xs md:max-w-sm" style="background: none; border: none; box-shadow: 0 6px 32px 0 rgba(34,197,94,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.07);" />
+  <!-- ABOUT TEASER -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-10 items-center">
+      <div class="md:col-span-2 reveal">
+        <img src="assets/images/nikodem_portrait.jpg" alt="Nikodem Lewandowski" class="rounded-2xl shadow-xl w-full max-w-xs mx-auto" />
       </div>
-      <div class="flex-1 flex flex-col justify-center h-full" style="background:none; box-shadow:none; padding:0;">
-        <h3 class="text-4xl font-extrabold mb-4" style="color:#166534;">Philosophy for Everyone</h3>
-        <p class="mb-6 text-lg text-gray-800">
-          On my YouTube channel, I explore philosophical ideas in a grounded, relatable way — from Plato to probabilistic reasoning. It’s a space to rethink assumptions and spark better questions.
+      <div class="md:col-span-3 reveal">
+        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Kto za tym stoi</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+          Filozof, który nie boi się arkusza Excela.
+        </h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          Doktorant filozofii (UG), twórca <strong>Ratio Viva</strong> — projektu, który zbudował
+          ponad 140-tysięczną społeczność wokół praktycznego myślenia krytycznego.
         </p>
-        <a href="https://www.youtube.com/@Nikodem.Lewandowski" target="_blank" class="inline-block bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-800 transition">Visit my channel →</a>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6">
+          Uczę krytycznego myślenia jako narzędzia samoobrony — nie akademickiej teorii.
+        </p>
+        <a href="/o-mnie/" class="inline-flex items-center gap-2 text-green-700 font-bold hover:text-green-800">
+          Czytaj o mnie więcej <span>→</span>
+        </a>
       </div>
     </div>
-  </section> -->
+  </section>
 
- <!-- Footer -->
-<footer class="bg-gray-800 text-white py-10 px-4 md:px-8">
-  <div class="max-w-6xl mx-auto mb-8">
-    <div class="footer-grid">
-      <div class="footer-logo-desc flex items-center gap-4 mb-8 lg:mb-0 justify-center sm:justify-center w-full" style="text-align:left;">
-        <span class="inline-flex items-center justify-center" aria-hidden="true">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="8" y="40" font-size="38" font-family="serif" font-weight="bold" fill="white" stroke="white" stroke-width="1">Φ</text>
-          </svg>
-        </span>
+  <!-- BOTTOM CTA -->
+  <section class="py-20 px-6 bg-gradient-to-b from-green-50 to-white">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+        Nie wiesz, której ścieżki potrzebujesz?
+      </h2>
+      <p class="text-lg text-gray-700 mb-8">
+        Umów 25-minutową rozmowę. Zdiagnozujemy, co Ci się przyda — i powiem szczerze, jeśli to nie jestem ja.
+      </p>
+      <!-- TODO: replace cal.com URL with real slug once account is set up -->
+      <a href="https://cal.com/nikodem-lewandowski/25min" class="cta-primary text-lg" data-cal-cta>
+        Umów rozmowę →
+      </a>
+      <p class="text-sm text-gray-500 mt-3">Bezpłatnie. Bez zobowiązań.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="flex items-center gap-4 justify-center md:justify-start">
+          <span aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><text x="8" y="40" font-size="38" font-family="serif" font-weight="bold" fill="white" stroke="white" stroke-width="1">Φ</text></svg>
+          </span>
+          <div>
+            <h4 class="text-2xl font-bold mb-1">Nikodem Lewandowski</h4>
+            <p class="text-gray-400 text-sm leading-snug max-w-xs">Łączę teorię z praktyką, intuicję z rozumem, idee z działaniem.</p>
+          </div>
+        </div>
         <div>
-          <h4 class="text-2xl font-bold mb-1">Nikodem Lewandowski</h4>
-          <p class="text-gray-400 text-sm leading-snug max-w-xs">Bridging the gap between theory and practice, intuition and reason, ideas and action.</p>
+          <h4 class="text-xl font-semibold mb-4">Skróty</h4>
+          <ul class="space-y-2">
+            <li><a href="/warsztaty/" class="text-gray-400 hover:text-white transition-colors">Warsztaty (B2B)</a></li>
+            <li><a href="/mentoring/" class="text-gray-400 hover:text-white transition-colors">Mentoring 1:1</a></li>
+            <li><a href="/o-mnie/" class="text-gray-400 hover:text-white transition-colors">O mnie</a></li>
+          </ul>
         </div>
-      </div>
-      <div class="footer-links flex flex-col items-start" style="align-items: flex-start;">
-        <h4 class="text-xl font-semibold mb-4 w-full text-left" style="text-align:left;">Shortcuts</h4>
-        <ul class="space-y-2 w-full text-left" style="text-align:left;">
-          <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-          <!-- Unused for now: Testimonials section is not active
-          <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
-          -->
-          <li><a href="ratio-viva.html" class="text-gray-400 hover:text-white transition-colors">Critical Thinking Workshops</a></li>
-          <!-- Unused for now: Data Visualization page not promoted
-          <li><a href="visualizations.html" class="text-gray-400 hover:text-white transition-colors">Data Visualization Workshops</a></li>
-          -->
-        </ul>
-      </div>
-      <div class="footer-connect flex flex-col items-start" style="align-items: flex-start;">
-        <h4 class="text-xl font-semibold mb-4">Connect</h4>
-        <ul class="space-y-2">
-          <li><a href="mailto:ratio.viva@nikodemlewandowski.com" class="text-gray-400 hover:text-white transition-colors" aria-label="Email">Email</a></li>
-          <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube">YouTube</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
-    © 2025 Nikodem Lewandowski. All rights reserved.
-  </div>
-</footer>
-
-<style>
-  /* Footer grid base: 1 column on mobile, but Shortcuts and Connect in a row */
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem 2rem;
-  }
-  /* On mobile, Shortcuts and Connect in a row, nicely aligned */
-  @media (max-width: 1023px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto 1fr;
-      align-items: start;
-    }
-    .footer-logo-desc {
-      grid-column: 1 / 3;
-    }
-    .footer-links {
-      grid-row: 2;
-      grid-column: 1 / 2;
-      align-items: flex-start !important;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .footer-connect {
-      grid-row: 2;
-      grid-column: 2 / 3;
-      align-items: flex-start !important;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .footer-links h4,
-    .footer-links ul,
-    .footer-connect h4,
-    .footer-connect ul {
-      text-align: left;
-      align-items: flex-start;
-      margin-left: 0;
-    }
-  }
-  /* Logo full width on mobile, centered horizontally but text stays left-aligned */
-  .footer-logo-desc {
-    grid-column: 1 / -1;
-    justify-content: center;
-    width: 100%;
-  }
-  /* On small screens >=640px: two columns */
-  @media (min-width: 640px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .footer-logo-desc {
-      grid-column: 1 / -1; /* Keep full width first row */
-      justify-content: center;
-    }
-    .footer-links {
-      align-items: center !important;
-      justify-content: center !important;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer-links h4,
-    .footer-links ul {
-      text-align: left;
-      align-items: flex-start;
-      margin-left: 0;
-    }
-  }
-  /* On large screens >=1024px: three columns */
-  @media (min-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .footer-logo-desc {
-      grid-column: 1 / 2;
-      margin-bottom: 0 !important;
-      justify-content: flex-start;
-    }
-    .footer-links {
-      align-items: center;
-    }
-    .footer-links h4,
-    .footer-links ul {
-      text-align: left;
-      align-items: flex-start;
-      margin-left: 0;
-    }
-  }
-
-  /* No icon styling needed for text links */
-</style>
-
-
-  <script>
-  // Add or remove 'scrolled' class to body based on scroll position (for desktop)
-  document.addEventListener('DOMContentLoaded', function() {
-    function onScroll() {
-      if (window.scrollY > 40) {
-        document.body.classList.add('scrolled');
-      } else {
-        document.body.classList.remove('scrolled');
-      }
-    }
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-  });
-  </script>
-
-  <!-- Timed popup: Ebook lead (MailerLite) -->
-  <div id="ebook-popup" class="fixed inset-0 z-50 hidden items-center justify-center" style="z-index:9999;">
-    <div class="absolute inset-0 bg-black bg-opacity-50" data-ml-close="overlay" aria-hidden="true"></div>
-  <div role="dialog" aria-modal="true" aria-labelledby="ebook-popup-title" class="relative bg-white rounded-2xl w-11/12 sm:w-10/12 max-w-3xl px-6 md:px-10 py-10 shadow-2xl border-t-4 border-green-700 max-h-screen overflow-y-auto">
-      <button type="button" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" aria-label="Zamknij" data-ml-close="button">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-      </button>
-      <div id="ebook-popup-content">
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start md:items-stretch">
-          <!-- Cover -->
-          <div class="flex justify-center md:justify-start md:col-span-2">
-            <img src="assets/images/okładkaV2a1.png" alt="Okładka ebooka 7 pułapek poznawczych w biznesie" class="w-44 md:w-56 xl:w-64 h-auto object-contain rounded-lg shadow-2xl border border-white" />
-          </div>
-          <!-- Copy + form -->
-          <div class="md:col-span-3 flex flex-col h-full">
-            <h3 id="ebook-popup-title" class="text-3xl md:text-4xl font-extrabold text-green-800 leading-tight tracking-tight mb-4">Zdobądź przewagę nad innymi</h3>
-            <p class="text-gray-800 text-sm md:text-base leading-relaxed mb-4 md:mb-5">W moim <span class="font-extrabold italic text-green-400 underline underline-offset-4">darmowym e‑booku</span> dowiesz się jak zapobiegać 7 najczęstszym błędom poznawczym i podejmować trafne decyzje.</p>
-            <!-- MailerLite popup form (short) -->
-            <div id="mlb2-29731922" class="ml-subscribe-form ml-subscribe-form-29731922 mt-auto">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody row-form">
-                  <form class="ml-block-form flex flex-col gap-4" action="https://assets.mailerlite.com/jsonp/1674736/forms/163075283659785564/subscribe" method="post" target="_self">
-                    <input type="email" name="fields[email]" aria-label="Twój e‑mail" placeholder="Twój e‑mail" required class="border rounded-full px-5 h-12 w-full shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-                    <input type="hidden" name="ml-submit" value="1">
-                    <input type="hidden" name="anticsrf" value="true">
-                    <button type="submit" class="bg-green-700 hover:bg-green-800 transition-colors duration-200 text-white font-bold h-12 px-6 rounded-full shadow-md w-full text-base md:text-lg">Pobierz e‑book</button>
-                    <div class="text-xs text-gray-500 text-center mt-1">Zero spamu. Wypisz się w dowolnym momencie.</div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="ebook-popup-thanks" class="hidden">
-        <div class="flex flex-col items-center text-center px-2 py-2" aria-live="polite">
-          <div class="mb-2 text-green-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0zm14.28-2.53a.75.75 0 10-1.06-1.06l-4.72 4.72-2.22-2.22a.75.75 0 10-1.06 1.06l2.75 2.75c.3.3.79.3 1.06 0l5.25-5.25z"/></svg>
-          </div>
-          <h4 class="text-xl font-bold text-green-800">Dziękuję! 🎉</h4>
-          <p class="text-sm text-gray-700 mt-1">Link do e‑booka jest w drodze. Sprawdź też folder Oferty/Spam.</p>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Kontakt</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="text-gray-400 hover:text-white transition-colors">Email</a></li>
+            <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
+    <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+      © 2025 Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
 
   <script>
-    // Success callback for popup form (ID must match container id: mlb2-29731922)
-    function ml_webform_success_29731922() {
-      try { localStorage.setItem('ml_popup_ebook_submitted', '1'); } catch(e){}
-      var c = document.getElementById('ebook-popup-content');
-      var t = document.getElementById('ebook-popup-thanks');
-      if (c) c.classList.add('hidden');
-      if (t) t.classList.remove('hidden');
-      // Auto-close after a short delay
-      setTimeout(function(){ hideEbookPopup(); }, 1800);
-    }
-
-    // Popup show/hide + timing with 30-day suppression
     (function(){
-      var overlay = document.getElementById('ebook-popup');
-      if (!overlay) return;
-      var SHOW_DELAY = 5000; // 5s after page open
-      var DISMISS_KEY = 'ml_popup_ebook_hidden_until';
-      var SUBMITTED_KEY = 'ml_popup_ebook_submitted';
-      var COOL_DOWN_MS = 30*24*60*60*1000; // 30 days suppression
-      var now = Date.now();
-  var hiddenUntil = 0;
-  try { hiddenUntil = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); } catch(e) {}
-  var submitted = false; try { submitted = !!localStorage.getItem(SUBMITTED_KEY); } catch(e) {}
-
-      // Show only if not suppressed and not submitted
-  if (!submitted && now >= hiddenUntil) {
-        setTimeout(function(){ showEbookPopup(); }, SHOW_DELAY);
-      }
-
-      function showEbookPopup(){
-        overlay.classList.remove('hidden');
-        overlay.classList.add('flex');
-        document.addEventListener('keydown', onKey);
-      }
-
-      window.hideEbookPopup = function(setCooldown){
-        overlay.classList.add('hidden');
-        overlay.classList.remove('flex');
-        document.removeEventListener('keydown', onKey);
-        if (setCooldown !== false) {
-          try { localStorage.setItem(DISMISS_KEY, String(Date.now() + COOL_DOWN_MS)); } catch(e) {}
-        }
-      }
-
-      function onKey(e){ if (e.key === 'Escape') hideEbookPopup(); }
-      // Close interactions
-      overlay.querySelector('[data-ml-close="button"]').addEventListener('click', function(){ hideEbookPopup(); });
-      overlay.querySelector('[data-ml-close="overlay"]').addEventListener('click', function(){ hideEbookPopup(); });
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el){ io.observe(el); });
     })();
   </script>
-
-  <!-- MailerLite webforms runtime -->
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
 </body>
 </html>
