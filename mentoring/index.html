@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sprint mentoringowy 1:1 — Nikodem Lewandowski</title>
+  <meta name="description" content="4-tygodniowy sprint 1:1 dla ludzi, którzy wiedzą, co powinni zrobić, ale tego nie robią. Jeden problem albo decyzja, cztery sesje, metoda na przyszłość." />
+  <meta name="keywords" content="mentoring, sprint mentoringowy, podejmowanie decyzji, myślenie krytyczne, Nikodem Lewandowski" />
+  <meta property="og:title" content="Sprint mentoringowy 1:1 — podejmij decyzję, którą odkładasz od miesięcy" />
+  <meta property="og:description" content="4 tygodnie, 4 sesje, jeden problem albo decyzja. Sprint dla ludzi gotowych zrobić pierwszy ruch." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/darkerProfile2.jpg" />
+  <meta property="og:url" content="https://nikodemlewandowski.com/mentoring/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Sprint mentoringowy 1:1",
+    "provider": { "@type": "Person", "name": "Nikodem Lewandowski", "url": "https://nikodemlewandowski.com/" },
+    "areaServed": "PL",
+    "description": "4-tygodniowy sprint 1:1 skoncentrowany na podjęciu jednej realnej decyzji i pierwszym ruchu."
+  }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,0.55); }
+    .section-divider { height: 1px; background: linear-gradient(to right, transparent, #d1fae5, transparent); }
+
+    .hero-bg {
+      background:
+        radial-gradient(1100px 600px at 80% -10%, rgba(16,185,129,0.18), transparent 60%),
+        radial-gradient(900px 500px at -10% 80%, rgba(6,95,70,0.22), transparent 60%),
+        linear-gradient(160deg, #0b1f1a 0%, #11362d 55%, #0a3b2c 100%);
+    }
+
+    /* Cynober accent CTA */
+    .cta-primary {
+      display: inline-block;
+      background: linear-gradient(180deg, #e2582b 0%, #c04720 100%);
+      color: white; font-weight: 700;
+      padding: 1.05rem 2.15rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 12px 26px -10px rgba(226,88,43,0.55);
+      transition: transform .15s ease, box-shadow .25s ease, filter .15s ease;
+      letter-spacing: 0.01em;
+    }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(226,88,43,0.65); filter: brightness(1.05); }
+
+    .cta-quiet {
+      display: inline-block; background: transparent; color: #065f46;
+      font-weight: 600; text-decoration: none;
+      border-bottom: 1px dashed #065f46;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .cta-quiet:hover { color: #047857; border-bottom-color: #047857; }
+
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+      background: #065f46; color: white; font-weight: 800; font-size: 0.95rem;
+      flex-shrink: 0; box-shadow: 0 4px 14px rgba(6,95,70,0.25);
+    }
+
+    .filter-card { background: white; border-radius: 1.25rem; padding: 1.75rem 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 6px 24px -12px rgba(0,0,0,0.08); }
+    .filter-card.good { border-top: 4px solid #059669; }
+    .filter-card.bad  { border-top: 4px solid #dc2626; }
+    .filter-item { display: flex; gap: 0.6rem; align-items: flex-start; margin: 0.55rem 0; line-height: 1.55; color: #374151; }
+
+    /* Bullets in section 3 */
+    .method-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+    .method-list li {
+      position: relative; padding-left: 1.75rem; margin-bottom: 0.9rem;
+      font-size: 1.05rem; line-height: 1.65; color: #374151;
+    }
+    .method-list li::before {
+      content: ""; position: absolute; left: 0; top: 0.75rem;
+      width: 0.5rem; height: 0.5rem; background: #047857;
+      border-radius: 9999px; box-shadow: 0 0 0 4px rgba(4,120,87,0.12);
+    }
+    .method-list li strong { color: #065f46; font-weight: 700; }
+
+    .highlight-box {
+      background: linear-gradient(90deg, #ecfdf5 0%, #ffffff 100%);
+      border-left: 4px solid #047857;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.5rem;
+      margin-top: 1.75rem;
+      font-size: 1.15rem;
+      color: #064e3b;
+      line-height: 1.6;
+    }
+
+    /* Pricing */
+    .price-card {
+      background: linear-gradient(160deg, #ecfdf5 0%, #ffffff 60%);
+      border: 1px solid #a7f3d0;
+      border-radius: 1.5rem;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 18px 40px -20px rgba(6,95,70,0.25);
+      display: flex; flex-direction: column;
+    }
+    .price-card.founding {
+      background: linear-gradient(160deg, #065f46 0%, #047857 100%);
+      color: white;
+      border-color: #065f46;
+      position: relative;
+    }
+    .price-card ul { flex-grow: 1; }
+    .price-card.founding .badge-founding {
+      background: #fbbf24; color: #78350f;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 9999px;
+      background: #d1fae5; color: #065f46;
+    }
+    .badge-dark { background: rgba(167,243,208,0.15); color: #a7f3d0; }
+    .badge-founding {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.8rem; border-radius: 9999px;
+    }
+
+    /* Portrait with head kept visible */
+    .portrait {
+      width: 100%; max-width: 22rem;
+      aspect-ratio: 4/5;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 24px 50px -20px rgba(0,0,0,0.35);
+      border: 4px solid white;
+    }
+    .portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 18%; /* keep head in frame */
+      display: block;
+    }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- MINIMAL NAV — brand name only, links home. No menu on this landing. -->
+  <div class="fixed top-0 left-0 w-full h-14 bg-white/95 backdrop-blur shadow-sm z-50 flex items-center justify-center lg:justify-start px-4 lg:px-8">
+    <a href="/" class="font-bold text-lg text-gray-900 hover:text-green-700 transition">Nikodem Lewandowski</a>
+  </div>
+
+  <!-- 1 · HERO -->
+  <section class="relative hero-bg text-white pt-28 pb-20 lg:pt-36 lg:pb-28 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
+         style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 22px 22px;"></div>
+
+    <div class="relative max-w-4xl mx-auto text-center">
+      <span class="badge badge-dark mb-6 fade-in">Sprint 1:1 · 4 tygodnie</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-6 fade-in hero-text-shadow">
+        Podejmij decyzję,<br/>
+        <span class="text-green-300 italic">którą odkładasz</span><br class="hidden sm:block"/>
+        <span class="sm:inline">od miesięcy.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 fade-in leading-relaxed">
+        4-tygodniowy sprint 1:1 dla osób, które <strong class="text-white">wiedzą, co powinny zrobić</strong> —
+        ale tego nie robią.
+      </p>
+      <div class="flex flex-col items-center gap-3 fade-in">
+        <a href="https://cal.com/nikodem-lewandowski-hxjm3q/20min"
+           class="cta-primary text-lg"
+           data-cal-namespace="20min"
+           data-cal-link="nikodem-lewandowski-hxjm3q/20min"
+           data-cal-config='{"layout":"month_view"}'>Umów bezpłatną rozmowę →</a>
+        <p class="text-sm text-gray-300">20 minut · bez zobowiązań</p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] block"><path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
+    </div>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto reveal">
+      <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-4">Brzmi znajomo?</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6">
+        Krążysz wokół jednej decyzji albo problemu <span class="text-green-700">od tygodni</span>.
+      </h2>
+      <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+        Masz argumenty za i przeciw. Masz wiedzę. I dalej <strong>stoisz w miejscu</strong>.
+      </p>
+      <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+        Problemem nie jest brak informacji.<br/>
+        Problemem jest <span class="bg-green-100 text-green-900 px-2 py-0.5 rounded">luka między „wiem" a „robię"</span>.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3 · CO ROBIMY -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto reveal">
+      <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-4">Co robimy i co z tego masz</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6">
+        To nie jest kolejna lista<br/><span class="text-green-700">„10 kroków do lepszych decyzji"</span>.
+      </h2>
+
+      <p class="text-lg text-gray-700 leading-relaxed mb-5">
+        Masz problem, w którym tkwisz od tygodni — może nazywasz go decyzją, może po prostu „nie wiem, co z tym zrobić".
+        A prawie zawsze na dnie takiego problemu leży <strong>jedna decyzja, której jeszcze nie podjąłeś</strong>.
+        Wiedzy Ci nie brakuje. Brakuje ruchu — bo Twoje własne myślenie pracuje przeciwko Tobie:
+        lęk, cudze oczekiwania, błędy poznawcze podsuwające fałszywe „bezpieczne" wyjście.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed mb-6">
+        Coach Cię zmotywuje i da framework. Ja, jako filozof zajmujący się decyzjami, robię co innego —
+        <strong>rozbrajam pułapki w Twojej głowie, aż właściwy ruch staje się oczywisty</strong>.
+        I jest Twój, nie pożyczony, bo za Ciebie nie zdecyduję.
+      </p>
+
+      <p class="text-lg text-gray-800 font-semibold">
+        Przez cztery tygodnie bierzemy jeden Twój problem albo decyzję i:
+      </p>
+
+      <ul class="method-list">
+        <li><strong>nazywamy</strong> go naprawdę — to, co Cię trzyma, prawie nigdy nie jest tym, co myślisz;</li>
+        <li><strong>oddzielamy</strong> Twoje od cudzego — czego Ty chcesz, a co wmówiło Ci otoczenie;</li>
+        <li><strong>rozbrajamy</strong> błędy poznawcze — pokazuję, gdzie Twój mózg Cię oszukuje; to moja działka, nie coacha;</li>
+        <li><strong>ruszasz</strong> z miejsca — konkretny pierwszy krok i ja na WhatsApp, gdy przyjdzie moment próby.</li>
+      </ul>
+
+      <div class="highlight-box">
+        Wychodzisz z <strong>dwiema rzeczami</strong>, których nie da Ci żaden kurs ani „mentor od motywacji":
+        <strong>rozwiązanym problemem</strong> — i <strong>metodą</strong>, której użyjesz przy każdym następnym.
+      </div>
+
+      <p class="text-sm text-gray-500 mt-6">
+        W praktyce: 4 sesje 1:1 (po 60 min) w 4 tygodnie + WhatsApp między spotkaniami.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 · FILTR -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Dla kogo</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+          Sprint nie jest dla każdego.
+        </h2>
+        <p class="text-lg text-gray-600 mt-3">I to dobrze — bo dzięki temu działa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="filter-card good reveal">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-green-100 text-green-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <h3 class="text-xl font-extrabold text-green-800">To jest dla Ciebie, jeśli…</h3>
+          </div>
+          <div class="filter-item"><span class="text-green-600 font-bold mt-0.5">✓</span><span>masz <strong>konkretny</strong> problem albo decyzję do podjęcia</span></div>
+          <div class="filter-item"><span class="text-green-600 font-bold mt-0.5">✓</span><span>jesteś gotów działać <strong>między</strong> sesjami</span></div>
+          <div class="filter-item"><span class="text-green-600 font-bold mt-0.5">✓</span><span>chcesz <strong>metody</strong>, nie pocieszenia</span></div>
+        </div>
+
+        <div class="filter-card bad reveal">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-red-100 text-red-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <h3 class="text-xl font-extrabold text-red-700">To nie jest dla Ciebie, jeśli…</h3>
+          </div>
+          <div class="filter-item"><span class="text-red-500 font-bold mt-0.5">✗</span><span>chcesz się tylko <em>wygadać</em></span></div>
+          <div class="filter-item"><span class="text-red-500 font-bold mt-0.5">✗</span><span>liczysz, że <em>ktoś zdecyduje</em> za Ciebie</span></div>
+          <div class="filter-item"><span class="text-red-500 font-bold mt-0.5">✗</span><span>nie zrobisz pracy <em>między</em> sesjami</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 5 · KTO PROWADZI -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto reveal">
+      <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-10">
+        <div class="md:col-span-2 flex justify-center">
+          <div class="portrait">
+            <img src="../assets/images/darkerProfile2.jpg" alt="Nikodem Lewandowski — portret" />
+          </div>
+        </div>
+        <div class="md:col-span-3 text-center md:text-left">
+          <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-2">Kto prowadzi</p>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Nikodem Lewandowski</h3>
+          <p class="text-gray-600 font-medium mb-5">Doktorant filozofii · twórca Ratio Viva</p>
+          <p class="text-gray-800 leading-relaxed text-lg">
+            Jestem specjalistą od krytycznego myślenia; decyzjami zajmuję się akademicko,
+            także w ramach doktoratu. W pracy 1:1 prowadziłem przez trudne decyzje
+            <strong>już kilkanaście osób</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · JAK TO DZIAŁA -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Jak to działa</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+          Trzy kroki. Zero ryzyka na start.
+        </h2>
+      </div>
+
+      <div class="space-y-5">
+        <div class="flex gap-5 items-start bg-gray-50 rounded-2xl p-6 reveal">
+          <span class="step-num">1</span>
+          <div>
+            <h3 class="font-extrabold text-lg text-gray-900 mb-1">Umawiasz bezpłatną rozmowę</h3>
+            <p class="text-gray-700">25 minut. Zostawiasz kontakt i wybierasz termin.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start bg-gray-50 rounded-2xl p-6 reveal">
+          <span class="step-num">2</span>
+          <div>
+            <h3 class="font-extrabold text-lg text-gray-900 mb-1">Diagnozujemy Twój problem</h3>
+            <p class="text-gray-700">Konkretnie rozmawiamy o tym, co zyskasz dzięki sprintowi. <strong>Wartość dostajesz już na tej rozmowie.</strong></p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start bg-gray-50 rounded-2xl p-6 reveal">
+          <span class="step-num">3</span>
+          <div>
+            <h3 class="font-extrabold text-lg text-gray-900 mb-1">Jeśli pasujemy do siebie — startujemy</h3>
+            <p class="text-gray-700">Cztery sesje w cztery tygodnie. Na końcu masz decyzję, ruch i metodę.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · INWESTYCJA -->
+  <section class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Inwestycja</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Jasno, szanując nasz czas.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Standard -->
+        <div class="price-card reveal">
+          <p class="text-sm font-bold uppercase tracking-widest text-green-700 mb-3">Sprint</p>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-5xl font-black text-gray-900 leading-none">3 000</span>
+            <span class="text-2xl font-bold text-gray-700">zł</span>
+          </div>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> 4 sesje 1:1 (po 60 min)</li>
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Wsparcie na WhatsApp przez 4 tygodnie</li>
+            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Materiały i mapa decyzyjna</li>
+          </ul>
+          <p class="text-xs text-gray-500">Płatność z góry · PL/EN · pełna poufność</p>
+        </div>
+
+        <!-- Founding -->
+        <div class="price-card founding reveal">
+          <span class="badge-founding absolute -top-3 right-6">Dla pierwszych 5 osób</span>
+          <p class="text-sm font-bold uppercase tracking-widest text-green-200 mb-3">Wariant founding</p>
+          <div class="flex items-baseline gap-3 mb-4 flex-wrap">
+            <span class="text-5xl font-black text-white leading-none">2 000</span>
+            <span class="text-2xl font-bold text-green-100">zł</span>
+            <span class="text-lg line-through text-green-200/70 ml-1">3 000 zł</span>
+          </div>
+          <ul class="space-y-2 text-green-50 mb-6">
+            <li class="flex gap-2"><span class="text-green-300 font-bold">✓</span> Pełen zakres sprintu</li>
+            <li class="flex gap-2"><span class="text-green-300 font-bold">✓</span> 2/3 ceny w zamian za testimonial</li>
+            <li class="flex gap-2"><span class="text-green-300 font-bold">✓</span> Bezpośredni kontakt ze mną</li>
+          </ul>
+          <p class="text-xs text-green-100/80">Decyduje kolejność zgłoszeń.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 8 · DOMKNIĘCIE -->
+  <section id="rozmowa" class="py-24 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+        Decyzja, której nie podejmiesz, <span class="text-green-700">też jest decyzją</span>.
+      </h2>
+      <p class="text-lg text-gray-700 mb-10">
+        25 minut rozmowy. Zero zobowiązań.
+      </p>
+
+      <a href="https://cal.com/nikodem-lewandowski-hxjm3q/20min"
+         class="cta-primary text-lg"
+         data-cal-namespace="20min"
+         data-cal-link="nikodem-lewandowski-hxjm3q/20min"
+         data-cal-config='{"layout":"month_view"}'>
+        Umów bezpłatną rozmowę →
+      </a>
+      <p class="text-sm text-gray-500 mt-4">Odpowiadam w 24h w dni robocze.</p>
+
+      <div class="mt-16 pt-10 border-t border-gray-200">
+        <p class="text-gray-600 mb-3">Jeszcze nie teraz?</p>
+        <a href="../ratio-viva.html#ebook-cta" class="cta-quiet">
+          Pobierz darmowy e-book „7 błędów myślenia" →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="flex items-center gap-4 justify-center md:justify-start">
+          <span aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48"><text x="8" y="40" font-size="38" font-family="serif" font-weight="bold" fill="white" stroke="white" stroke-width="1">Φ</text></svg>
+          </span>
+          <div>
+            <h4 class="text-2xl font-bold mb-1">Nikodem Lewandowski</h4>
+            <p class="text-gray-400 text-sm leading-snug max-w-xs">Łączę teorię z praktyką, intuicję z rozumem, idee z działaniem.</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Skróty</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Strona główna</a></li>
+            <li><a href="/warsztaty/" class="text-gray-400 hover:text-white transition-colors">Warsztaty (B2B)</a></li>
+            <li><a href="/mentoring/" class="text-gray-300 hover:text-white transition-colors">Mentoring 1:1</a></li>
+            <li><a href="/o-mnie/" class="text-gray-400 hover:text-white transition-colors">O mnie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Kontakt</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="text-gray-400 hover:text-white transition-colors">Email</a></li>
+            <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+      © 2025 Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <!-- Cal.com embed — powiązuje przyciski z atrybutem data-cal-link z popupem rezerwacji -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "20min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["20min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
