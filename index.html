@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikodem Lewandowski — myślenie krytyczne, które działa w realu</title>
-  <meta name="description" content="Doktorant filozofii i twórca Ratio Viva. Warsztaty z myślenia krytycznego dla firm i mentoring 1:1 dla osób, które muszą podjąć ważną decyzję." />
-  <meta name="keywords" content="Nikodem Lewandowski, myślenie krytyczne, warsztaty B2B, mentoring, Ratio Viva, filozofia praktyczna, podejmowanie decyzji">
-  <meta property="og:title" content="Nikodem Lewandowski — myślenie krytyczne, które działa w realu" />
-  <meta property="og:description" content="Warsztaty B2B dla zespołów i mentoring 1:1 dla osób przed ważną decyzją." />
+  <title>Ratio Viva — myślenie krytyczne, które działa w realu</title>
+  <meta name="description" content="Ratio Viva — żywy rozum. Demaskujemy mechanizmy manipulacji i uczymy krytycznego myślenia. Warsztaty dla firm i mentoring 1:1." />
+  <meta name="keywords" content="Ratio Viva, myślenie krytyczne, manipulacja, warsztaty B2B, mentoring, Nikodem Lewandowski, Stan umysłu">
+  <meta property="og:title" content="Ratio Viva — myślenie krytyczne, które działa w realu" />
+  <meta property="og:description" content="Żyjemy w świecie zaprojektowanym tak, by wyłączać nasz rozum. Uczymy, jak go włączać z powrotem." />
   <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg" />
   <meta property="og:url" content="https://nikodemlewandowski.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
@@ -22,217 +22,230 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nikodem Lewandowski",
+    "@type": "Organization",
+    "name": "Ratio Viva",
     "url": "https://nikodemlewandowski.com/",
-    "image": "https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg",
+    "logo": "https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Nikodem Lewandowski",
+      "jobTitle": "Doktorant filozofii, trener myślenia krytycznego"
+    },
     "sameAs": [
-      "https://linkedin.com/in/nikodem-lewandowski",
-      "https://youtube.com/@Nikodem.Lewandowski"
+      "https://www.instagram.com/ratio.viva/",
+      "https://www.tiktok.com/@ratio_viva",
+      "https://youtube.com/@Nikodem.Lewandowski",
+      "https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD",
+      "https://patronite.pl/ratio-viva"
     ],
-    "jobTitle": "Doktorant filozofii, trener myślenia krytycznego",
-    "description": "Warsztaty z myślenia krytycznego dla firm i mentoring 1:1."
+    "description": "Ratio Viva demaskuje mechanizmy manipulacji i uczy krytycznego myślenia — warsztaty dla firm, mentoring 1:1, podcast Stan umysłu."
   }
   </script>
 
   <style>
+    :root {
+      --ink: #17211c;
+      --pine: #0c3527;
+      --pine-2: #0e4634;
+      --emerald: #0e7a5f;
+      --emerald-soft: #7fbfa9;
+      --cream: #f6f3ec;
+      --paper: #fffdf8;
+      --line: #e4ddcd;
+      --muted: #5b665f;
+    }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+    .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; }
+    .serif-it { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; }
+
     .fade-in { animation: fadeIn 1s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,0.55); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--emerald);
+    }
+    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
+    .eyebrow.centered::after { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
 
     .hero-bg {
       background:
-        radial-gradient(1100px 600px at 80% -10%, rgba(16,185,129,0.18), transparent 60%),
-        radial-gradient(900px 500px at -10% 80%, rgba(6,95,70,0.22), transparent 60%),
-        linear-gradient(160deg, #0b1f1a 0%, #11362d 55%, #0a3b2c 100%);
+        radial-gradient(1000px 500px at 85% -5%, rgba(127,191,169,0.14), transparent 60%),
+        radial-gradient(800px 500px at -5% 90%, rgba(14,122,95,0.18), transparent 55%),
+        linear-gradient(165deg, #0b241c 0%, #0c3527 60%, #0a2e22 100%);
     }
+    .hero-grain { background-image: radial-gradient(rgba(255,255,255,0.5) 0.75px, transparent 0.75px); background-size: 26px 26px; }
 
     .cta-primary {
       display: inline-block;
-      background: linear-gradient(180deg, #047857 0%, #065f46 100%);
-      color: white; font-weight: 700;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 10px 24px -8px rgba(6,95,70,0.55);
-      transition: transform .15s ease, box-shadow .25s ease, filter .15s ease;
+      background: var(--pine-2);
+      color: #f4efe4; font-weight: 600;
+      padding: 1.05rem 2.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px -12px rgba(12,53,39,0.55);
+      transition: transform .18s ease, box-shadow .25s ease, background .18s ease;
+      letter-spacing: 0.01em;
     }
-    .cta-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .cta-primary:hover { transform: translateY(-2px); background: var(--emerald); box-shadow: 0 18px 36px -12px rgba(14,122,95,0.55); }
 
-    .cta-ghost {
-      display: inline-block;
-      background: transparent; color: white;
-      font-weight: 700;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      border: 2px solid rgba(255,255,255,0.5);
-      transition: background .15s ease, border-color .15s ease;
-    }
-    .cta-ghost:hover { background: rgba(255,255,255,0.1); border-color: white; }
-
-    /* Fork cards */
     .fork-card {
-      background: white;
-      border: 1px solid #e5e7eb;
+      background: var(--paper);
+      border: 1px solid var(--line);
       border-radius: 1.5rem;
-      padding: 2.5rem 2rem;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      padding: 2.75rem 2.25rem 2.25rem;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
       display: flex; flex-direction: column; height: 100%;
       position: relative; overflow: hidden;
     }
     .fork-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 50px -20px rgba(6,95,70,0.3);
-      border-color: #047857;
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px -28px rgba(12,53,39,0.35);
+      border-color: rgba(14,122,95,0.45);
     }
-    .fork-card .fork-arrow {
-      transition: transform .25s ease;
-    }
+    .fork-card .fork-arrow { transition: transform .25s ease; }
     .fork-card:hover .fork-arrow { transform: translateX(6px); }
-
-    .fork-card.b2b::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
-      background: linear-gradient(90deg, #047857, #10b981);
+    .fork-num {
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 4.5rem; line-height: 1; color: var(--line);
+      position: absolute; top: 1.25rem; right: 1.75rem;
+      transition: color .3s ease;
     }
-    .fork-card.b2c::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
-      background: linear-gradient(90deg, #f59e0b, #d97706);
-    }
+    .fork-card:hover .fork-num { color: rgba(14,122,95,0.25); }
 
-    .badge {
+    .chip {
       display: inline-block;
-      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.3rem 0.7rem; border-radius: 9999px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 9999px;
+      border: 1px solid;
     }
-    .badge-green { background: #d1fae5; color: #065f46; }
-    .badge-amber { background: #fef3c7; color: #92400e; }
-    .badge-dark  { background: rgba(167,243,208,0.15); color: #a7f3d0; }
+    .chip-green { border-color: rgba(14,122,95,0.35); color: var(--emerald); background: rgba(14,122,95,0.06); }
+    .chip-amber { border-color: rgba(194,120,30,0.4); color: #a05e14; background: rgba(194,120,30,0.07); }
+    .chip-dark  { border-color: rgba(236,231,218,0.3); color: #cfe7dc; background: rgba(236,231,218,0.06); }
 
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 1023px) {
-      .mobile-menu-btn svg { color: #1f2937 !important; stroke: #1f2937 !important; }
+      .mobile-menu-btn svg { color: var(--ink) !important; stroke: var(--ink) !important; }
     }
   </style>
 </head>
 
-<body class="bg-white text-gray-900" x-data="{ open: false }">
+<body x-data="{ open: false }">
 
   <!-- Mobile top bar -->
-  <div class="fixed top-0 left-0 w-full h-14 bg-white shadow z-50 flex items-center justify-between px-4 lg:hidden">
-    <a href="/" class="font-bold text-lg text-gray-900">Nikodem Lewandowski</a>
+  <div class="fixed top-0 left-0 w-full h-14 z-50 flex items-center justify-between px-4 lg:hidden" style="background: rgba(246,243,236,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);">
+    <a href="/" class="serif text-lg" style="color: var(--ink);"><span class="serif-it" style="color: var(--emerald);">Φ</span> Ratio Viva</a>
     <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="mobile-menu-btn focus:outline-none">
-      <svg x-show="!open" class="w-8 h-8" fill="none" viewBox="0 0 24 24"><path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg x-show="open" class="w-8 h-8" fill="none" viewBox="0 0 24 24"><path stroke="#1f2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      <svg x-show="!open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
   <!-- Desktop menu button -->
-  <div class="fixed top-4 right-4 z-50 hidden lg:block">
-    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="focus:outline-none text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur">
-      <svg x-show="!open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg x-show="open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  <div class="fixed top-5 right-5 z-50 hidden lg:block">
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="focus:outline-none text-white rounded-full p-2.5 transition" style="background: rgba(11,36,28,0.45); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12);">
+      <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
   <!-- Side menu -->
-  <div class="fixed inset-0 bg-black bg-opacity-50 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
-  <div class="fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-white via-gray-50 to-green-50 border-l-4 border-green-600 shadow-2xl rounded-l-2xl z-50 p-6 transform transition-transform duration-300 ease-in-out"
+  <div class="fixed inset-0 bg-black bg-opacity-40 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
+  <div class="fixed top-0 right-0 h-full w-72 z-50 p-8 transform transition-transform duration-300 ease-in-out"
+       style="background: var(--paper); border-left: 1px solid var(--line); box-shadow: -20px 0 60px -30px rgba(12,53,39,0.4);"
        :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open"
        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
-    <button @click="open = false" aria-label="Zamknij" class="absolute top-4 right-4 text-gray-700 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
-    <nav class="space-y-4 text-lg mt-8">
-      <a href="/" @click="open = false" class="block text-xl font-bold text-green-700 mb-2">Strona główna</a>
-      <a href="/warsztaty/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Warsztaty (B2B)</a>
-      <a href="/mentoring/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">Mentoring 1:1</a>
-      <a href="/o-mnie/" @click="open = false" class="block hover:text-green-700 font-semibold px-2 py-1 rounded transition">O mnie</a>
+    <button @click="open = false" aria-label="Zamknij" class="absolute top-5 right-5 focus:outline-none" style="color: var(--muted);"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <nav class="mt-12 space-y-1">
+      <a href="/" @click="open = false" class="block serif text-2xl py-2" style="color: var(--emerald);">Strona główna</a>
+      <a href="/warsztaty/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Warsztaty</a>
+      <a href="/mentoring/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Mentoring 1:1</a>
+      <a href="/o-mnie/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Nikodem Lewandowski</a>
     </nav>
+    <div class="absolute bottom-8 left-8 right-8 pt-6" style="border-top: 1px solid var(--line);">
+      <a href="mailto:nikodem@nikodemlewandowski.com" class="text-sm font-semibold" style="color: var(--muted);">nikodem@nikodemlewandowski.com</a>
+    </div>
   </div>
 
-  <!-- HERO -->
-  <section class="relative hero-bg text-white pt-28 pb-24 lg:pt-36 lg:pb-32 px-6 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
-         style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 22px 22px;"></div>
+  <!-- HERO / MISJA -->
+  <section class="relative hero-bg text-white pt-32 pb-28 lg:pt-44 lg:pb-36 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none hero-grain"></div>
 
     <div class="relative max-w-5xl mx-auto text-center">
-      <span class="badge badge-dark mb-6 fade-in">Filozof. Praktyk. Twórca Ratio Viva.</span>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6 fade-in hero-text-shadow">
-        Myślenie krytyczne,<br/>
-        <span class="text-green-300 italic">które działa</span> w realu.
+      <span class="chip chip-dark mb-8 fade-in">Ratio Viva · łac. „żywy rozum"</span>
+      <h1 class="serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-8 fade-in" style="color: #f4efe4;">
+        Żyjemy w świecie zaprojektowanym tak,<br class="hidden md:block"/>
+        by <span class="serif-it" style="color: var(--emerald-soft);">wyłączać nasz rozum</span>.
       </h1>
-      <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 fade-in leading-relaxed">
-        Pomagam zespołom i ludziom podejmować <strong class="text-white">trafniejsze decyzje</strong> —
-        zanim koszt błędu stanie się zbyt wysoki.
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 fade-in leading-relaxed" style="color: rgba(236,231,218,0.75);">
+        Reklama, polityka, algorytmy — wszystkie grają na Twoich błędach poznawczych.
+        <strong style="color: #f4efe4;">Uczymy, jak włączyć rozum z powrotem</strong> — w zespole i w życiu.
       </p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center fade-in">
-        <a href="/warsztaty/" class="cta-primary text-base sm:text-lg">Warsztaty dla firm →</a>
-        <a href="/mentoring/" class="cta-ghost text-base sm:text-lg">Mentoring 1:1 →</a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
+        <a href="#oferta" class="cta-primary text-base sm:text-lg">Zobacz ofertę ↓</a>
       </div>
     </div>
 
     <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] block"><path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" class="w-full h-[46px] block"><path d="M0,70 C480,10 960,10 1440,70 L1440,70 L0,70 Z" fill="#f6f3ec"/></svg>
     </div>
   </section>
 
-  <!-- FORK: B2B / B2C -->
-  <section class="py-20 px-6 bg-gray-50">
+  <!-- OFERTA: B2B / B2C -->
+  <section id="oferta" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Z kim pracuję</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-          Wybierz <span class="text-green-700">ścieżkę</span>.
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Oferta</p>
+        <h2 class="serif text-4xl md:text-6xl leading-tight" style="color: var(--ink);">
+          Wybierz <span class="serif-it" style="color: var(--emerald);">ścieżkę</span>.
         </h2>
-        <p class="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">Dwa różne konteksty. Jedna metoda. Krótki opis, długie skutki.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
         <!-- B2B -->
-        <a href="/warsztaty/" class="fork-card b2b reveal group">
-          <div class="flex items-center justify-between mb-4">
-            <span class="badge badge-green">Dla firm</span>
-            <span class="text-3xl">🏢</span>
-          </div>
-          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 group-hover:text-green-700 transition">
+        <a href="/warsztaty/" class="fork-card reveal group">
+          <span class="fork-num">01</span>
+          <span class="chip chip-green mb-6 self-start">Dla firm</span>
+          <h3 class="serif text-3xl md:text-4xl mb-4 leading-snug" style="color: var(--ink);">
             Warsztaty z myślenia krytycznego
           </h3>
-          <p class="text-gray-700 leading-relaxed mb-5">
+          <p class="leading-relaxed mb-6" style="color: var(--muted);">
             Twój zespół podejmuje decyzje, których koszt liczy się w setkach tysięcy złotych.
-            Uczę ich rozpoznawać błędy poznawcze, zanim staną się stratą w P&L.
+            Uczę ich rozpoznawać błędy poznawcze, zanim staną się stratą w P&amp;L.
           </p>
-          <ul class="space-y-1.5 text-gray-700 mb-6 text-sm">
-            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Online lub on-site, PL/EN</li>
-            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Case studies z Twojej branży</li>
-            <li class="flex gap-2"><span class="text-green-600 font-bold">✓</span> Brief → warsztat → follow-up</li>
+          <ul class="space-y-2 mb-8 text-sm" style="color: var(--ink);">
+            <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Online lub on-site, PL/EN</li>
+            <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Case studies z Twojej branży</li>
+            <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Brief → warsztat → follow-up</li>
           </ul>
-          <div class="mt-auto pt-2 flex items-center gap-2 text-green-700 font-bold">
+          <div class="mt-auto pt-2 flex items-center gap-2 font-bold" style="color: var(--emerald);">
             <span>Zobacz ofertę B2B</span>
             <span class="fork-arrow">→</span>
           </div>
         </a>
 
         <!-- B2C -->
-        <a href="/mentoring/" class="fork-card b2c reveal group">
-          <div class="flex items-center justify-between mb-4">
-            <span class="badge badge-amber">Dla osób</span>
-            <span class="text-3xl">🧭</span>
-          </div>
-          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 group-hover:text-amber-700 transition">
-            Mentoring 1:1 — decyzja, której nie pożałujesz
+        <a href="/mentoring/" class="fork-card reveal group">
+          <span class="fork-num">02</span>
+          <span class="chip chip-amber mb-6 self-start">Dla osób</span>
+          <h3 class="serif text-3xl md:text-4xl mb-4 leading-snug" style="color: var(--ink);">
+            Sprint mentoringowy 1:1
           </h3>
-          <p class="text-gray-700 leading-relaxed mb-5">
-            Krążysz wokół jednej decyzji od miesięcy. Premium mentoring dla ludzi, którzy
-            wiedzą, co powinni zrobić — i są gotowi to zrobić.
+          <p class="leading-relaxed mb-6" style="color: var(--muted);">
+            Krążysz wokół jednej decyzji od miesięcy. Cztery tygodnie pracy 1:1 dla ludzi,
+            którzy wiedzą, co powinni zrobić — i są gotowi to zrobić.
           </p>
-          <ul class="space-y-1.5 text-gray-700 mb-6 text-sm">
-            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Aplikacja → rozmowa diagnostyczna</li>
-            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Metoda, nie pocieszanie</li>
-            <li class="flex gap-2"><span class="text-amber-600 font-bold">✓</span> Tańsza diagnostyka 200 zł dla niezdecydowanych</li>
+          <ul class="space-y-2 mb-8 text-sm" style="color: var(--ink);">
+            <li class="flex gap-2.5"><span style="color: #a05e14;">—</span> 4 sesje w 4 tygodnie + WhatsApp</li>
+            <li class="flex gap-2.5"><span style="color: #a05e14;">—</span> Metoda, nie pocieszanie</li>
+            <li class="flex gap-2.5"><span style="color: #a05e14;">—</span> Start od bezpłatnej rozmowy</li>
           </ul>
-          <div class="mt-auto pt-2 flex items-center gap-2 text-amber-700 font-bold">
+          <div class="mt-auto pt-2 flex items-center gap-2 font-bold" style="color: #a05e14;">
             <span>Zobacz mentoring</span>
             <span class="fork-arrow">→</span>
           </div>
@@ -241,81 +254,64 @@
     </div>
   </section>
 
-  <!-- ABOUT TEASER -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-10 items-center">
+  <!-- JA — krótko, przejście do pełnej strony -->
+  <section class="py-24 px-6" style="background: var(--paper); border-top: 1px solid var(--line);">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-10 items-center">
       <div class="md:col-span-2 reveal">
-        <img src="assets/images/nikodem_portrait.jpg" alt="Nikodem Lewandowski" class="rounded-2xl shadow-xl w-full max-w-xs mx-auto" />
+        <div class="relative max-w-[16rem] mx-auto">
+          <div class="absolute -inset-3 rounded-3xl" style="border: 1px solid var(--line); transform: rotate(-2deg);"></div>
+          <img src="assets/images/nikodem_portrait.jpg" alt="Nikodem Lewandowski" class="relative rounded-2xl w-full" style="box-shadow: 0 30px 60px -25px rgba(12,53,39,0.4);" />
+        </div>
       </div>
-      <div class="md:col-span-3 reveal">
-        <p class="text-sm uppercase tracking-widest text-green-700 font-bold mb-3">Kto za tym stoi</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-          Filozof, który nie boi się arkusza Excela.
+      <div class="md:col-span-3 reveal text-center md:text-left">
+        <p class="eyebrow mb-4 justify-center md:justify-start">Kto za tym stoi</p>
+        <h2 class="serif text-3xl md:text-4xl mb-4 leading-tight" style="color: var(--ink);">
+          Nikodem Lewandowski
         </h2>
-        <p class="text-gray-700 text-lg leading-relaxed mb-4">
-          Doktorant filozofii (UG), twórca <strong>Ratio Viva</strong> — projektu, który zbudował
-          ponad 140-tysięczną społeczność wokół praktycznego myślenia krytycznego.
-        </p>
-        <p class="text-gray-700 text-lg leading-relaxed mb-6">
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--muted);">
+          Doktorant filozofii (UG), twórca Ratio Viva i podcastu <em>Stan umysłu</em>.
           Uczę krytycznego myślenia jako narzędzia samoobrony — nie akademickiej teorii.
         </p>
-        <a href="/o-mnie/" class="inline-flex items-center gap-2 text-green-700 font-bold hover:text-green-800">
-          Czytaj o mnie więcej <span>→</span>
+        <a href="/o-mnie/" class="inline-flex items-center gap-2 font-bold transition hover:gap-3" style="color: var(--emerald);">
+          Poznaj mnie i misję Ratio Viva <span>→</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- BOTTOM CTA -->
-  <section class="py-20 px-6 bg-gradient-to-b from-green-50 to-white">
-    <div class="max-w-3xl mx-auto text-center reveal">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-        Nie wiesz, której ścieżki potrzebujesz?
-      </h2>
-      <p class="text-lg text-gray-700 mb-8">
-        Umów 25-minutową rozmowę. Zdiagnozujemy, co Ci się przyda — i powiem szczerze, jeśli to nie jestem ja.
-      </p>
-      <!-- TODO: replace cal.com URL with real slug once account is set up -->
-      <a href="https://cal.com/nikodem-lewandowski/25min" class="cta-primary text-lg" data-cal-cta>
-        Umów rozmowę →
-      </a>
-      <p class="text-sm text-gray-500 mt-3">Bezpłatnie. Bez zobowiązań.</p>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-10 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto mb-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+  <footer class="text-white py-14 px-4 md:px-8" style="background: #0f1d17;">
+    <div class="max-w-6xl mx-auto mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
         <div class="flex items-center gap-4 justify-center md:justify-start">
-          <span aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><text x="8" y="40" font-size="38" font-family="serif" font-weight="bold" fill="white" stroke="white" stroke-width="1">Φ</text></svg>
-          </span>
+          <span class="serif-it text-5xl" style="color: var(--emerald-soft);" aria-hidden="true">Φ</span>
           <div>
-            <h4 class="text-2xl font-bold mb-1">Nikodem Lewandowski</h4>
-            <p class="text-gray-400 text-sm leading-snug max-w-xs">Łączę teorię z praktyką, intuicję z rozumem, idee z działaniem.</p>
+            <h4 class="serif text-2xl mb-1" style="color: #f4efe4;">Ratio Viva</h4>
+            <p class="text-sm leading-snug max-w-xs" style="color: rgba(236,231,218,0.55);">Żywy rozum. Demaskujemy manipulację, uczymy krytycznego myślenia.</p>
           </div>
         </div>
         <div>
-          <h4 class="text-xl font-semibold mb-4">Skróty</h4>
-          <ul class="space-y-2">
-            <li><a href="/warsztaty/" class="text-gray-400 hover:text-white transition-colors">Warsztaty (B2B)</a></li>
-            <li><a href="/mentoring/" class="text-gray-400 hover:text-white transition-colors">Mentoring 1:1</a></li>
-            <li><a href="/o-mnie/" class="text-gray-400 hover:text-white transition-colors">O mnie</a></li>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Skróty</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/warsztaty/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Warsztaty (B2B)</a></li>
+            <li><a href="/mentoring/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Mentoring 1:1</a></li>
+            <li><a href="/o-mnie/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Nikodem Lewandowski</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-xl font-semibold mb-4">Kontakt</h4>
-          <ul class="space-y-2">
-            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="text-gray-400 hover:text-white transition-colors">Email</a></li>
-            <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
-            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Znajdź nas</h4>
+          <ul class="space-y-2.5">
+            <li><a href="https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Podcast „Stan umysłu"</a></li>
+            <li><a href="https://patronite.pl/ratio-viva" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Patronite</a></li>
+            <li><a href="https://www.instagram.com/ratio.viva/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Instagram</a></li>
+            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">YouTube</a></li>
+            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Email</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
-      © 2025 Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
+    <div class="max-w-6xl mx-auto mt-10 pt-8 text-center text-sm" style="border-top: 1px solid rgba(236,231,218,0.12); color: rgba(236,231,218,0.4);">
+      © 2025 Ratio Viva · Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
     </div>
   </footer>
 

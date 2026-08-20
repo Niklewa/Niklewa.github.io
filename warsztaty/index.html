@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warsztaty z myślenia krytycznego dla firm — Nikodem Lewandowski</title>
+  <meta name="description" content="Warsztaty z myślenia krytycznego i podejmowania decyzji dla zespołów. Online lub on-site, PL/EN. Praca na realnych case'ach Twojej branży." />
+  <meta name="keywords" content="warsztaty B2B, myślenie krytyczne dla firm, szkolenia dla zespołów, podejmowanie decyzji, błędy poznawcze">
+  <meta property="og:title" content="Warsztaty z myślenia krytycznego dla firm" />
+  <meta property="og:description" content="Twój zespół podejmuje decyzje za miliony. Naucz ich rozpoznawać błędy poznawcze, zanim staną się stratą." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/nikodem_teaching1.jpg" />
+  <meta property="og:url" content="https://nikodemlewandowski.com/warsztaty/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+
+  <style>
+    :root {
+      --ink: #17211c;
+      --pine: #0c3527;
+      --pine-2: #0e4634;
+      --emerald: #0e7a5f;
+      --emerald-soft: #7fbfa9;
+      --cream: #f6f3ec;
+      --paper: #fffdf8;
+      --line: #e4ddcd;
+      --muted: #5b665f;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+    .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; }
+    .serif-it { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; }
+
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--emerald);
+    }
+    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
+    .eyebrow.centered::after { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
+
+    .hero-bg {
+      background:
+        radial-gradient(1000px 500px at 85% -5%, rgba(127,191,169,0.14), transparent 60%),
+        radial-gradient(800px 500px at -5% 90%, rgba(14,122,95,0.18), transparent 55%),
+        linear-gradient(165deg, #0b241c 0%, #0c3527 60%, #0a2e22 100%);
+    }
+    .hero-grain { background-image: radial-gradient(rgba(255,255,255,0.5) 0.75px, transparent 0.75px); background-size: 26px 26px; }
+
+    .cta-primary {
+      display: inline-block;
+      background: var(--pine-2);
+      color: #f4efe4; font-weight: 600;
+      padding: 1.05rem 2.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px -12px rgba(12,53,39,0.55);
+      transition: transform .18s ease, box-shadow .25s ease, background .18s ease;
+      letter-spacing: 0.01em;
+    }
+    .cta-primary:hover { transform: translateY(-2px); background: var(--emerald); box-shadow: 0 18px 36px -12px rgba(14,122,95,0.55); }
+
+    .cta-ghost-dark {
+      display: inline-block;
+      background: transparent; color: var(--pine);
+      font-weight: 600; padding: 1.05rem 2.4rem;
+      border-radius: 9999px;
+      border: 1px solid var(--pine);
+      transition: background .18s ease, color .18s ease;
+    }
+    .cta-ghost-dark:hover { background: var(--pine); color: #f4efe4; }
+
+    .chip {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 9999px;
+      border: 1px solid;
+    }
+    .chip-dark { border-color: rgba(236,231,218,0.3); color: #cfe7dc; background: rgba(236,231,218,0.06); }
+
+    .outcome-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      position: relative;
+    }
+    .outcome-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -25px rgba(12,53,39,0.3); border-color: rgba(14,122,95,0.4); }
+    .outcome-num {
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 2.75rem; line-height: 1; color: rgba(14,122,95,0.22);
+      display: block; margin-bottom: 1rem;
+    }
+
+    .case-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 1.5rem;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 12px 40px -25px rgba(12,53,39,0.2);
+    }
+
+    .format-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: border-color .25s ease;
+    }
+    .format-card:hover { border-color: rgba(14,122,95,0.4); }
+
+    .step-row {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 1.25rem; padding: 1.75rem;
+    }
+    .step-num {
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 2rem; line-height: 1.1; color: var(--emerald);
+      flex-shrink: 0; min-width: 2.5rem; text-align: center;
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1023px) {
+      .mobile-menu-btn svg { color: var(--ink) !important; stroke: var(--ink) !important; }
+    }
+  </style>
+</head>
+
+<body x-data="{ open: false }">
+
+  <!-- Mobile top bar -->
+  <div class="fixed top-0 left-0 w-full h-14 z-50 flex items-center justify-between px-4 lg:hidden" style="background: rgba(246,243,236,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);">
+    <a href="/" class="serif text-lg" style="color: var(--ink);"><span class="serif-it" style="color: var(--emerald);">Φ</span> Ratio Viva</a>
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="mobile-menu-btn focus:outline-none">
+      <svg x-show="!open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Desktop menu button -->
+  <div class="fixed top-5 right-5 z-50 hidden lg:block">
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="focus:outline-none text-white rounded-full p-2.5 transition" style="background: rgba(11,36,28,0.45); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12);">
+      <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Side menu -->
+  <div class="fixed inset-0 bg-black bg-opacity-40 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
+  <div class="fixed top-0 right-0 h-full w-72 z-50 p-8 transform transition-transform duration-300 ease-in-out"
+       style="background: var(--paper); border-left: 1px solid var(--line); box-shadow: -20px 0 60px -30px rgba(12,53,39,0.4);"
+       :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open"
+       x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+    <button @click="open = false" aria-label="Zamknij" class="absolute top-5 right-5 focus:outline-none" style="color: var(--muted);"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <nav class="mt-12 space-y-1">
+      <a href="/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Strona główna</a>
+      <a href="/warsztaty/" @click="open = false" class="block serif text-2xl py-2" style="color: var(--emerald);">Warsztaty</a>
+      <a href="/mentoring/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Mentoring 1:1</a>
+      <a href="/o-mnie/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Nikodem Lewandowski</a>
+    </nav>
+    <div class="absolute bottom-8 left-8 right-8 pt-6" style="border-top: 1px solid var(--line);">
+      <a href="mailto:nikodem@nikodemlewandowski.com" class="text-sm font-semibold" style="color: var(--muted);">nikodem@nikodemlewandowski.com</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative hero-bg text-white pt-32 pb-24 lg:pt-44 lg:pb-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none hero-grain"></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <span class="chip chip-dark mb-8 fade-in">Warsztaty B2B · PL / EN</span>
+      <h1 class="serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-8 fade-in" style="color: #f4efe4;">
+        Twój zespół podejmuje decyzje<br class="hidden md:block"/>
+        <span class="serif-it" style="color: var(--emerald-soft);">za miliony złotych.</span>
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 fade-in leading-relaxed" style="color: rgba(236,231,218,0.75);">
+        Naucz ich rozpoznawać błędy poznawcze, zanim staną się stratą w P&amp;L.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
+        <a href="https://cal.com/nikodem-lewandowski-hxjm3q/20min"
+           class="cta-primary text-lg"
+           data-cal-namespace="20min"
+           data-cal-link="nikodem-lewandowski-hxjm3q/20min"
+           data-cal-config='{"layout":"month_view"}'>Umów rozmowę →</a>
+        <a href="#zapytanie" class="font-semibold underline underline-offset-4 transition" style="color: rgba(236,231,218,0.8);">albo wyślij brief</a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" class="w-full h-[46px] block"><path d="M0,70 C480,10 960,10 1440,70 L1440,70 L0,70 Z" fill="#f6f3ec"/></svg></div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-5">Znasz to?</p>
+      <h2 class="serif text-4xl md:text-5xl leading-tight mb-8" style="color: var(--ink);">
+        Twój zespół ma kompetencje.<br/><span class="serif-it" style="color: var(--emerald);">Nie ma struktury myślenia.</span>
+      </h2>
+      <p class="text-lg leading-relaxed mb-5" style="color: var(--muted);">
+        Spotkania kończą się „dobrym uczuciem", ale bez konkretnych rozstrzygnięć.
+        Ktoś, kto mówi najgłośniej, ustala kierunek. Po fakcie wszyscy widzą, że
+        decyzja oparta była na intuicji, nie na danych.
+      </p>
+      <p class="text-lg leading-relaxed" style="color: var(--ink);">
+        To nie jest problem inteligencji. To jest problem <strong>metody</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="py-24 px-6" style="background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Co dostaje Twój zespół</p>
+        <h2 class="serif text-4xl md:text-5xl leading-tight" style="color: var(--ink);">
+          Po warsztatach Twoi ludzie <span class="serif-it" style="color: var(--emerald);">potrafią:</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="outcome-card reveal">
+          <span class="outcome-num">i.</span>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Rozpoznać błąd poznawczy w realnym czasie</h3>
+          <p style="color: var(--muted);">Confirmation bias, anchoring, sunk cost. Nie z podręcznika — z własnego ostatniego spotkania.</p>
+        </div>
+        <div class="outcome-card reveal">
+          <span class="outcome-num">ii.</span>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Strukturyzować argumenty</h3>
+          <p style="color: var(--muted);">Przesłanka → wniosek. Nie „mam takie wrażenie" — tylko jawny łańcuch rozumowania.</p>
+        </div>
+        <div class="outcome-card reveal">
+          <span class="outcome-num">iii.</span>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Oceniać dowody, nie autorytety</h3>
+          <p style="color: var(--muted);">Kto coś powiedział przestaje być ważniejsze niż <em>na czym to się opiera</em>.</p>
+        </div>
+        <div class="outcome-card reveal">
+          <span class="outcome-num">iv.</span>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Prowadzić dyskusję, która coś kończy</h3>
+          <p style="color: var(--muted);">Bez wojen ego, z jasnym kryterium: <em>kiedy temat jest zamknięty</em>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Realne wdrożenia</p>
+        <h2 class="serif text-4xl md:text-5xl" style="color: var(--ink);">Z kim <span class="serif-it" style="color: var(--emerald);">pracowałem</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="case-card reveal">
+          <h3 class="serif text-2xl md:text-3xl mb-2" style="color: var(--ink);">Orange</h3>
+          <p class="text-xs font-bold uppercase tracking-widest mb-5" style="color: var(--emerald);">Globalny webinar wewnętrzny · myślenie krytyczne dla decydentów</p>
+          <p class="leading-relaxed" style="color: var(--muted);">
+            Sesja dla rozproszonego zespołu liderów. Język rezultatu, nie filozofii.
+            Materiały do dalszej pracy zostały po stronie zespołu.
+          </p>
+        </div>
+        <div class="case-card reveal">
+          <h3 class="serif text-2xl md:text-3xl mb-2" style="color: var(--ink);">Grupa LOTOS / Rafineria</h3>
+          <p class="text-xs font-bold uppercase tracking-widest mb-5" style="color: var(--emerald);">Warsztaty on-site · decyzje w środowisku ryzyka</p>
+          <p class="leading-relaxed" style="color: var(--muted);">
+            Praca na realnych case'ach branżowych. Decyzje techniczne z konsekwencjami
+            mierzonymi nie w komforcie, ale w bezpieczeństwie i kosztach operacyjnych.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-sm mt-8" style="color: var(--muted);">Pełne case studies i referencje udostępniam na rozmowie.</p>
+    </div>
+  </section>
+
+  <!-- FORMAT -->
+  <section class="py-24 px-6" style="background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Format</p>
+        <h2 class="serif text-4xl md:text-5xl" style="color: var(--ink);">Dopasowuję się do <span class="serif-it" style="color: var(--emerald);">realiów zespołu</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="format-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--emerald);">Format</p>
+          <p class="serif text-2xl mb-2" style="color: var(--ink);">Online lub on-site</p>
+          <p class="text-sm" style="color: var(--muted);">PL/EN, pełen ekran lub sala — Ty wybierasz.</p>
+        </div>
+        <div class="format-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--emerald);">Czas</p>
+          <p class="serif text-2xl mb-2" style="color: var(--ink);">3h, 1 dzień, 2 dni</p>
+          <p class="text-sm" style="color: var(--muted);">Od keynote'u po pełen warsztat z follow-upem.</p>
+        </div>
+        <div class="format-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--emerald);">Grupa</p>
+          <p class="serif text-2xl mb-2" style="color: var(--ink);">8–80 osób</p>
+          <p class="text-sm" style="color: var(--muted);">Mniejsze grupy = głębsza praca na case'ach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Jak pracujemy</p>
+        <h2 class="serif text-4xl md:text-5xl" style="color: var(--ink);">Cztery kroki od briefu do <span class="serif-it" style="color: var(--emerald);">follow-upu</span></h2>
+      </div>
+      <div class="space-y-4">
+        <div class="step-row reveal">
+          <span class="step-num">1.</span>
+          <div><h3 class="serif text-xl mb-1" style="color: var(--ink);">Rozmowa diagnostyczna</h3><p style="color: var(--muted);">Co chcesz osiągnąć. Jakie konkretne sytuacje są bólem. Bez ofertowej gadki.</p></div>
+        </div>
+        <div class="step-row reveal">
+          <span class="step-num">2.</span>
+          <div><h3 class="serif text-xl mb-1" style="color: var(--ink);">Brief i dopasowanie</h3><p style="color: var(--muted);">Dostosowuję case'y do Twojej branży. Wysyłam plan agendy. Akceptujesz lub iterujemy.</p></div>
+        </div>
+        <div class="step-row reveal">
+          <span class="step-num">3.</span>
+          <div><h3 class="serif text-xl mb-1" style="color: var(--ink);">Warsztat</h3><p style="color: var(--muted);">Praca na realnych decyzjach zespołu — nie na fikcyjnych przykładach z książek.</p></div>
+        </div>
+        <div class="step-row reveal">
+          <span class="step-num">4.</span>
+          <div><h3 class="serif text-xl mb-1" style="color: var(--ink);">Follow-up</h3><p style="color: var(--muted);">Materiały i krótka sesja Q&amp;A po 2–4 tygodniach. Sprawdzamy, co się utrwaliło.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / INQUIRY -->
+  <section id="zapytanie" class="py-28 px-6" style="background: var(--paper); border-top: 1px solid var(--line);">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <p class="eyebrow centered justify-center mb-5">Następny krok</p>
+      <h2 class="serif text-4xl md:text-6xl mb-6 leading-tight" style="color: var(--ink);">
+        Porozmawiajmy o <span class="serif-it" style="color: var(--emerald);">Twoim zespole</span>.
+      </h2>
+      <p class="text-lg mb-10 max-w-xl mx-auto" style="color: var(--muted);">
+        20 minut. Diagnozuję potrzeby, mówię, czy to jest praca dla mnie, dostajesz konkretną
+        propozycję. Bez zobowiązań — i bez ceny w cenniku, bo każdy warsztat dopasowuję pod Twoje cele.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <a href="https://cal.com/nikodem-lewandowski-hxjm3q/20min"
+           class="cta-primary text-lg"
+           data-cal-namespace="20min"
+           data-cal-link="nikodem-lewandowski-hxjm3q/20min"
+           data-cal-config='{"layout":"month_view"}'>Umów rozmowę →</a>
+        <a href="mailto:nikodem@nikodemlewandowski.com?subject=Zapytanie%20o%20warsztaty%20B2B&body=Cze%C5%9B%C4%87%20Nikodem%2C%0A%0AKr%C3%B3tko%20o%20nas%3A%0A-%20firma%2Fzesp%C3%B3%C5%82%3A%0A-%20wielko%C5%9B%C4%87%20grupy%3A%0A-%20czego%20szukamy%3A%0A-%20termin%3A%0A%0APozdrawiam%2C" class="cta-ghost-dark text-lg">Wyślij brief mailem</a>
+      </div>
+
+      <div class="rounded-2xl p-7 max-w-2xl mx-auto text-left" style="background: var(--cream); border: 1px solid var(--line);">
+        <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--emerald);">Co warto napisać w briefie</p>
+        <ul class="space-y-2 text-sm" style="color: var(--ink);">
+          <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Wielkość grupy i poziom seniority</li>
+          <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Branża / kontekst pracy</li>
+          <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Konkretny problem decyzyjny, który chcesz rozwiązać</li>
+          <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Format preferowany (online / on-site, długość)</li>
+          <li class="flex gap-2.5"><span style="color: var(--emerald);">—</span> Orientacyjny termin</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-14 px-4 md:px-8" style="background: #0f1d17;">
+    <div class="max-w-6xl mx-auto mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div class="flex items-center gap-4 justify-center md:justify-start">
+          <span class="serif-it text-5xl" style="color: var(--emerald-soft);" aria-hidden="true">Φ</span>
+          <div>
+            <h4 class="serif text-2xl mb-1" style="color: #f4efe4;">Ratio Viva</h4>
+            <p class="text-sm leading-snug max-w-xs" style="color: rgba(236,231,218,0.55);">Żywy rozum. Demaskujemy manipulację, uczymy krytycznego myślenia.</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Skróty</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Strona główna</a></li>
+            <li><a href="/warsztaty/" class="transition hover:text-white" style="color: rgba(236,231,218,0.85);">Warsztaty (B2B)</a></li>
+            <li><a href="/mentoring/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Mentoring 1:1</a></li>
+            <li><a href="/o-mnie/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Nikodem Lewandowski</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Kontakt</h4>
+          <ul class="space-y-2.5">
+            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Email</a></li>
+            <li><a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">LinkedIn</a></li>
+            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto mt-10 pt-8 text-center text-sm" style="border-top: 1px solid rgba(236,231,218,0.12); color: rgba(236,231,218,0.4);">
+      © 2025 Ratio Viva · Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "20min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["20min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); } }); }, { threshold: 0.12 });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

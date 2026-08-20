@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikodem Lewandowski i misja Ratio Viva</title>
+  <meta name="description" content="Nikodem Lewandowski — doktorant filozofii (UG), twórca Ratio Viva i podcastu Stan umysłu. Demaskuję mechanizmy manipulacji i uczę krytycznego myślenia." />
+  <meta name="keywords" content="Nikodem Lewandowski, Ratio Viva, Stan umysłu, podcast, krytyczne myślenie, Patronite, filozof, doktorant UG">
+  <meta property="og:title" content="Nikodem Lewandowski i misja Ratio Viva" />
+  <meta property="og:description" content="Filozof-praktyk. Twórca Ratio Viva i podcastu Stan umysłu. Demaskuję manipulację, uczę myślenia." />
+  <meta property="og:image" content="https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg" />
+  <meta property="og:url" content="https://nikodemlewandowski.com/o-mnie/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikodem Lewandowski",
+    "url": "https://nikodemlewandowski.com/o-mnie/",
+    "image": "https://nikodemlewandowski.com/assets/images/nikodem_profile.jpg",
+    "jobTitle": "Doktorant filozofii, trener myślenia krytycznego",
+    "sameAs": [
+      "https://www.instagram.com/ratio.viva/",
+      "https://www.tiktok.com/@ratio_viva",
+      "https://youtube.com/@Nikodem.Lewandowski",
+      "https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD",
+      "https://patronite.pl/ratio-viva",
+      "https://linkedin.com/in/nikodem-lewandowski"
+    ],
+    "description": "Twórca Ratio Viva i podcastu Stan umysłu. Demaskuje mechanizmy manipulacji i uczy krytycznego myślenia."
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink: #17211c;
+      --pine: #0c3527;
+      --pine-2: #0e4634;
+      --emerald: #0e7a5f;
+      --emerald-soft: #7fbfa9;
+      --cream: #f6f3ec;
+      --paper: #fffdf8;
+      --line: #e4ddcd;
+      --muted: #5b665f;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+    .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; }
+    .serif-it { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; }
+
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--emerald);
+    }
+    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
+    .eyebrow.centered::after { content: ""; width: 2rem; height: 1px; background: var(--emerald); opacity: 0.6; }
+
+    .hero-bg {
+      background:
+        radial-gradient(1000px 500px at 85% -5%, rgba(127,191,169,0.14), transparent 60%),
+        radial-gradient(800px 500px at -5% 90%, rgba(14,122,95,0.18), transparent 55%),
+        linear-gradient(165deg, #0b241c 0%, #0c3527 60%, #0a2e22 100%);
+    }
+    .hero-grain { background-image: radial-gradient(rgba(255,255,255,0.5) 0.75px, transparent 0.75px); background-size: 26px 26px; }
+
+    .cta-primary {
+      display: inline-block;
+      background: var(--pine-2);
+      color: #f4efe4; font-weight: 600;
+      padding: 1.05rem 2.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px -12px rgba(12,53,39,0.55);
+      transition: transform .18s ease, box-shadow .25s ease, background .18s ease;
+      letter-spacing: 0.01em;
+    }
+    .cta-primary:hover { transform: translateY(-2px); background: var(--emerald); box-shadow: 0 18px 36px -12px rgba(14,122,95,0.55); }
+
+    .cta-ghost-dark {
+      display: inline-block;
+      background: transparent; color: var(--pine);
+      font-weight: 600; padding: 1.05rem 2.4rem;
+      border-radius: 9999px;
+      border: 1px solid var(--pine);
+      transition: background .18s ease, color .18s ease;
+    }
+    .cta-ghost-dark:hover { background: var(--pine); color: #f4efe4; }
+
+    .chip {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 9999px;
+      border: 1px solid;
+    }
+    .chip-dark { border-color: rgba(236,231,218,0.3); color: #cfe7dc; background: rgba(236,231,218,0.06); }
+
+    .stat-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 1.25rem;
+      padding: 1.75rem 1.25rem; text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: 0 20px 45px -22px rgba(12,53,39,0.3); border-color: rgba(14,122,95,0.4); }
+
+    .media-card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 1.5rem;
+      padding: 2rem 1.75rem; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .media-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -25px rgba(12,53,39,0.3); border-color: rgba(14,122,95,0.4); }
+
+    .episode-pill {
+      display: inline-block;
+      font-size: 0.85rem; font-weight: 500;
+      padding: 0.5rem 1.1rem; border-radius: 9999px;
+      background: var(--paper); border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .patronite-card {
+      background: linear-gradient(165deg, #0c3527 0%, #0e4634 100%);
+      border-radius: 2rem;
+      padding: 3rem 2.5rem;
+      color: #f4efe4;
+      box-shadow: 0 30px 70px -30px rgba(12,53,39,0.6);
+      position: relative; overflow: hidden;
+    }
+    .patronite-card::before {
+      content: "Φ"; position: absolute; right: -1rem; bottom: -3rem;
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 16rem; line-height: 1; color: rgba(127,191,169,0.08);
+      pointer-events: none;
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1023px) {
+      .mobile-menu-btn svg { color: var(--ink) !important; stroke: var(--ink) !important; }
+    }
+  </style>
+</head>
+
+<body x-data="{ open: false }">
+
+  <!-- Mobile top bar -->
+  <div class="fixed top-0 left-0 w-full h-14 z-50 flex items-center justify-between px-4 lg:hidden" style="background: rgba(246,243,236,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);">
+    <a href="/" class="serif text-lg" style="color: var(--ink);"><span class="serif-it" style="color: var(--emerald);">Φ</span> Ratio Viva</a>
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="mobile-menu-btn focus:outline-none">
+      <svg x-show="!open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-7 h-7" fill="none" viewBox="0 0 24 24"><path stroke="#17211c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Desktop menu button -->
+  <div class="fixed top-5 right-5 z-50 hidden lg:block">
+    <button @click="open = !open" :aria-expanded="open" aria-label="Menu" class="focus:outline-none text-white rounded-full p-2.5 transition" style="background: rgba(11,36,28,0.45); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12);">
+      <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Side menu -->
+  <div class="fixed inset-0 bg-black bg-opacity-40 z-40" x-show="open" @click="open = false" x-transition.opacity></div>
+  <div class="fixed top-0 right-0 h-full w-72 z-50 p-8 transform transition-transform duration-300 ease-in-out"
+       style="background: var(--paper); border-left: 1px solid var(--line); box-shadow: -20px 0 60px -30px rgba(12,53,39,0.4);"
+       :class="{ 'translate-x-0': open, 'translate-x-full': !open }" x-show="open"
+       x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+    <button @click="open = false" aria-label="Zamknij" class="absolute top-5 right-5 focus:outline-none" style="color: var(--muted);"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <nav class="mt-12 space-y-1">
+      <a href="/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Strona główna</a>
+      <a href="/warsztaty/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Warsztaty</a>
+      <a href="/mentoring/" @click="open = false" class="block serif text-2xl py-2 transition hover:opacity-70" style="color: var(--ink);">Mentoring 1:1</a>
+      <a href="/o-mnie/" @click="open = false" class="block serif text-2xl py-2" style="color: var(--emerald);">Nikodem Lewandowski</a>
+    </nav>
+    <div class="absolute bottom-8 left-8 right-8 pt-6" style="border-top: 1px solid var(--line);">
+      <a href="mailto:nikodem@nikodemlewandowski.com" class="text-sm font-semibold" style="color: var(--muted);">nikodem@nikodemlewandowski.com</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative hero-bg text-white pt-32 pb-24 lg:pt-44 lg:pb-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none hero-grain"></div>
+    <div class="relative max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-center">
+      <div class="md:col-span-2 flex justify-center fade-in">
+        <div class="relative">
+          <div class="absolute -inset-3 rounded-full" style="border: 1px solid rgba(236,231,218,0.2);"></div>
+          <img src="../assets/images/nikodem_portrait.jpg" alt="Nikodem Lewandowski" class="relative w-56 h-56 md:w-72 md:h-72 rounded-full object-cover" style="border: 5px solid rgba(244,239,228,0.9); box-shadow: 0 30px 70px -25px rgba(0,0,0,0.6);" />
+        </div>
+      </div>
+      <div class="md:col-span-3 text-center md:text-left">
+        <span class="chip chip-dark mb-6 fade-in">Filozof · Twórca · Mentor</span>
+        <h1 class="serif text-4xl md:text-5xl lg:text-6xl leading-[1.08] mb-6 fade-in" style="color: #f4efe4;">
+          Nikodem Lewandowski<br/>
+          <span class="serif-it text-3xl md:text-4xl lg:text-5xl" style="color: var(--emerald-soft);">i misja Ratio Viva</span>
+        </h1>
+        <p class="text-lg leading-relaxed fade-in" style="color: rgba(236,231,218,0.75);">
+          Doktorant filozofii (UG). Demaskuję mechanizmy manipulacji
+          i uczę krytycznego myślenia jako narzędzia samoobrony.
+        </p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" class="w-full h-[46px] block"><path d="M0,70 C480,10 960,10 1440,70 L1440,70 L0,70 Z" fill="#f6f3ec"/></svg></div>
+  </section>
+
+  <!-- STATS -->
+  <section class="pt-16 pb-8 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat-card reveal">
+        <div class="serif text-4xl md:text-5xl" style="color: var(--pine);">140<span class="serif-it" style="color: var(--emerald);">k+</span></div>
+        <p class="text-xs font-semibold uppercase tracking-widest mt-3" style="color: var(--muted);">społeczność Ratio Viva</p>
+      </div>
+      <div class="stat-card reveal">
+        <div class="serif text-4xl md:text-5xl" style="color: var(--pine);">UG</div>
+        <p class="text-xs font-semibold uppercase tracking-widest mt-3" style="color: var(--muted);">doktorat z filozofii</p>
+      </div>
+      <div class="stat-card reveal">
+        <div class="serif-it text-4xl md:text-5xl" style="color: var(--pine);">🎙</div>
+        <p class="text-xs font-semibold uppercase tracking-widest mt-3" style="color: var(--muted);">podcast „Stan umysłu"</p>
+      </div>
+      <div class="stat-card reveal">
+        <div class="serif-it text-4xl md:text-5xl" style="color: var(--pine);">Φ</div>
+        <p class="text-xs font-semibold uppercase tracking-widest mt-3" style="color: var(--muted);">filozofia w realu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISJA RATIO VIVA -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-5">Misja Ratio Viva</p>
+      <h2 class="serif text-4xl md:text-5xl leading-tight mb-8" style="color: var(--ink);">
+        Ratio viva znaczy <span class="serif-it" style="color: var(--emerald);">„żywy rozum"</span>. I o to chodzi.
+      </h2>
+      <div class="text-lg leading-relaxed space-y-5" style="color: var(--muted);">
+        <p>
+          Żyjemy w świecie zaprojektowanym tak, by wyłączać nasz rozum. Reklama gra na Twoich
+          lękach. Polityka — na plemiennych odruchach. Algorytmy — na dopaminie. System edukacji
+          uczy zapamiętywać, nie myśleć.
+        </p>
+        <p>
+          Ratio Viva powstało, żeby to odwrócić: <strong style="color: var(--ink);">demaskuję mechanizmy manipulacji
+          i uczę krytycznego myślenia jako praktycznego narzędzia samoobrony</strong>. Nie akademickiej teorii —
+          konkretów, które działają, gdy ktoś próbuje Ci coś sprzedać, wcisnąć albo wmówić.
+        </p>
+        <p>
+          Robię to na kilku frontach: krótkie treści dla ponad 140-tysięcznej społeczności,
+          podcast <em>Stan umysłu</em>, darmowy e-book <em>7 błędów myślenia</em>, kursy
+          (<em>Neuro-pułapki</em>, <em>Neuro-wkuwanie</em>) — oraz warsztaty dla firm i mentoring 1:1,
+          które finansują całą resztę.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST STAN UMYSŁU -->
+  <section class="py-24 px-6" style="background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="eyebrow centered justify-center mb-5">Podcast</p>
+        <h2 class="serif text-4xl md:text-5xl leading-tight mb-5" style="color: var(--ink);">
+          <span class="serif-it" style="color: var(--emerald);">„Stan umysłu"</span>
+        </h2>
+        <p class="text-lg max-w-2xl mx-auto" style="color: var(--muted);">
+          Przestrzeń, w której zaczynasz zadawać pytania tam, gdzie inni stawiają kropkę.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <span class="episode-pill">Efekt Dunninga-Krugera</span>
+        <span class="episode-pill">Tak Cię robią coachowie biznesu</span>
+        <span class="episode-pill">Wstajesz rano i nie wiesz po co?</span>
+        <span class="episode-pill">Ufasz nauce — właściwie dlaczego?</span>
+        <span class="episode-pill">Nie ma „dobrego" wyboru</span>
+        <span class="episode-pill">Odwetowe odkładanie snu</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal">
+        <a href="https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD" target="_blank" rel="noopener noreferrer" class="cta-primary">Słuchaj na Spotify</a>
+        <a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="cta-ghost-dark">Oglądaj na YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIM JESTEM -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-5">Kim jestem</p>
+      <h2 class="serif text-4xl md:text-5xl leading-tight mb-8" style="color: var(--ink);">
+        Zawsze trochę krępuje mnie określanie siebie filozofem — <span class="serif-it" style="color: var(--emerald);">ale to prawda</span>.
+      </h2>
+      <div class="text-lg leading-relaxed space-y-5" style="color: var(--muted);">
+        <p>
+          Pracuję na przecięciu <strong style="color: var(--ink);">krytycznego myślenia, logiki i data science</strong>.
+          Kończę doktorat z filozofii na Uniwersytecie Gdańskim — badam ludzką naturę i poznanie
+          na styku filozofii, psychologii i socjologii.
+        </p>
+        <p>
+          Mam słabość do abstrakcyjnych idei — ale nie mogę się powstrzymać, żeby ich <em>nie</em> przykładać
+          do realnych problemów. Moja misja to wypełnić lukę między teorią a praktyką: zamienić
+          skomplikowane koncepcje w narzędzia, które działają w codziennej pracy i życiu.
+        </p>
+        <p>
+          Poza ekranem: prowadzę warsztaty dla firm (m.in. Orange, Grupa LOTOS) i pracuję 1:1
+          z ludźmi przed ważną decyzją. PL/EN, online i on-site.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATRONITE -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto reveal">
+      <div class="patronite-card">
+        <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--emerald-soft);">Wesprzyj niezależność</p>
+        <h2 class="serif text-3xl md:text-4xl leading-tight mb-5" style="color: #f4efe4;">
+          Jesteśmy na <span class="serif-it" style="color: var(--emerald-soft);">Patronite</span>.
+        </h2>
+        <p class="text-lg leading-relaxed mb-8 max-w-2xl" style="color: rgba(236,231,218,0.75);">
+          Wsparcie patronów pozwala tworzyć treści bez pogoni za viralem — a do tego finansuje
+          badania w szkołach, konferencje i niezależne śledztwa. Patroni dostają dostęp do
+          zamkniętej grupy, nagrań i głosowań nad tematami.
+        </p>
+        <a href="https://patronite.pl/ratio-viva" target="_blank" rel="noopener noreferrer"
+           class="inline-block font-semibold px-9 py-4 rounded-full transition"
+           style="background: #f4efe4; color: var(--pine); box-shadow: 0 14px 30px -12px rgba(0,0,0,0.4);">
+          Zostań patronem →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GDZIE MNIE ZNAJDZIESZ -->
+  <section class="py-24 px-6" style="background: var(--paper); border-top: 1px solid var(--line);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="eyebrow centered justify-center mb-5">Gdzie nas znajdziesz</p>
+        <h2 class="serif text-4xl md:text-5xl" style="color: var(--ink);">Ratio Viva <span class="serif-it" style="color: var(--emerald);">w sieci</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <a href="https://www.instagram.com/ratio.viva/" target="_blank" rel="noopener noreferrer" class="media-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--emerald);">Instagram + TikTok</p>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Krótkie demaskacje</h3>
+          <p class="text-sm mb-6 flex-grow" style="color: var(--muted);">Analizy manipulacji w reklamie, polityce i algorytmach — dla 140 000+ osób.</p>
+          <span class="font-bold text-sm mt-auto" style="color: var(--emerald);">@ratio.viva →</span>
+        </a>
+        <a href="https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD" target="_blank" rel="noopener noreferrer" class="media-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--emerald);">Podcast</p>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Stan umysłu</h3>
+          <p class="text-sm mb-6 flex-grow" style="color: var(--muted);">Dłuższa forma: filozofia, psychologia i socjologia bez akademickiego żargonu.</p>
+          <span class="font-bold text-sm mt-auto" style="color: var(--emerald);">Spotify / Apple Podcasts →</span>
+        </a>
+        <a href="https://linkedin.com/in/nikodem-lewandowski" target="_blank" rel="noopener noreferrer" class="media-card reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--emerald);">LinkedIn</p>
+          <h3 class="serif text-2xl mb-3" style="color: var(--ink);">Kontakt B2B</h3>
+          <p class="text-sm mb-6 flex-grow" style="color: var(--muted);">Wątki z warsztatów, obserwacje o decyzjach w organizacjach.</p>
+          <span class="font-bold text-sm mt-auto" style="color: var(--emerald);">Połącz się →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL CTA -->
+  <section class="py-28 px-6">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <h2 class="serif text-4xl md:text-6xl mb-6 leading-tight" style="color: var(--ink);">
+        Wiesz już, czego <span class="serif-it" style="color: var(--emerald);">potrzebujesz?</span>
+      </h2>
+      <p class="text-lg mb-12" style="color: var(--muted);">Wybierz ścieżkę — albo umów rozmowę i pomogę Ci wybrać.</p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/warsztaty/" class="cta-primary text-lg">Warsztaty dla firm</a>
+        <a href="/mentoring/" class="cta-ghost-dark text-lg">Mentoring 1:1</a>
+      </div>
+      <p class="text-sm mt-8" style="color: var(--muted);">
+        Nie wiesz?
+        <a href="https://cal.com/nikodem-lewandowski-hxjm3q/20min"
+           class="font-bold hover:underline"
+           style="color: var(--emerald);"
+           data-cal-namespace="20min"
+           data-cal-link="nikodem-lewandowski-hxjm3q/20min"
+           data-cal-config='{"layout":"month_view"}'>Umów bezpłatną rozmowę →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-14 px-4 md:px-8" style="background: #0f1d17;">
+    <div class="max-w-6xl mx-auto mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div class="flex items-center gap-4 justify-center md:justify-start">
+          <span class="serif-it text-5xl" style="color: var(--emerald-soft);" aria-hidden="true">Φ</span>
+          <div>
+            <h4 class="serif text-2xl mb-1" style="color: #f4efe4;">Ratio Viva</h4>
+            <p class="text-sm leading-snug max-w-xs" style="color: rgba(236,231,218,0.55);">Żywy rozum. Demaskujemy manipulację, uczymy krytycznego myślenia.</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Skróty</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Strona główna</a></li>
+            <li><a href="/warsztaty/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Warsztaty (B2B)</a></li>
+            <li><a href="/mentoring/" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Mentoring 1:1</a></li>
+            <li><a href="/o-mnie/" class="transition hover:text-white" style="color: rgba(236,231,218,0.85);">Nikodem Lewandowski</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-5" style="color: rgba(236,231,218,0.45);">Znajdź nas</h4>
+          <ul class="space-y-2.5">
+            <li><a href="https://open.spotify.com/show/2I09oSvjDqdHCXgTnfx6pD" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Podcast „Stan umysłu"</a></li>
+            <li><a href="https://patronite.pl/ratio-viva" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Patronite</a></li>
+            <li><a href="https://www.instagram.com/ratio.viva/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Instagram</a></li>
+            <li><a href="https://youtube.com/@Nikodem.Lewandowski" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">YouTube</a></li>
+            <li><a href="mailto:nikodem@nikodemlewandowski.com" class="transition hover:text-white" style="color: rgba(236,231,218,0.7);">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto mt-10 pt-8 text-center text-sm" style="border-top: 1px solid rgba(236,231,218,0.12); color: rgba(236,231,218,0.4);">
+      © 2025 Ratio Viva · Nikodem Lewandowski. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "20min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["20min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); } }); }, { threshold: 0.12 });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
